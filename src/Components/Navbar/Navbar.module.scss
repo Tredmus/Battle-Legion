@@ -1,0 +1,25 @@
+@import '../../styles/main.scss';
+
+.nav {    
+    padding: 1.875rem 1.25rem;
+    background-color: $c-grey-black;
+    
+    .link {
+        @include flexCenter;
+        width: 2.5rem;
+        height: 2.5rem;
+        border-radius: 50%;
+        background-color: $c-white;
+        color: $c-grey-text;
+        transition: all $t-duration;
+
+        &:hover {
+            background-color: $c-grey-text;
+            color: $c-white;
+        }
+    }
+
+    li + li {
+        margin-top: 1rem;
+    }
+}

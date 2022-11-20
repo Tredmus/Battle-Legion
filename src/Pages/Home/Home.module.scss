@@ -1,0 +1,14 @@
+@import '../../styles/main.scss';
+@import '../page';
+
+.home {
+    @include flexCenter;
+    flex-direction: column;
+    height: 100%;
+    background-color: #fefefe;
+    color: $c-grey;
+}
+
+.logo {
+    filter: drop-shadow(0px 0px 25px #000);
+}

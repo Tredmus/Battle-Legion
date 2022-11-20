@@ -1,0 +1,43 @@
+@import '../styles/main.scss';
+
+.page {
+    padding: 2rem;
+    line-height: 1;
+}
+
+.heading {
+    position: relative;
+    padding-bottom: 1.25rem;
+    margin-bottom: 2rem;
+    text-align: left;
+    text-transform: uppercase;
+    
+    &:after {
+        content: '';
+        position: absolute;
+        bottom: 0;
+        left: 10%;
+        right: 0;
+        height: 1px;
+        background-color: $c-white;
+    }
+
+    span {
+        font-size: .6rem;
+        color: $c-grey-light;
+    }
+}
+
+.subheading {
+    text-transform: none;
+    
+    &:after {
+        left: 15%;
+    }
+}
+
+.row {
+    display: flex;
+    gap: 2rem;
+    margin-bottom: 2rem;
+}

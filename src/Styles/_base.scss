@@ -1,0 +1,84 @@
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  min-width: 320px;
+  background: rgb(222, 222, 222);
+  font-family: $ff-main;
+  font-weight: $font-weight-base;
+  font-size: $font-size-base;
+  line-height: $line-height-base;
+  color: #000;
+}
+
+.wrapper {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+}
+
+.main {
+  width: 90%;
+  height: 100vh;
+}
+
+a {
+  color: inherit;
+  text-decoration: none;
+}
+
+.h1,
+h1,
+.h2,
+h2,
+.h3,
+h3,
+.h4,
+h4,
+.h5,
+h5,
+.h6,
+h6 {
+  font-family: $ff-head;
+  font-weight: 500;
+  letter-spacing: 0.05em;
+  word-spacing: 0.1em;
+  text-align: center;
+}
+
+.h1,
+h1 {
+  font-size: 2.5rem;
+}
+
+.h2,
+h2 {
+  font-size: 2.25rem;
+}
+
+.h3,
+h3 {
+  font-size: 1.75rem;
+}
+
+.h4,
+h4 {
+  font-size: 1.225rem;
+}
+
+.h5,
+h5 {
+  font-size: 1.125rem;
+}
+
+.h6,
+h6 {
+  font-size: 1rem;
+}
+
+ul,
+ol {
+  list-style: none;
+}

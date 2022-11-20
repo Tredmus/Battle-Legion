@@ -1,0 +1,32 @@
+$font-size-base: 1rem;
+$font-weight-base: 300;
+$line-height-base: 1.2;
+
+$ff-head: 'Righteous', cursive;
+$ff-main: 'Ubuntu', sans-serif;
+
+$t-duration: 0.4s;
+
+$c-black: #000;
+$c-grey-dark: #20262e;
+$c-grey: #242a33;
+$c-grey-light: #a3a3a3;
+$c-white: #fff;
+
+$c-main: #ea5d0d;
+$c-main-light: #ffc5a8;
+
+$c-secondary: #4f4f86;
+$c-secondary-light: #4f4f86;
+
+$responsive-ios: 812px;
+
+$breakpoints: (
+  mobile-small: 374px,
+  mobile-medium: 575px,
+  mobile: 767px,
+  admin-bar: 782px,
+  tablet: 1023px,
+  desktop-small: 1199px,
+  desktop-medium: 1399px
+);

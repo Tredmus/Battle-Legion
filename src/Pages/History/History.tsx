@@ -1,4 +1,3 @@
-import React from "react";
 import classes from "./History.module.scss";
 import { icons } from "../../Assets/Icons/Icons";
 import { Event } from "../../Components/Event/Event";
@@ -26,7 +25,7 @@ export const History = () => {
             </li>
             <li>
               <Event
-                name={"Събитие 2"}
+                name={"Събитие Събитие Събитие Събитие"}
                 date={"05.09.1470"}
                 description={
                   "Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod incididunt ut labore et dolore magna aliqua."

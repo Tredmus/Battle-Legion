@@ -1,4 +1,3 @@
-import React from "react";
 import classes from "./Event.module.scss";
 
 type Props = {

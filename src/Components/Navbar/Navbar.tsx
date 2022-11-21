@@ -1,5 +1,4 @@
-import React from "react";
-import { Link } from "react-router-dom";
+import { NavLink } from "react-router-dom";
 import classes from "./Navbar.module.scss";
 import { icons } from "../../Assets/Icons/Icons";
 
@@ -8,25 +7,36 @@ export const Navbar = () => {
     <nav className={classes.nav}>
       <ul>
         <li>
-          <Link to="/">
-            <div className={classes.link}>
-              <icons.AiFillHome />
-            </div>
-          </Link>
+          <NavLink
+            to="/"
+            className={({ isActive }) => (isActive ? classes.active : "")}
+          >
+            <icons.AiFillHome />
+          </NavLink>
         </li>
         <li>
-          <Link to="/about">
-            <div className={classes.link}>
-              <icons.BsInfoCircleFill />
-            </div>
-          </Link>
+          <NavLink
+            to="/about"
+            className={({ isActive }) => (isActive ? classes.active : "")}
+          >
+            <icons.BsInfoCircleFill />
+          </NavLink>
         </li>
         <li>
-          <Link to="/history">
-            <div className={classes.link}>
-              <icons.BiBook />
-            </div>
-          </Link>
+          <NavLink
+            to="/history"
+            className={({ isActive }) => (isActive ? classes.active : "")}
+          >
+            <icons.BiBook />
+          </NavLink>
+        </li>
+        <li>
+          <NavLink
+            to="/people"
+            className={({ isActive }) => (isActive ? classes.active : "")}
+          >
+            <icons.BsPeopleFill />
+          </NavLink>
         </li>
       </ul>
     </nav>

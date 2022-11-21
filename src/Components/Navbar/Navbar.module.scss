@@ -4,7 +4,7 @@
     padding: 1.875rem 1.25rem;
     background-color: $c-grey-black;
     
-    .link {
+    a {
         @include flexCenter;
         width: 2.5rem;
         height: 2.5rem;
@@ -17,6 +17,11 @@
             background-color: $c-grey-text;
             color: $c-white;
         }
+    }
+
+    .active {
+        background-color: $c-grey-text;
+        color: $c-white;
     }
 
     li + li {

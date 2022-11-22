@@ -5,7 +5,6 @@ export type TypeLegionary = {
   name: string;
   rank: string;
   legion: string;
-  link: string;
 };
 
 export const Legionary = ({ name }: TypeLegionary) => {

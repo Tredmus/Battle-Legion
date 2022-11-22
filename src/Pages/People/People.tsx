@@ -5,66 +5,56 @@ const legionaries = [
   {
     name: "Faraonqbg",
     rank: "Legatus",
-    legion: "Battle Legion - OG",
-    link: "https://www.renaissancekingdoms.com/FichePersonnage.php?login=Faraonqbg",
+    legion: "OG",
   },
   {
     name: "Mis_ok",
     rank: "Legata",
-    legion: "Battle Legion - OG",
-    link: "https://www.renaissancekingdoms.com/FichePersonnage.php?login=Mis_ok",
+    legion: "OG",
   },
   {
     name: "Dudie",
     rank: "Tribunus",
-    legion: "Battle Legion - OG",
-    link: "https://www.renaissancekingdoms.com/FichePersonnage.php?login=Dudie",
+    legion: "OG",
   },
   {
     name: "Leora",
     rank: "Tribuna",
-    legion: "Battle Legion - OG",
-    link: "https://www.renaissancekingdoms.com/FichePersonnage.php?login=Leora",
+    legion: "OG",
   },
   {
     name: "Tredmus",
     rank: "Preator",
-    legion: "Battle Legion - Second Legion",
-    link: "https://www.renaissancekingdoms.com/FichePersonnage.php?login=Tredmus",
+    legion: "Second Legion",
   },
   {
     name: "Marto98",
     rank: "Praefectus",
-    legion: "Battle Legion - Second Legion",
-    link: "https://www.renaissancekingdoms.com/FichePersonnage.php?login=Marto98",
+    legion: "Second Legion",
   },
   {
     name: "Ganfi",
     rank: "Preator",
-    legion: "Battle Legion - First Legion",
-    link: "https://www.renaissancekingdoms.com/FichePersonnage.php?login=Ganfi",
+    legion: "First Legion",
   },
   {
     name: "Legolas_b",
     rank: "Praefectus",
-    legion: "Battle Legion - First Legion",
-    link: "https://www.renaissancekingdoms.com/FichePersonnage.php?login=Legolas_b",
+    legion: "First Legion",
   },
 ];
 
 const filterChoice = (choice: number) => {
   switch (choice) {
     case 1:
-      return legionaries.filter(
-        (legionary) => legionary.legion === "Battle Legion - OG"
-      );
+      return legionaries.filter((legionary) => legionary.legion === "OG");
     case 2:
       return legionaries.filter(
-        (legionary) => legionary.legion === "Battle Legion - First Legion"
+        (legionary) => legionary.legion === "First Legion"
       );
     case 3:
       return legionaries.filter(
-        (legionary) => legionary.legion === "Battle Legion - Second Legion"
+        (legionary) => legionary.legion === "Second Legion"
       );
     default:
       return legionaries;

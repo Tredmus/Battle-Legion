@@ -32,6 +32,42 @@ export const History = () => {
                 }
               />
             </li>
+            <li>
+              <Event
+                name={"Събитие Събитие Събитие Събитие"}
+                date={"05.09.1470"}
+                description={
+                  "Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod incididunt ut labore et dolore magna aliqua."
+                }
+              />
+            </li>
+            <li>
+              <Event
+                name={"Събитие Събитие Събитие Събитие"}
+                date={"05.09.1470"}
+                description={
+                  "Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod incididunt ut labore et dolore magna aliqua."
+                }
+              />
+            </li>
+            <li>
+              <Event
+                name={"Събитие Събитие Събитие Събитие"}
+                date={"05.09.1470"}
+                description={
+                  "Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod incididunt ut labore et dolore magna aliqua."
+                }
+              />
+            </li>
+            <li>
+              <Event
+                name={"Събитие Събитие Събитие Събитие"}
+                date={"05.09.1470"}
+                description={
+                  "Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod incididunt ut labore et dolore magna aliqua."
+                }
+              />
+            </li>
           </ul>
         </div>
         <footer className={classes.quote}>

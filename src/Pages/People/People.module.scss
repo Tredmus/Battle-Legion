@@ -1,6 +1,12 @@
 @import '../../styles/main.scss';
 @import '../page';
 
+.people {
+    display: grid;
+    grid-template-rows: auto 1fr;
+    height: 100%;
+}
+
 .history {
     display: flex;
     flex-direction: column;
@@ -9,10 +15,7 @@
 }
 
 .body {
-    display: flex;
-    flex-direction: column;
-    justify-content: space-between;
-    flex-grow: 1;
+    position: relative;
 }
 
 .timeline {
@@ -62,7 +65,13 @@
 }
 
 .legionaries {
+    position: absolute;
+    inset: 0;
+    margin-inline: -2rem;
+    padding-inline: 2rem;
+    overflow: auto;
     display: flex;
+    align-items: flex-start;
     flex-wrap: wrap;
     gap: 2rem;
 }

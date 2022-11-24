@@ -1,5 +1,6 @@
 import classes from "./People.module.scss";
 import { Legionary } from "../../Components/Legionary/Legionary";
+import { Tree } from "../../Components/Tree/Tree";
 
 const legionaries = [
   {
@@ -64,14 +65,16 @@ const filterChoice = (choice: number) => {
 export const People = () => {
   return (
     <div className={`${classes.page} ${classes.people}`}>
-      <h2 className={classes.heading}>Легионерите</h2>
-      <div className={classes.body}>
+      <div className={classes.people__inner}>
+        <h2 className={classes.heading}>Легионерите</h2>
         <ul className={classes.menu}>
           <li onClick={() => filterChoice(0)}>All</li>
           <li onClick={() => filterChoice(1)}>Battle Legion - OG</li>
           <li onClick={() => filterChoice(2)}>Battle Legion - First Legion</li>
           <li onClick={() => filterChoice(3)}>Battle Legion - Second Legion</li>
         </ul>
+      </div>
+      <div className={classes.body}>
         <div className={classes.legionaries}>
           {legionaries.map((legionary) => (
             <Legionary {...legionary} />

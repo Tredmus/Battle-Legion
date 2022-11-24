@@ -1,0 +1,218 @@
+@import '../../styles/main.scss';
+
+.treeWrapper {
+  &:hover {
+    cursor: pointer;
+    
+    .icon {
+      transform: rotate(90deg);
+      color: $c-white-dark;
+    }
+  }
+}
+
+.icon {
+  font-size: 1.5rem;
+  color: $c-white;
+  transform: rotate(90deg) scaleY(-1);
+  transition: transform $t-duration;
+}
+
+.tree {
+  text-align: center;
+  overflow: auto;
+
+  ul {
+    position: relative;
+    padding-top: 1.25rem;
+    transition: $t-duration;
+  }
+
+  li {
+    position: relative;
+    display: inline-table;
+    text-align: center;
+    padding: 1.4rem;
+    transition: $t-duration;
+  }
+
+  li:before, li:after {
+    content: '';
+    position: absolute;
+    top: 0;
+    right: 50%;
+    border-top: 2px solid $c-main;
+    width: 50%;
+    height: 1.25rem;
+  }
+
+  li:after {
+    right: auto;
+    left: 50%;
+    border-left: 2px solid $c-main;
+  }
+
+  li:only-child:before, li:only-child:after {
+    display: none;
+  }
+
+  li:only-child {
+    padding-top: 0;
+  }
+
+  li:first-child:before, li:last-child:after {
+    border: 0 none;
+  }
+
+  li:last-child:before {
+    border-right: 2px solid $c-main;
+  }
+  
+  ul ul:before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 50%;
+    border-left: 2px solid $c-main;
+    width: 0;
+    height: 1.25rem;
+  }
+
+  .element {
+    background-color: $c-grey-mid;
+    color: $c-white;
+    padding: .75rem;
+    display: inline-grid;
+    border-radius: 5px;
+    transition: $t-duration;
+
+    &:hover, &:hover+ul li .element {
+      opacity: .7;
+      cursor: pointer;
+    }
+  }
+
+  .vertical {
+
+    li {
+      &:before, &:after {
+        border: 0 none;
+      }
+    }
+    
+    li:nth-child(1) {
+      &:before {
+        border-top: 2px solid $c-main;
+        width: calc(50% + 1.3px);
+      }
+    }
+  
+    li, li:only-child {
+      display: flex;
+      justify-content: start;
+      padding: .7rem 0 0.7rem 1.4rem;
+      border-left: 2px solid $c-main;
+  
+      &:before, &:after {
+        border: 0 none;
+      }
+  
+      &:before:last-child {
+        border: 0 none;
+      }
+  
+      &:before {
+        height: 50%;
+      }
+  
+      &:after {
+        left: -1px;
+        height: 50%;
+        width: calc(1.4rem + 1px);
+        border-bottom: 2px solid $c-main;
+      }
+    }
+  
+    li:last-child {
+  
+      border: none;
+      &:before {
+        border-right: 0;
+        width: calc(1.4rem - 2px);
+        left: 0;
+        border-bottom: 2px solid $c-main;
+        border-left: 2px solid $c-main;
+      }
+  
+      &:after {
+        display: none;
+      }
+    }
+  
+    li:only-child {
+      position: relative;
+      border: none;
+      
+       &:before {
+         content: '';
+         display: block;
+         position: absolute;
+         width: auto;
+         width: 1.4rem;
+         height: 50%;
+         border-bottom: 2px solid $c-main;
+       }
+  
+       &:after {
+        content: '';
+        display: block;
+        border-left: 2px solid $c-main;
+        border-top: 2px solid $c-main;
+        border-bottom: none;
+         width: 50%;
+         height: 50%;
+         left: 0;
+         top: 0;
+         transform: translate(0, 0);
+         background-color: transparent;
+       }
+       
+     }
+  }
+}
+
+.team {
+  .element {
+    background-color: #30d5c8;
+  }
+}
+
+.subTeam {
+  .element {
+    background-color: #50c878;
+  }
+}
+
+.mentor {
+  .element {
+    background-color: #950e27;
+  }
+}
+
+.mentors {
+  .element {
+    background-color: #c60d25;
+  }
+}
+
+.intern {
+  .element {
+    background-color: #47012a;
+  }
+}
+
+.interns {
+  .element {
+    background-color: #66023c;
+  }
+}

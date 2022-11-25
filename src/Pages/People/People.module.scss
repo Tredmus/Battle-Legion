@@ -50,10 +50,11 @@
 
 .menu {
     display: flex;
-    justify-content: space-between;
-    width: 70%;
+    justify-content: center;
+    gap: 2rem;
     margin: 0 auto 2rem;
     font-weight: 400;
+    position: relative;
 
     li {
         cursor: pointer;
@@ -62,6 +63,15 @@
             color: $c-grey-light;
         }
     }
+
+    li.active {
+        text-decoration: underline;
+    }
+
+    .tree {
+        position: absolute;
+        left: 0;
+    }
 }
 
 .legionaries {
@@ -69,11 +79,11 @@
     inset: 0;
     margin-inline: -2rem;
     padding-inline: 2rem;
-    overflow: auto;
     display: flex;
     align-items: flex-start;
     flex-wrap: wrap;
     gap: 2rem;
+    @include scroll;
 }
 
 .quote {

@@ -6,9 +6,16 @@
     
     .icon {
       transform: rotate(90deg);
-      color: $c-white-dark;
+      color: $c-grey-light;
     }
   }
+}
+
+.modal {
+  position: fixed;
+  inset: 0;
+  background-color: white;
+  z-index: 20;
 }
 
 .icon {
@@ -41,7 +48,7 @@
     position: absolute;
     top: 0;
     right: 50%;
-    border-top: 2px solid $c-main;
+    border-top: 2px solid $c-grey-2;
     width: 50%;
     height: 1.25rem;
   }
@@ -49,7 +56,7 @@
   li:after {
     right: auto;
     left: 50%;
-    border-left: 2px solid $c-main;
+    border-left: 2px solid $c-grey-2;
   }
 
   li:only-child:before, li:only-child:after {
@@ -65,7 +72,7 @@
   }
 
   li:last-child:before {
-    border-right: 2px solid $c-main;
+    border-right: 2px solid $c-grey-2;
   }
   
   ul ul:before {
@@ -73,13 +80,13 @@
     position: absolute;
     top: 0;
     left: 50%;
-    border-left: 2px solid $c-main;
+    border-left: 2px solid $c-grey-2;
     width: 0;
     height: 1.25rem;
   }
 
   .element {
-    background-color: $c-grey-mid;
+    background-color: $c-grey;
     color: $c-white;
     padding: .75rem;
     display: inline-grid;
@@ -102,7 +109,7 @@
     
     li:nth-child(1) {
       &:before {
-        border-top: 2px solid $c-main;
+        border-top: 2px solid $c-grey-2;
         width: calc(50% + 1.3px);
       }
     }
@@ -111,7 +118,7 @@
       display: flex;
       justify-content: start;
       padding: .7rem 0 0.7rem 1.4rem;
-      border-left: 2px solid $c-main;
+      border-left: 2px solid $c-grey-2;
   
       &:before, &:after {
         border: 0 none;
@@ -129,7 +136,7 @@
         left: -1px;
         height: 50%;
         width: calc(1.4rem + 1px);
-        border-bottom: 2px solid $c-main;
+        border-bottom: 2px solid $c-grey-2;
       }
     }
   
@@ -140,8 +147,8 @@
         border-right: 0;
         width: calc(1.4rem - 2px);
         left: 0;
-        border-bottom: 2px solid $c-main;
-        border-left: 2px solid $c-main;
+        border-bottom: 2px solid $c-grey-2;
+        border-left: 2px solid $c-grey-2;
       }
   
       &:after {
@@ -160,14 +167,14 @@
          width: auto;
          width: 1.4rem;
          height: 50%;
-         border-bottom: 2px solid $c-main;
+         border-bottom: 2px solid $c-grey-2;
        }
   
        &:after {
         content: '';
         display: block;
-        border-left: 2px solid $c-main;
-        border-top: 2px solid $c-main;
+        border-left: 2px solid $c-grey-2;
+        border-top: 2px solid $c-grey-2;
         border-bottom: none;
          width: 50%;
          height: 50%;
@@ -181,37 +188,55 @@
   }
 }
 
-.team {
+.legatus {
   .element {
     background-color: #30d5c8;
   }
 }
 
-.subTeam {
+.tribunus {
   .element {
     background-color: #50c878;
   }
 }
 
-.mentor {
+.praetor {
   .element {
     background-color: #950e27;
   }
 }
 
-.mentors {
+.praefectus {
   .element {
     background-color: #c60d25;
   }
 }
 
-.intern {
+.primusPilus {
   .element {
     background-color: #47012a;
   }
 }
 
-.interns {
+.centurio {
+  .element {
+    background-color: #66023c;
+  }
+}
+
+.optio {
+  .element {
+    background-color: #66023c;
+  }
+}
+
+.legionarius {
+  .element {
+    background-color: #66023c;
+  }
+}
+
+.tiro {
   .element {
     background-color: #66023c;
   }

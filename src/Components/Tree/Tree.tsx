@@ -1,14 +1,14 @@
-import React, { useState } from "react";
+import { useState } from "react";
 import classes from "./Tree.module.scss";
 import { icons } from "../../Assets/Icons/Icons";
 // import { ModalTree } from "../ModalTree/ModalTree";
 
-// type Props = {
-//   teamData: TeamType;
-// };
+type Props = {
+  legionaries: { name: string; rank: string; legion: string }[];
+};
 
-export const Tree = () => {
-  // const [openTree, setOpenTree] = useState(false);
+export const Tree = ({ legionaries }: Props) => {
+  const [openTree, setOpenTree] = useState(true);
 
   // const specialtiesInternTeamData =
   //   teamData.interns &&
@@ -23,70 +23,81 @@ export const Tree = () => {
   //   ];
   // const specialties = specialtiesTeamData && [...new Set(specialtiesTeamData)];
 
-  // const open = () => {
-  //   setOpenTree(true);
-  // };
+  const open = () => {
+    setOpenTree(true);
+  };
 
-  // const close = () => {
-  //   setOpenTree(false);
-  // };
+  const close = () => {
+    setOpenTree(false);
+  };
+  const og =
+    legionaries && legionaries.filter((legionary) => legionary.legion === "OG");
+  const first =
+    legionaries &&
+    legionaries.filter((legionary) => legionary.legion === "First");
+  const second =
+    legionaries &&
+    legionaries.filter((legionary) => legionary.legion === "Second");
+
+  const legions = ["OG", "First", "Second"];
 
   return (
     <>
-      {/* {openTree && (
-        <ModalTree onClose={close}>
+      {openTree && (
+        <div className={classes.modal}>
           <div className={classes.tree}>
             <ul>
-              <li className={classes.team}>
+              <li className={classes.legatus}>
                 <div className={classes.element}>
-                  <span>{teamData.name}</span>
+                  <span>Faraonqbg</span>
                 </div>
                 <ul>
-                  {specialties &&
-                    specialties.map((specialty) => (
-                      <li key={specialty} className={classes.subTeam}>
-                        <div className={classes.element}>{specialty} Team</div>
-                        <ul>
-                          {teamData.mentors.filter((mentor) => mentor.specialty === specialty)
-                            .length > 0 && (
-                            <li className={classes.mentor}>
-                              <div className={classes.element}>Mentors</div>
-                              <ul className={classes.vertical}>
-                                {teamData &&
-                                  teamData.mentors
-                                    .filter((mentor) => mentor.specialty === specialty)
-                                    .map((mentor) => (
-                                      <li key={mentor.firstName} className={classes.mentors}>
-                                        <div className={classes.element}>{mentor.firstName}</div>
-                                      </li>
-                                    ))}
-                              </ul>
-                            </li>
-                          )}
-                          {teamData.interns.filter((intern) => intern.specialty === specialty)
-                            .length > 0 && (
-                            <li className={classes.intern}>
-                              <div className={classes.element}>Interns</div>
-                              <ul className={classes.vertical}>
-                                {teamData.interns
-                                  .filter((intern) => intern.specialty === specialty)
-                                  .map((intern) => (
-                                    <li key={intern.firstName} className={classes.interns}>
-                                      <div className={classes.element}>{intern.firstName}</div>
-                                    </li>
-                                  ))}
-                              </ul>
-                            </li>
-                          )}
-                        </ul>
-                      </li>
-                    ))}
+                  <li className={classes.trubunus}>
+                    <div className={classes.element}>
+                      <span>Dudie</span>
+                    </div>
+                    <ul>
+                      {legions &&
+                        legions.map(
+                          (legion) =>
+                            legionaries &&
+                            legionaries
+                              .filter(
+                                (preator) =>
+                                  preator.legion === legion &&
+                                  preator.rank === "Praetor"
+                              )
+                              .map((preator) => (
+                                <li className={classes.praetor} key={legion}>
+                                  <div className={classes.element}>
+                                    {preator.name}
+                                  </div>
+                                  <ul>
+                                    {legionaries
+                                      .filter(
+                                        (praefectus) =>
+                                          praefectus.legion === legion &&
+                                          praefectus.rank === "Praefectus"
+                                      )
+                                      .map((praefectus) => (
+                                        <li className={classes.praefectus}>
+                                          <div className={classes.element}>
+                                            {praefectus.name}
+                                          </div>
+                                        </li>
+                                      ))}
+                                  </ul>
+                                </li>
+                              ))
+                        )}
+                    </ul>
+                  </li>
                 </ul>
               </li>
             </ul>
           </div>
-        </ModalTree>
-      )} */}
+        </div>
+      )}
 
       <span className={classes.treeWrapper}>
         <icons.MdAccountTree data-testid="openTree" className={classes.icon} />

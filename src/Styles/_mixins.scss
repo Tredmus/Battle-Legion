@@ -66,3 +66,25 @@
   justify-content: center;
   align-items: center;
 }
+
+@mixin scroll {
+  overflow-Y: auto;
+  &::-webkit-scrollbar {
+    width: .35rem;
+  }
+  
+  /* Track */
+  &::-webkit-scrollbar-track {
+    background-color: #444444;
+  }
+  
+  /* Handle */
+  &::-webkit-scrollbar-thumb {
+    background: $c-grey-light;
+  }
+  
+  /* Handle on hover */
+  &::-webkit-scrollbar-thumb:hover {
+    background: #c9c9c9;
+  }
+}

@@ -1,50 +1,35 @@
 import { useState } from "react";
 import classes from "./Tree.module.scss";
 import { icons } from "../../Assets/Icons/Icons";
-// import { ModalTree } from "../ModalTree/ModalTree";
+import { Modal } from "./Modal";
 
 type Props = {
-  legionaries: { name: string; rank: string; legion: string }[];
+  legionaries: {
+    name: string;
+    rank: string;
+    legion: string;
+    reportsTo?: string;
+  }[];
 };
 
 export const Tree = ({ legionaries }: Props) => {
-  const [openTree, setOpenTree] = useState(true);
-
-  // const specialtiesInternTeamData =
-  //   teamData.interns &&
-  //   teamData.interns.length > 0 &&
-  //   teamData.interns.map((interns) => interns.specialty);
-  // const specialtiesMentorTeamData =
-  //   teamData.mentors && teamData.mentors.map((mentors) => mentors.specialty);
-  // const specialtiesTeamData = specialtiesInternTeamData &&
-  //   specialtiesMentorTeamData && [
-  //     ...specialtiesInternTeamData,
-  //     ...specialtiesMentorTeamData,
-  //   ];
-  // const specialties = specialtiesTeamData && [...new Set(specialtiesTeamData)];
+  const [openTree, setOpenTree] = useState(false);
 
   const open = () => {
     setOpenTree(true);
+    console.log("open");
   };
 
   const close = () => {
     setOpenTree(false);
   };
-  const og =
-    legionaries && legionaries.filter((legionary) => legionary.legion === "OG");
-  const first =
-    legionaries &&
-    legionaries.filter((legionary) => legionary.legion === "First");
-  const second =
-    legionaries &&
-    legionaries.filter((legionary) => legionary.legion === "Second");
 
   const legions = ["OG", "First", "Second"];
 
   return (
     <>
       {openTree && (
-        <div className={classes.modal}>
+        <Modal onClose={close}>
           <div className={classes.tree}>
             <ul>
               <li className={classes.legatus}>
@@ -52,7 +37,7 @@ export const Tree = ({ legionaries }: Props) => {
                   <span>Faraonqbg</span>
                 </div>
                 <ul>
-                  <li className={classes.trubunus}>
+                  <li className={classes.tribunus}>
                     <div className={classes.element}>
                       <span>Dudie</span>
                     </div>
@@ -84,6 +69,54 @@ export const Tree = ({ legionaries }: Props) => {
                                           <div className={classes.element}>
                                             {praefectus.name}
                                           </div>
+                                          <ul>
+                                            {legionaries
+                                              .filter(
+                                                (centurio) =>
+                                                  centurio.legion === legion &&
+                                                  centurio.rank === "Centurio"
+                                              )
+                                              .map((centurio) => (
+                                                <li
+                                                  className={classes.centurio}
+                                                >
+                                                  <div
+                                                    className={classes.element}
+                                                  >
+                                                    {centurio.name}
+                                                  </div>
+                                                  <ul
+                                                    className={classes.vertical}
+                                                  >
+                                                    {legionaries
+                                                      .filter(
+                                                        (legionary) =>
+                                                          legionary.legion ===
+                                                            legion &&
+                                                          legionary.rank ===
+                                                            "Legionarius" &&
+                                                          legionary.reportsTo ===
+                                                            centurio.name
+                                                      )
+                                                      .map((legionary) => (
+                                                        <li
+                                                          className={
+                                                            classes.legionarius
+                                                          }
+                                                        >
+                                                          <div
+                                                            className={
+                                                              classes.element
+                                                            }
+                                                          >
+                                                            {legionary.name}
+                                                          </div>
+                                                        </li>
+                                                      ))}
+                                                  </ul>
+                                                </li>
+                                              ))}
+                                          </ul>
                                         </li>
                                       ))}
                                   </ul>
@@ -96,10 +129,10 @@ export const Tree = ({ legionaries }: Props) => {
               </li>
             </ul>
           </div>
-        </div>
+        </Modal>
       )}
 
-      <span className={classes.treeWrapper}>
+      <span className={classes.treeWrapper} onClick={open}>
         <icons.MdAccountTree data-testid="openTree" className={classes.icon} />
       </span>
     </>

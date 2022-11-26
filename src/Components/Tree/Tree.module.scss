@@ -11,13 +11,6 @@
   }
 }
 
-.modal {
-  position: fixed;
-  inset: 0;
-  background-color: white;
-  z-index: 20;
-}
-
 .icon {
   font-size: 1.5rem;
   color: $c-white;
@@ -28,6 +21,8 @@
 .tree {
   text-align: center;
   overflow: auto;
+  max-width: 100vw;
+  max-height: 100vh;
 
   ul {
     position: relative;
@@ -39,7 +34,7 @@
     position: relative;
     display: inline-table;
     text-align: center;
-    padding: 1.4rem;
+    padding: .6rem; //1.4
     transition: $t-duration;
   }
 
@@ -190,54 +185,54 @@
 
 .legatus {
   .element {
-    background-color: #30d5c8;
+    background-color: #daca12;
   }
 }
 
 .tribunus {
   .element {
-    background-color: #50c878;
+    background-color: #8f37dc;
   }
 }
 
 .praetor {
   .element {
-    background-color: #950e27;
+    background-color: #e78019;
   }
 }
 
 .praefectus {
   .element {
-    background-color: #c60d25;
+    background-color: #ce751c;
   }
 }
 
 .primusPilus {
   .element {
-    background-color: #47012a;
+    background-color: #062eb4;
   }
 }
 
 .centurio {
   .element {
-    background-color: #66023c;
+    background-color: #062eb4;
   }
 }
 
 .optio {
   .element {
-    background-color: #66023c;
+    background-color: #062eb4;
   }
 }
 
 .legionarius {
   .element {
-    background-color: #66023c;
+    background-color: #950e27;
   }
 }
 
 .tiro {
   .element {
-    background-color: #66023c;
+    background-color: #30d5c8;
   }
 }

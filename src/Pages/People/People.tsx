@@ -1,50 +1,8 @@
 import { useEffect, useState } from "react";
 import classes from "./People.module.scss";
+import { legionaries } from "./legionaries";
 import { Legionary } from "../../Components/Legionary/Legionary";
 import { Tree } from "../../Components/Tree/Tree";
-
-const legionaries = [
-  {
-    name: "Faraonqbg",
-    rank: "Praetor",
-    legion: "OG",
-  },
-  {
-    name: "Mis_ok",
-    rank: "Legata",
-    legion: "OG",
-  },
-  {
-    name: "Dudie",
-    rank: "Praefectus",
-    legion: "OG",
-  },
-  {
-    name: "Leora",
-    rank: "Tribuna",
-    legion: "OG",
-  },
-  {
-    name: "Tredmus",
-    rank: "Praetor",
-    legion: "Second",
-  },
-  {
-    name: "Marto98",
-    rank: "Praefectus",
-    legion: "Second",
-  },
-  {
-    name: "Ganfi",
-    rank: "Praetor",
-    legion: "First",
-  },
-  {
-    name: "Legolas_b",
-    rank: "Praefectus",
-    legion: "First",
-  },
-];
 
 export const People = () => {
   const [choice, setChoice] = useState(0);
@@ -54,13 +12,9 @@ export const People = () => {
       case 1:
         return legionaries.filter((legionary) => legionary.legion === "OG");
       case 2:
-        return legionaries.filter(
-          (legionary) => legionary.legion === "First Legion"
-        );
+        return legionaries.filter((legionary) => legionary.legion === "First");
       case 3:
-        return legionaries.filter(
-          (legionary) => legionary.legion === "Second Legion"
-        );
+        return legionaries.filter((legionary) => legionary.legion === "Second");
       default:
         return legionaries;
     }

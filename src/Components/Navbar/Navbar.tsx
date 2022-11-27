@@ -46,6 +46,14 @@ export const Navbar = () => {
             <icons.FiFilm />
           </NavLink>
         </li>
+        <li>
+          <NavLink
+            to="/invite"
+            className={({ isActive }) => (isActive ? classes.active : "")}
+          >
+            <icons.RiSwordLine />
+          </NavLink>
+        </li>
       </ul>
     </nav>
   );

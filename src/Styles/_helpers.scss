@@ -1,0 +1,21 @@
+.btn {
+    display: inline-block;
+    text-align: center;
+    position: relative;
+    padding: 1rem 1rem;
+    width: 100%;
+    min-width: 6rem;
+    max-width: 13rem;
+    color: $c-white;
+    cursor: pointer;
+    transition: background-color $t-duration;
+    background-color: $c-grey-light-2;
+  
+    &:hover {
+      background-color: $c-grey-light;
+    }
+  
+    &:active {
+      transform: scale(0.9);
+    }
+  }

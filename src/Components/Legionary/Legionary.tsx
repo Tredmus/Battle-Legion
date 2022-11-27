@@ -1,5 +1,6 @@
+import { useState } from "react";
 import classes from "./Legionary.module.scss";
-import about from "../../Assets/Images/people/faraonqbg.png";
+import { Modal } from "../Modal/Modal";
 
 export type TypeLegionary = {
   name: string;
@@ -7,13 +8,41 @@ export type TypeLegionary = {
   legion: string;
 };
 
-export const Legionary = ({ name }: TypeLegionary) => {
+export const Legionary = ({ name, rank, legion }: TypeLegionary) => {
+  const [isOpen, setIsOpen] = useState(false);
   const imageLink = `Images/people/${name}.png`;
 
+  const open = () => {
+    setIsOpen(true);
+  };
+
+  const close = () => {
+    setIsOpen(false);
+  };
+
+  if (name === "Faraonqbg") rank = "Legatus";
+  if (name === "Dudie") rank = "Tribunus";
   return (
-    <div className={classes.legionary}>
-      <img src={imageLink} alt="" />
-      <p>{name}</p>
-    </div>
+    <>
+      {isOpen && (
+        <Modal onClose={close}>
+          <div className={classes.modal}>
+            <div className={classes.legionary} onClick={open}>
+              <img src={imageLink} alt="" />
+              <p>
+                {name} . {rank} . Battle Legion - {legion} Legion
+              </p>
+            </div>
+          </div>
+        </Modal>
+      )}
+
+      <div className={classes.legionary} onClick={open}>
+        <div className={classes.imageWrapper}>
+          <img src={imageLink} alt="" />
+        </div>
+        <p>{name}</p>
+      </div>
+    </>
   );
 };

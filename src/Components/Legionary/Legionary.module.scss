@@ -3,6 +3,28 @@
 .legionary {    
     width: calc(100% / 3 - (2rem * (3 - 1))/3);
     background-color: $c-grey-2;
+    cursor: pointer;
+
+    &:hover {
+        background-color: $c-grey-2;
+    }
+
+    .imageWrapper {
+        position: relative; 
+        &:after {
+            content: '';
+            position: absolute;
+            inset: 0;
+            background-color: rgba(0, 0, 0, 0.3);
+            opacity: 0;
+            transition: opacity $t-duration ease-in-out;
+        }
+    }
+    .imageWrapper:hover {
+        &:after {
+            opacity: 1;
+        }
+    }
 
     img {
         width: 100%;
@@ -11,5 +33,22 @@
     p {
         text-align: center;
         font-weight: 500;
+    }
+}
+
+.modal {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100%;
+    width: 100%;
+
+    .legionary {
+        cursor: auto;
+        width: 100%;
+    }
+
+    p {
+       padding: 2rem;
     }
 }

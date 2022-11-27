@@ -6,7 +6,7 @@ export const legionaries = [
     },
     {
       name: "Mis_ok",
-      rank: "Legata",
+      rank: "Centurio",
       legion: "OG",
     },
     {
@@ -16,8 +16,9 @@ export const legionaries = [
     },
     {
       name: "Leora",
-      rank: "Tribuna",
+      rank: "Legionarius",
       legion: "OG",
+      reportsTo: "Mis_ok",
     },
     {
       name: "Tredmus",
@@ -48,7 +49,7 @@ export const legionaries = [
       name: "Morskasirena",
       rank: "Legionarius",
       legion: "OG",
-      reportsTo: "Ciara_.",
+      reportsTo: "Mis_ok",
     },
     {
       name: "Barborko",
@@ -82,7 +83,7 @@ export const legionaries = [
       name: "Leire",
       rank: "Legionarius",
       legion: "OG",
-      reportsTo: "Ciara_.",
+      reportsTo: "Mis_ok",
     },
     {
       name: "Compeador",
@@ -135,13 +136,13 @@ export const legionaries = [
       name: "Fars",
       rank: "Legionarius",
       legion: "OG",
-      reportsTo: "Barborko",
+      reportsTo: "Mis_ok",
     },
     {
       name: "Atinapalada_ii",
       rank: "Legionarius",
       legion: "OG",
-      reportsTo: "Barborko",
+      reportsTo: "Mis_ok",
     },
     {
       name: "Ponko",
@@ -180,7 +181,7 @@ export const legionaries = [
       legion: "OG",
     },
     {
-      name: "Alexandur",
+      name: "Aleksandur",
       rank: "Legionarius",
       reportsTo: "Elite.crewxd",
       legion: "OG",

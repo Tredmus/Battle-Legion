@@ -21,6 +21,31 @@
     align-items: start;
 }
 
+.organization {
+    h6 {
+        margin-bottom: .75rem;
+        font-style: italic;
+    }
+
+    ol {
+        list-style-type: number;
+    }
+
+    ol > li > ol {
+        margin-top: 1rem;
+        padding-left: 1rem;
+    }
+
+    li + li {
+        margin-top: 1rem;
+    }
+    
+    & > li + li {
+        margin-top: 2.5rem;
+    }
+    
+}
+
 .stats {
     li {
         display: flex;

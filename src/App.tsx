@@ -1,5 +1,5 @@
 import "./Styles/main.scss";
-import { BrowserRouter, Route, Routes } from "react-router-dom";
+import { HashRouter, Route, Routes } from "react-router-dom";
 import { Navbar } from "./Components/Navbar/Navbar";
 import { Home } from "./Pages/Home/Home";
 import { About } from "./Pages/About/About";
@@ -11,7 +11,7 @@ import { Invite } from "./Pages/Invite/Invite";
 function App() {
   return (
     <>
-      <BrowserRouter>
+      <HashRouter>
         <div className="App">
           <div className="wrapper">
             <Navbar />
@@ -27,7 +27,7 @@ function App() {
             </div>
           </div>
         </div>
-      </BrowserRouter>
+      </HashRouter>
     </>
   );
 }

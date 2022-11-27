@@ -15,15 +15,10 @@ export const About = () => {
           <div className={classes.block}>
             <h3>Кои са Боен Легион?</h3>
             <p>
-              When I hear the buzz of the little world among the stalks, and
-              grow familiar with the countless indescribable forms of the
-              insects and flies, then I feel the presence of the Almighty, who
-              formed us in his own image, and the breath of that universal love
-              which bears and sustains us, as it floats around us in an eternity
-              of bliss; and then, my friend, when darkness overspreads my eyes,
-              and heaven and earth seem to dwell in my soul and absorb its
-              power, like the form of a beloved mistress, then I often think
-              with longing
+              Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do
+              eiusmod tempor incididunt ut labore et dolore magna aliqua. Lorem
+              ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
+              incididunt ut labore et dolore magna aliqua.
             </p>
           </div>
         </div>

@@ -1,0 +1,33 @@
+@import '../../styles/main.scss';
+
+.video {    
+    display: flex;
+    padding: 1rem 0;
+    width: 100%;
+    position: relative;
+    gap: 1rem;
+
+}
+
+.left {
+    // background-color: teal;
+}
+
+.right {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    padding: 2rem;
+    background-color: $c-white;
+    color: $c-grey;
+
+    h4 {
+        margin-bottom: 1rem;
+        font-weight: 400;
+    }
+
+    p {
+        font-weight: 400;
+        line-height: 1.2;
+    }
+}

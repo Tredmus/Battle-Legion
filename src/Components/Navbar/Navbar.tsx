@@ -38,6 +38,14 @@ export const Navbar = () => {
             <icons.BsPeopleFill />
           </NavLink>
         </li>
+        <li>
+          <NavLink
+            to="/media"
+            className={({ isActive }) => (isActive ? classes.active : "")}
+          >
+            <icons.FiFilm />
+          </NavLink>
+        </li>
       </ul>
     </nav>
   );

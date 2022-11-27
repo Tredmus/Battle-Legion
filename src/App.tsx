@@ -5,6 +5,7 @@ import { Home } from "./Pages/Home/Home";
 import { About } from "./Pages/About/About";
 import { History } from "./Pages/History/History";
 import { People } from "./Pages/People/People";
+import { Media } from "./Pages/Media/Media";
 
 function App() {
   return (
@@ -19,6 +20,7 @@ function App() {
                 <Route path="/about" element={<About />} />
                 <Route path="/history" element={<History />} />
                 <Route path="/people" element={<People />} />
+                <Route path="/media" element={<Media />} />
               </Routes>
             </div>
           </div>

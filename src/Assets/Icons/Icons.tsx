@@ -2,6 +2,7 @@ import { AiFillHome } from "react-icons/ai";
 import { BsInfoCircleFill, BsPeopleFill } from "react-icons/bs";
 import { BiBook } from "react-icons/bi";
 import { MdAccountTree } from "react-icons/md";
+import { FiFilm } from "react-icons/fi";
 
 export const icons = {
   AiFillHome,
@@ -9,4 +10,5 @@ export const icons = {
   BiBook,
   BsPeopleFill,
   MdAccountTree,
+  FiFilm,
 };

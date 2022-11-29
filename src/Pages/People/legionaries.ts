@@ -199,6 +199,18 @@ export const legionaries = [
       legion: "OG",
     },
     {
+      name: "Senator_",
+      rank: "Legionarius",
+      reportsTo: "Barborko",
+      legion: "OG",
+    },
+    {
+      name: "I_ivanov",
+      rank: "Legionarius",
+      reportsTo: "Barborko",
+      legion: "OG",
+    },
+    {
         name: "Gimgi",
         rank: "Centurio",
         legion: "First",
@@ -361,6 +373,36 @@ export const legionaries = [
         rank: "Legionarius",
         legion: "Second",
         reportsTo: "Maximko",
+    },
+    {
+      name: "Bikini",
+      rank: "Legionarius",
+      legion: "First",
+      reportsTo: "Prusiyski",
+    },
+    {
+      name: "Gabobg",
+      rank: "Legionarius",
+      legion: "First",
+      reportsTo: "Arazortep",
+    },
+    {
+      name: "Mayora",
+      rank: "Legionarius",
+      legion: "First",
+      reportsTo: "Gimgi",
+    },
+    {
+      name: "Veneno",
+      rank: "Legionarius",
+      legion: "Second",
+      reportsTo: "Maximko",
+    },
+    {
+      name: "Panayot",
+      rank: "Legionarius",
+      legion: "Second",
+      reportsTo: "Maximko",
     },
   ];
 

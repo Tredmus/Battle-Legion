@@ -34,11 +34,21 @@ export const Tree = ({ legionaries }: Props) => {
             <ul>
               <li className={classes.legatus}>
                 <div className={classes.element}>
+                  <img
+                    src="Images/border-small.png"
+                    alt=""
+                    className={classes.border}
+                  />
                   <span>Faraonqbg</span>
                 </div>
                 <ul>
                   <li className={classes.tribunus}>
                     <div className={classes.element}>
+                      <img
+                        src="Images/border-small.png"
+                        alt=""
+                        className={classes.border}
+                      />
                       <span>Dudie</span>
                     </div>
                     <ul>
@@ -55,6 +65,11 @@ export const Tree = ({ legionaries }: Props) => {
                               .map((preator) => (
                                 <li className={classes.praetor} key={legion}>
                                   <div className={classes.element}>
+                                    <img
+                                      src="Images/border-small.png"
+                                      alt=""
+                                      className={classes.border}
+                                    />
                                     {preator.name}
                                   </div>
                                   <ul>
@@ -67,9 +82,14 @@ export const Tree = ({ legionaries }: Props) => {
                                       .map((praefectus) => (
                                         <li className={classes.praefectus}>
                                           <div className={classes.element}>
+                                            <img
+                                              src="Images/border-small.png"
+                                              alt=""
+                                              className={classes.border}
+                                            />
                                             {praefectus.name}
                                           </div>
-                                          <ul>
+                                          <ul className={classes.cent}>
                                             {legionaries
                                               .filter(
                                                 (centurio) =>
@@ -83,6 +103,11 @@ export const Tree = ({ legionaries }: Props) => {
                                                   <div
                                                     className={classes.element}
                                                   >
+                                                    <img
+                                                      src="Images/border-small.png"
+                                                      alt=""
+                                                      className={classes.border}
+                                                    />
                                                     {centurio.name}
                                                   </div>
                                                   <ul
@@ -109,6 +134,13 @@ export const Tree = ({ legionaries }: Props) => {
                                                               classes.element
                                                             }
                                                           >
+                                                            <img
+                                                              src="Images/border-small.png"
+                                                              alt=""
+                                                              className={
+                                                                classes.border
+                                                              }
+                                                            />
                                                             {legionary.name}
                                                           </div>
                                                         </li>

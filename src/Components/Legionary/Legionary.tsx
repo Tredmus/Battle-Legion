@@ -28,9 +28,24 @@ export const Legionary = ({ name, rank, legion }: TypeLegionary) => {
         <Modal onClose={close}>
           <div className={classes.modal}>
             <div className={classes.legionary} onClick={open}>
-              <img src={imageLink} alt="" />
+              <div className={classes.imageWrapper}>
+                <img
+                  src="Images/border.png"
+                  alt=""
+                  className={classes.border}
+                />
+                <img src={imageLink} alt="" />
+              </div>
               <p>
-                {name} . {rank} . Battle Legion - {legion} Legion
+                <img
+                  src="Images/border.png"
+                  alt=""
+                  className={classes.border}
+                />
+                {name}
+                <br></br>
+                Rank - {rank}
+                <br></br>Legion - Battle Legion - {legion} Legion
               </p>
             </div>
           </div>
@@ -39,9 +54,13 @@ export const Legionary = ({ name, rank, legion }: TypeLegionary) => {
 
       <div className={classes.legionary} onClick={open}>
         <div className={classes.imageWrapper}>
+          <img src="Images/border.png" alt="" className={classes.border} />
           <img src={imageLink} alt="" />
         </div>
-        <p>{name}</p>
+        <p>
+          <img src="Images/border.png" alt="" className={classes.border} />
+          {name}
+        </p>
       </div>
     </>
   );

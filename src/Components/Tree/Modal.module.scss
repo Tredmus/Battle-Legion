@@ -3,7 +3,10 @@
 .modal {
     position: fixed;
     inset: 0;
-    background-color: rgba(255, 255, 255, 0.7);
+    background-image: url('../../../public/Images/background-tree.jpg');
+  background-position: center center;
+  background-repeat: no-repeat;
+  background-size: cover;
     z-index: 20;
   }
 

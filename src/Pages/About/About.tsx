@@ -1,11 +1,12 @@
 import React from "react";
 import classes from "./About.module.scss";
 import about from "../../Assets/Images/about.png";
+import { legionariesCount } from "../People/legionaries";
 
 export const About = () => {
   return (
     <div className={`${classes.page} ${classes.about}`}>
-      <h2 className={classes.heading}>Боен Легион</h2>
+      <h2 className={classes.heading}>За Боен Легион</h2>
       <div className={classes.body}>
         <div className={classes.row}>
           <div className={classes.block}>
@@ -162,7 +163,11 @@ export const About = () => {
               </li>
               <li>
                 <span>Членове</span>
-                <span>70</span>
+                <span>{legionariesCount}</span>
+              </li>
+              <li>
+                <span>Влияние</span>
+                <span>9000+</span>
               </li>
             </ul>
           </div>

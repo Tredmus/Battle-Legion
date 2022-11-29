@@ -1,14 +1,21 @@
-import { useEffect, useState } from "react";
+import { useState } from "react";
 import classes from "./People.module.scss";
 import { legionaries } from "./legionaries";
 import { Legionary } from "../../Components/Legionary/Legionary";
 import { Tree } from "../../Components/Tree/Tree";
 
 export const People = () => {
-  const [choice, setChoice] = useState(0);
+  const filters = [
+    "All",
+    "Battle Legion - OG",
+    "Battle Legion - First Legion",
+    "Battle Legion - Second Legion",
+  ];
+
+  const [filterIndex, setFilterIndex] = useState(0);
 
   const filterPeople = () => {
-    switch (choice) {
+    switch (filterIndex) {
       case 1:
         return legionaries.filter((legionary) => legionary.legion === "OG");
       case 2:
@@ -20,21 +27,6 @@ export const People = () => {
     }
   };
   const filtered = filterPeople();
-  const filters = document.querySelector("#menu")?.getElementsByTagName("li");
-
-  useEffect(() => {
-    if (filters) {
-      for (let i = 0; i < filters?.length; i++) {
-        filters[i]?.addEventListener("click", function () {
-          let current = document.getElementsByClassName(classes.active);
-          console.log("current", current);
-          current[0].classList.remove(classes.active);
-          this.classList.add(classes.active);
-          console.log("done");
-        });
-      }
-    }
-  }, [choice, filters]);
 
   return (
     <div className={`${classes.page} ${classes.people}`}>
@@ -44,35 +36,17 @@ export const People = () => {
           <div className={classes.tree}>
             <Tree legionaries={legionaries} />
           </div>
-          <li
-            className={classes.active}
-            onClick={function () {
-              setChoice(0);
-            }}
-          >
-            All
-          </li>
-          <li
-            onClick={() => {
-              setChoice(1);
-            }}
-          >
-            Battle Legion - OG
-          </li>
-          <li
-            onClick={() => {
-              setChoice(2);
-            }}
-          >
-            Battle Legion - First Legion
-          </li>
-          <li
-            onClick={() => {
-              setChoice(3);
-            }}
-          >
-            Battle Legion - Second Legion
-          </li>
+          {filters.map((filter, index) => {
+            return (
+              <li
+                className={`${index === filterIndex ? classes.active : ""}`}
+                key={index}
+                onClick={() => setFilterIndex(index)}
+              >
+                {filter}
+              </li>
+            );
+          })}
         </ul>
       </div>
       <div className={classes.body}>

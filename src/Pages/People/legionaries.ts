@@ -363,3 +363,5 @@ export const legionaries = [
         reportsTo: "Maximko",
     },
   ];
+
+  export const legionariesCount = legionaries.length;

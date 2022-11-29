@@ -3,7 +3,7 @@
 .legionary {    
     position: relative;
     width: calc(100% / 3 - (2rem * (3 - 1))/3);
-    background-color: #292c35;
+    background-color: rgb(73, 76, 87);
     cursor: pointer;
     &:after {
         content: '';
@@ -61,6 +61,12 @@
     .legionary {
         cursor: auto;
         width: 100%;
+    }
+
+    .legionary:hover {
+        &:after {
+            opacity: 0;
+        }
     }
 
     p {

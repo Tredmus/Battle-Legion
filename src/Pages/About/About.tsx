@@ -1,6 +1,5 @@
 import React from "react";
 import classes from "./About.module.scss";
-import about from "../../Assets/Images/about.png";
 import { legionariesCount } from "../People/legionaries";
 
 export const About = () => {
@@ -10,7 +9,11 @@ export const About = () => {
       <div className={classes.body}>
         <div className={classes.row}>
           <div className={classes.block}>
-            <img src={about} alt="about" className={classes.picture} />
+            <img
+              src="Images/about.png"
+              alt="about"
+              className={classes.picture}
+            />
           </div>
 
           <div className={classes.block}>

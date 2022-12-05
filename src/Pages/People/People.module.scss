@@ -5,85 +5,66 @@
     display: grid;
     grid-template-rows: auto 1fr;
     height: 100%;
-}
+    position: relative;
 
-.history {
-    display: flex;
-    flex-direction: column;
-    height: 100%;
-    justify-content: stretch;
+    &:after {
+        content: '';
+        display: block;
+        position: sticky;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        box-shadow: 0px 0px 45px 40px rgba(0,0,0,1);
+        z-index: 30;
+    }
 }
 
 .body {
     position: relative;
 }
 
-.timeline {
-    @include flexCenter;
-    flex-direction: column;
-    .start {
-        @include flexCenter;
-        width: 2.5rem;
-        height: 2.5rem;
-        margin-bottom: 1rem;
-        border-radius: 50%;
-        background-color: $c-grey-2;
-        color: $c-white;
-        position: relative;
-
-        &:after {
-            content: '';
-            position: absolute;
-            bottom: 0;
-            left: 50%;
-            transform: translate(-50%, 100%);
-            width: 2px;
-            height: 1rem;
-            background-color: $c-white;
-        }
-    }
-
-    ul {
-        width: 100%;
-    }
-}
-
 .menu {
     display: flex;
     justify-content: center;
-    gap: 2rem;
+    gap: 3rem;
     margin: 0 auto 2rem;
     font-weight: 400;
     position: relative;
 
+    img {
+        max-height: 12rem;
+    }
+
     li {
         cursor: pointer;
+        transition: all $t-duration;
+        img {
+            transition: all $t-duration;
+        }
+        top: 0;
 
         &:hover {
-            color: $c-grey-light;
+            img {filter: drop-shadow(0px 0px 30px #540202);}
         }
     }
 
     li.active {
-        text-decoration: underline;
-    }
-
-    .tree {
-        position: absolute;
-        left: 0;
+        position: relative;
+        top: -1rem;
+        img {filter: drop-shadow(0px 0px 30px #540202);}
     }
 }
 
 .legionaries {
-    position: absolute;
-    inset: 0;
-    margin-inline: -2rem;
-    padding-inline: 2rem;
     display: flex;
     align-items: flex-start;
     flex-wrap: wrap;
     gap: 2rem;
+    position: relative;
+    padding-bottom: 2.5rem;
     @include scroll;
+
+   
 }
 
 .quote {
@@ -96,4 +77,8 @@
     font-style: italic;
     font-weight: 500;
     margin-bottom: -2rem;
+}
+
+.banner {
+    max-height: 200px;
 }

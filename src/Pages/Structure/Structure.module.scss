@@ -1,0 +1,21 @@
+@import '../../styles/main.scss';
+@import '../page';
+
+.structure {
+    height: 100%;
+    background-image: url('../../../public/Images/background-tree.jpg');
+    background-position: center center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    position: relative;
+
+
+    .body {
+        position: absolute;
+       left: 0;
+       right: 0;
+       bottom: 0;
+       height: calc(100% - 8rem);
+       @include scroll;
+    }
+}

@@ -40,6 +40,14 @@ export const Navbar = () => {
         </li>
         <li>
           <NavLink
+            to="/structure"
+            className={({ isActive }) => (isActive ? classes.active : "")}
+          >
+            <icons.MdAccountTree className={classes.treeIcon} />
+          </NavLink>
+        </li>
+        <li>
+          <NavLink
             to="/media"
             className={({ isActive }) => (isActive ? classes.active : "")}
           >
@@ -55,6 +63,12 @@ export const Navbar = () => {
           </NavLink>
         </li>
       </ul>
+
+      <img
+        src="Images/banner-bottom.png"
+        alt="gasgasg asg asg"
+        className={classes.bottom}
+      />
     </nav>
   );
 };

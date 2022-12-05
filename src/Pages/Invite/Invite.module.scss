@@ -4,5 +4,15 @@
 .invite  {
     p {
         margin-bottom: 1.5rem;
+        font-size: 2rem;
+        text-align: center;
+    }
+
+    a {
+        color: red;
+
+        &:hover {
+            text-decoration: underline;
+        }
     }
 }

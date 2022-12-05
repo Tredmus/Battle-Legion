@@ -1,12 +1,23 @@
 import React from "react";
 import classes from "./Home.module.scss";
-import logo from "../../Assets/Images/logo.png";
 
 export const Home = () => {
   return (
     <div className={`${classes.page} ${classes.home}`}>
-      <img src={logo} alt="logo" className={classes.logo} />
-      <h1>Боен Легион</h1>
+      <div className={classes.banners}>
+        <div className={`${classes.banner}`}>
+          <img src="Images/banner-0.png" alt="" />
+        </div>
+        <div className={`${classes.banner}`}>
+          <img src="Images/banner-1.png" alt="" />
+        </div>
+        <div className={`${classes.banner}`}>
+          <img src="Images/banner-2.png" alt="" />
+        </div>
+        <div className={`${classes.banner}`}>
+          <img src="Images/banner-3.png" alt="" />
+        </div>
+      </div>
     </div>
   );
 };

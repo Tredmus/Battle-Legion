@@ -5,6 +5,7 @@ import { Home } from "./Pages/Home/Home";
 import { About } from "./Pages/About/About";
 import { History } from "./Pages/History/History";
 import { People } from "./Pages/People/People";
+import { Structure } from "./Pages/Structure/Structure";
 import { Media } from "./Pages/Media/Media";
 import { Invite } from "./Pages/Invite/Invite";
 
@@ -21,6 +22,7 @@ function App() {
                 <Route path="/about" element={<About />} />
                 <Route path="/history" element={<History />} />
                 <Route path="/people" element={<People />} />
+                <Route path="/structure" element={<Structure />} />
                 <Route path="/media" element={<Media />} />
                 <Route path="/invite" element={<Invite />} />
               </Routes>

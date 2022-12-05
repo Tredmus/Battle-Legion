@@ -68,7 +68,7 @@
 }
 
 @mixin scroll {
-  overflow-Y: auto;
+  overflow: auto;
   &::-webkit-scrollbar {
     width: .35rem;
   }

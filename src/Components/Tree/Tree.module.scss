@@ -1,28 +1,15 @@
 @import '../../styles/main.scss';
 
-.treeWrapper {
-  &:hover {
-    cursor: pointer;
-    
-    .icon {
-      transform: rotate(90deg);
-      color: $c-grey-light;
-    }
-  }
-}
-
-.icon {
-  font-size: 1.5rem;
-  color: $c-white;
-  transform: rotate(90deg) scaleY(-1);
-  transition: transform $t-duration;
-}
 
 .tree {
   text-align: center;
+  @include scroll;
   overflow: auto;
   max-width: 100vw;
   max-height: 100vh;
+  position: absolute;
+  inset: 0;  
+
 
   ul {
     display: flex;

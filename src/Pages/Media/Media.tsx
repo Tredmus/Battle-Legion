@@ -10,10 +10,10 @@ export const Media = () => {
           <li>
             <Video
               link="https://www.youtube.com/embed/w0JaeJzgVIs"
-              title={"Renaissance Kingdoms Battle Legion Bulgaria 1470"}
+              title={"Поход на Боен Легион срещу ОНЕ 1470 - Част I"}
               date={"26.11.1470"}
               description={
-                "Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua."
+                "Лето 1470-то за пръв път е избран български цар - Faraonqbg, който обявява поход срещу ОНЕ. Похода е белязан от успехи и предателства."
               }
             />
           </li>

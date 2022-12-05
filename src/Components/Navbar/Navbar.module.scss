@@ -1,8 +1,14 @@
 @import '../../styles/main.scss';
 
 .nav {    
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    position: relative;
     padding: 1.875rem 1.25rem;
-    background-color: $c-grey-black;
+    background-image: url('../../../public/Images/banner.png');
+    background-size: contain;
+    overflow: hidden;
     
     a {
         @include flexCenter;
@@ -10,21 +16,38 @@
         height: 2.5rem;
         border-radius: 50%;
         background-color: $c-white;
-        color: $c-grey-text;
+        color: $c-main;
         transition: all $t-duration;
 
         &:hover {
-            background-color: $c-grey-text;
-            color: $c-white;
+            background-color: $c-secondary;
+            color: $c-main;
         }
     }
 
     .active {
-        background-color: $c-grey-text;
-        color: $c-white;
+        background-color: transparent;
+        color: $c-secondary;
     }
 
     li + li {
         margin-top: 1rem;
     }
+}
+
+.bottom {
+    position: absolute;
+    left: 0;
+    bottom: 1rem;
+    max-height: 4rem;
+    color: white;
+}
+
+.regalia {
+    position: absolute;
+    left: 0;
+}
+
+.treeIcon {
+    transform: rotate(90deg) scaleY(-1);
 }

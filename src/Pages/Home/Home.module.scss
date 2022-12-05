@@ -5,10 +5,30 @@
     @include flexCenter;
     flex-direction: column;
     height: 100%;
-    background-color: #fefefe;
     color: $c-grey;
+    position: relative;
 }
 
+.banners {
+    position: absolute;
+    inset: 0;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    padding: 1.5rem;
+
+    img {
+        max-height: 350px;
+    }
+}
+
+.banner {
+   display: flex;
+   justify-content: center;
+   align-items: center;
+   width: 50%;
+}
 .logo {
     filter: drop-shadow(0px 0px 25px #000);
+    max-width: 100%;
 }

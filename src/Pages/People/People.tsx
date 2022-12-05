@@ -2,25 +2,23 @@ import { useState } from "react";
 import classes from "./People.module.scss";
 import { legionaries } from "./legionaries";
 import { Legionary } from "../../Components/Legionary/Legionary";
-import { Tree } from "../../Components/Tree/Tree";
 
 export const People = () => {
   const filters = [
-    "All",
-    "Battle Legion - OG",
-    "Battle Legion - First Legion",
-    "Battle Legion - Second Legion",
+    "Images/banner-0.png",
+    "Images/banner-1.png",
+    "Images/banner-2.png",
   ];
 
-  const [filterIndex, setFilterIndex] = useState(0);
+  const [filterIndex, setFilterIndex] = useState(-1);
 
   const filterPeople = () => {
     switch (filterIndex) {
-      case 1:
+      case 0:
         return legionaries.filter((legionary) => legionary.legion === "OG");
-      case 2:
+      case 1:
         return legionaries.filter((legionary) => legionary.legion === "First");
-      case 3:
+      case 2:
         return legionaries.filter((legionary) => legionary.legion === "Second");
       default:
         return legionaries;
@@ -33,17 +31,25 @@ export const People = () => {
       <div className={classes.people__inner}>
         <h2 className={classes.heading}>Легионерите</h2>
         <ul className={classes.menu} id="menu">
-          <div className={classes.tree}>
-            <Tree legionaries={legionaries} />
-          </div>
-          {filters.map((filter, index) => {
+          {filters.map((filter, i) => {
             return (
               <li
-                className={`${index === filterIndex ? classes.active : ""}`}
-                key={index}
-                onClick={() => setFilterIndex(index)}
+                className={`${classes.banner} ${
+                  i === filterIndex ? classes.active : ""
+                } ${classes.banner0}`}
+                key={i}
               >
-                {filter}
+                <img
+                  src={filter}
+                  alt=""
+                  onClick={() => {
+                    if (filterIndex === i) {
+                      setFilterIndex(-1);
+                      return 0;
+                    }
+                    setFilterIndex(i);
+                  }}
+                />
               </li>
             );
           })}

@@ -28,7 +28,7 @@ export const About = () => {
               </p>
             </div>
           </div>
-          <div className={classes.row}>
+          <div className={`${classes.row} ${classes.reverse}`}>
             <div className={classes.block}>
               <h3 className={`${classes.heading} ${classes.subheading}`}>
                 Устав

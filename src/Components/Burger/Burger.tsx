@@ -1,19 +1,17 @@
-import { Dispatch, SetStateAction, useState } from "react";
+import { Dispatch, SetStateAction } from "react";
 import classes from "./Burger.module.scss";
 
 type Props = {
+  isActive: boolean;
   setNav: Dispatch<SetStateAction<boolean>>;
 };
 
-export const Burger = ({ setNav }: Props) => {
-  const [isActive, setIsActive] = useState(false);
-
+export const Burger = ({ setNav, isActive }: Props) => {
   return (
     <>
       <div
         className={`${classes.burger} ${isActive && classes.open}`}
         onClick={() => {
-          setIsActive(!isActive);
           setNav(!isActive);
         }}
       >

@@ -6,6 +6,7 @@
     flex-direction: column;
     height: 100%;
     justify-content: stretch;
+    overflow-X: hidden;
 }
 
 .background {
@@ -22,6 +23,11 @@
 .timeline {
     @include flexCenter;
     flex-direction: column;
+
+    @include breakpoint-down(mobile) {
+        align-items: start;
+    }
+
     .start {
         @include flexCenter;
         width: 2.5rem;
@@ -31,6 +37,10 @@
         background-color: $c-grey-2;
         color: $c-white;
         position: relative;
+
+        @include breakpoint-down(mobile) {
+            transform: translateX(-47%);
+        }
 
         &:after {
             content: '';
@@ -59,4 +69,8 @@
     font-style: italic;
     font-weight: 500;
     margin-bottom: -2rem;
+
+    @include breakpoint-down(mobile) {
+        padding: 2rem;
+    }
 }

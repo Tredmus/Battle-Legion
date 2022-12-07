@@ -16,6 +16,9 @@ export const Navbar = ({ isActive, setNav }: Props) => {
           <NavLink
             to="/"
             className={({ isActive }) => (isActive ? classes.active : "")}
+            onClick={() => {
+              setNav(false);
+            }}
           >
             <icons.AiFillHome />
           </NavLink>
@@ -24,6 +27,9 @@ export const Navbar = ({ isActive, setNav }: Props) => {
           <NavLink
             to="/about"
             className={({ isActive }) => (isActive ? classes.active : "")}
+            onClick={() => {
+              setNav(false);
+            }}
           >
             <icons.BsInfoCircleFill />
           </NavLink>
@@ -32,6 +38,9 @@ export const Navbar = ({ isActive, setNav }: Props) => {
           <NavLink
             to="/history"
             className={({ isActive }) => (isActive ? classes.active : "")}
+            onClick={() => {
+              setNav(false);
+            }}
           >
             <icons.BiBook />
           </NavLink>
@@ -40,6 +49,9 @@ export const Navbar = ({ isActive, setNav }: Props) => {
           <NavLink
             to="/people"
             className={({ isActive }) => (isActive ? classes.active : "")}
+            onClick={() => {
+              setNav(false);
+            }}
           >
             <icons.BsPeopleFill />
           </NavLink>
@@ -48,6 +60,9 @@ export const Navbar = ({ isActive, setNav }: Props) => {
           <NavLink
             to="/structure"
             className={({ isActive }) => (isActive ? classes.active : "")}
+            onClick={() => {
+              setNav(false);
+            }}
           >
             <icons.MdAccountTree className={classes.treeIcon} />
           </NavLink>
@@ -56,6 +71,9 @@ export const Navbar = ({ isActive, setNav }: Props) => {
           <NavLink
             to="/media"
             className={({ isActive }) => (isActive ? classes.active : "")}
+            onClick={() => {
+              setNav(false);
+            }}
           >
             <icons.FiFilm />
           </NavLink>
@@ -64,6 +82,9 @@ export const Navbar = ({ isActive, setNav }: Props) => {
           <NavLink
             to="/invite"
             className={({ isActive }) => (isActive ? classes.active : "")}
+            onClick={() => {
+              setNav(false);
+            }}
           >
             <icons.MdPersonAdd />
           </NavLink>

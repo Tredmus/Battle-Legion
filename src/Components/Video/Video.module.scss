@@ -6,11 +6,15 @@
     width: 100%;
     position: relative;
     gap: 1rem;
-
+    @include breakpoint-down(mobile) {
+        flex-direction: column;
+    }
 }
 
 .left {
-    // background-color: teal;
+    @include breakpoint-down(mobile) {
+        display: flex;
+    }
 }
 
 .right {

@@ -19,7 +19,7 @@ function App() {
       <HashRouter>
         <div className="App">
           <div className="wrapper">
-            <Header setNav={setActiveNav} />
+            <Header setNav={setActiveNav} isActive={activeNav} />
             <Navbar isActive={activeNav} setNav={setActiveNav} />
             <div className="pages">
               <Routes>

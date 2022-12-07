@@ -5,6 +5,10 @@
     flex-direction: column;
     height: 100%;
     position: relative;
+
+    img {
+        margin: 0 auto;
+    }
 }
 
 .background {
@@ -24,6 +28,8 @@
     display: flex;
     flex-direction: column;
     align-items: start;
+
+
 }
 
 .organization {

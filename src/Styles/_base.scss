@@ -48,7 +48,7 @@ body {
   color: $c-white;
 
   @include breakpoint-down(mobile) {
-    padding-top: 4.5rem;
+    padding-top: 4rem;
   }
  
 }

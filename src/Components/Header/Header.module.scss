@@ -6,13 +6,13 @@
     align-items: center;
     position: fixed;
     padding: .75rem 1.5rem;
-    height: 4.5rem;
+    height: 4rem;
     background-color: $c-main;
     width: 100%;
     z-index: 35;
 
     img {
-        height: 2.5rem;
+        height: 2.8rem;
     }
 
     @include breakpoint-down(mobile) {

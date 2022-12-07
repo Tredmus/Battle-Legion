@@ -34,9 +34,16 @@
     margin: 0 auto 2rem;
     font-weight: 400;
     position: relative;
+    @include breakpoint-down(mobile) {
+        gap: 1rem;
+        flex-wrap: wrap;
+    }
 
     img {
         max-height: 12rem;
+        @include breakpoint-down(mobile) {
+            max-height: 8rem;
+        }
     }
 
     li {
@@ -67,7 +74,10 @@
     position: relative;
     padding-bottom: 2.5rem;
     @include scroll;
-
+    @include breakpoint-down(mobile) {
+        justify-content: center;
+        gap: 1rem;
+    }
    
 }
 

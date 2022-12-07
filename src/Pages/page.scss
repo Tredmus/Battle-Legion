@@ -3,6 +3,10 @@
 .page {
     padding: 2rem;
     line-height: 1;
+
+    @include breakpoint-down(mobile) {
+        padding: 1.5rem;
+    }
 }
 
 .background {
@@ -50,4 +54,14 @@
     display: flex;
     gap: 2rem;
     margin-bottom: 2rem;
+
+    @include breakpoint-down(mobile) {
+        flex-direction: column;
+    }
+}
+
+.reverse {
+    @include breakpoint-down(mobile) {
+        flex-direction: column-reverse;
+    }
 }

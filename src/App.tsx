@@ -12,7 +12,7 @@ import { Invite } from "./Pages/Invite/Invite";
 import { useState } from "react";
 
 function App() {
-  const [activeNav, setActiveNav] = useState(true);
+  const [activeNav, setActiveNav] = useState(false);
 
   return (
     <>

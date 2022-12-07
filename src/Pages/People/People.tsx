@@ -27,40 +27,43 @@ export const People = () => {
   const filtered = filterPeople();
 
   return (
-    <div className={`${classes.page} ${classes.people}`}>
-      <div className={classes.people__inner}>
-        <h2 className={classes.heading}>Легионерите</h2>
-        <ul className={classes.menu} id="menu">
-          {filters.map((filter, i) => {
-            return (
-              <li
-                className={`${classes.banner} ${
-                  i === filterIndex ? classes.active : ""
-                } ${classes.banner0}`}
-                key={i}
-              >
-                <img
-                  src={filter}
-                  alt=""
-                  onClick={() => {
-                    if (filterIndex === i) {
-                      setFilterIndex(-1);
-                      return 0;
-                    }
-                    setFilterIndex(i);
-                  }}
-                />
-              </li>
-            );
-          })}
-        </ul>
-      </div>
-      <div className={classes.body}>
-        <div className={classes.legionaries}>
-          {filtered &&
-            filtered.map((legionary) => <Legionary {...legionary} />)}
+    <>
+      <div className={classes.background}></div>
+      <div className={`${classes.page} ${classes.people}`}>
+        <div className={classes.people__inner}>
+          <h2 className={classes.heading}>Легионерите</h2>
+          <ul className={classes.menu} id="menu">
+            {filters.map((filter, i) => {
+              return (
+                <li
+                  className={`${classes.banner} ${
+                    i === filterIndex ? classes.active : ""
+                  } ${classes.banner0}`}
+                  key={i}
+                >
+                  <img
+                    src={filter}
+                    alt=""
+                    onClick={() => {
+                      if (filterIndex === i) {
+                        setFilterIndex(-1);
+                        return 0;
+                      }
+                      setFilterIndex(i);
+                    }}
+                  />
+                </li>
+              );
+            })}
+          </ul>
+        </div>
+        <div className={classes.body}>
+          <div className={classes.legionaries}>
+            {filtered &&
+              filtered.map((legionary) => <Legionary {...legionary} />)}
+          </div>
         </div>
       </div>
-    </div>
+    </>
   );
 };

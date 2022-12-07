@@ -4,13 +4,16 @@ import { legionaries } from "../People/legionaries";
 
 export const Structure = () => {
   return (
-    <div className={`${classes.page} ${classes.structure}`}>
-      <div className={classes.people__inner}>
-        <h2 className={classes.heading}>Структура</h2>
+    <>
+      <div className={classes.background}></div>
+      <div className={`${classes.page} ${classes.structure}`}>
+        <div className={classes.people__inner}>
+          <h2 className={classes.heading}>Структура</h2>
+        </div>
+        <div className={classes.body}>
+          <Tree legionaries={legionaries} />
+        </div>
       </div>
-      <div className={classes.body}>
-        <Tree legionaries={legionaries} />
-      </div>
-    </div>
+    </>
   );
 };

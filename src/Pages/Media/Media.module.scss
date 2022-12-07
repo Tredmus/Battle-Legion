@@ -8,6 +8,11 @@
     justify-content: stretch;
 }
 
+
+.background {
+    background-image: url('../../../public/Images/page-media.jpg');
+}
+
 .body {
     display: flex;
     flex-direction: column;

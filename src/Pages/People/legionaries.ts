@@ -189,8 +189,8 @@ export const legionaries = [
     {
       name: "Steisi",
       rank: "Legionarius",
-      reportsTo: "Elite.crewxd",
-      legion: "OG",
+      reportsTo: "Kash",
+      legion: "Second",
     },
     {
       name: "Varxovenyjas",
@@ -311,21 +311,26 @@ export const legionaries = [
         reportsTo: "Arazortep",
     },
     {
-        name: "Shizola",
-        rank: "Legionarius",
-        legion: "Second",
-        reportsTo: "Krasiko",
-    },
-    {
         name: "Krasiko",
         rank: "Centurio",
         legion: "Second",
+    },
+    {
+      name: "Kash",
+      rank: "Centurio",
+      legion: "Second",
     },
     {
         name: "Maximko",
         rank: "Centurio",
         legion: "Second",
     },
+    {
+      name: "Wieczny",
+      rank: "Legionarius",
+      legion: "Second",
+      reportsTo: "Kash",
+  },
     {
         name: "F3lizz",
         rank: "Legionarius",
@@ -338,6 +343,13 @@ export const legionaries = [
         legion: "Second",
         reportsTo: "Krasiko",
     },
+    
+    {
+      name: "Shizola",
+      rank: "Legionarius",
+      legion: "Second",
+      reportsTo: "Krasiko",
+  },
     {
         name: "Kankrum",
         rank: "Legionarius",
@@ -348,7 +360,7 @@ export const legionaries = [
         name: "Temptation",
         rank: "Legionarius",
         legion: "Second",
-        reportsTo: "Krasiko",
+        reportsTo: "Kash",
     },
     {
         name: "Anatema",
@@ -363,6 +375,12 @@ export const legionaries = [
         reportsTo: "Maximko",
     },
     {
+      name: "Botev",
+      rank: "Legionarius",
+      legion: "Second",
+      reportsTo: "Kash",
+  },
+    {
         name: "Katyaa",
         rank: "Legionarius",
         legion: "Second",
@@ -374,6 +392,12 @@ export const legionaries = [
         legion: "Second",
         reportsTo: "Maximko",
     },
+    {
+      name: "Tigaragde",
+      rank: "Legionarius",
+      legion: "Second",
+      reportsTo: "Maximko",
+  },
     {
       name: "Bikini",
       rank: "Legionarius",
@@ -396,7 +420,7 @@ export const legionaries = [
       name: "Veneno",
       rank: "Legionarius",
       legion: "Second",
-      reportsTo: "Maximko",
+      reportsTo: "Kash",
     },
     {
       name: "Panayot",

@@ -3,11 +3,11 @@
 
 .structure {
     height: 100%;
-    background-image: url('../../../public/Images/background-tree.jpg');
     background-position: center center;
     background-repeat: no-repeat;
     background-size: cover;
     position: relative;
+    
 
 
     .body {
@@ -18,4 +18,8 @@
        height: calc(100% - 8rem);
        @include scroll;
     }
+}
+
+.background {
+    background-image: url('../../../public/Images/page-structure.jpg');
 }

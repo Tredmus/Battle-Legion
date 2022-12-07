@@ -9,6 +9,17 @@
     background-image: url('../../../public/Images/banner.png');
     background-size: contain;
     overflow: hidden;
+    z-index: 20;
+    transition: all $t-duration;
+
+    @include breakpoint-down(mobile) {
+        position: fixed;
+        position: fixed;
+        top: 4.5rem;
+        left: 0;
+        bottom: 0;
+        transform: translateX(-100%);
+    }
     
     a {
         @include flexCenter;
@@ -18,6 +29,11 @@
         background-color: $c-white;
         color: $c-main;
         transition: all $t-duration;
+
+        @include breakpoint-down(mobile) {
+            width: 3rem;
+            height: 3rem;
+        }
 
         &:hover {
             background-color: $c-secondary;
@@ -33,6 +49,11 @@
     li + li {
         margin-top: 1rem;
     }
+    
+}
+.nav.active {
+    display: flex;
+    transform: translateX(0)
 }
 
 .bottom {
@@ -41,11 +62,6 @@
     bottom: 1rem;
     max-height: 4rem;
     color: white;
-}
-
-.regalia {
-    position: absolute;
-    left: 0;
 }
 
 .treeIcon {

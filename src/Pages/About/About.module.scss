@@ -4,6 +4,11 @@
 .about {
     flex-direction: column;
     height: 100%;
+    position: relative;
+}
+
+.background {
+    background-image: url('../../../public/Images/about.png');
 }
 
 .picture {

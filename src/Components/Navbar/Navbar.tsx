@@ -1,10 +1,16 @@
 import { NavLink } from "react-router-dom";
 import classes from "./Navbar.module.scss";
 import { icons } from "../../Assets/Icons/Icons";
+import { Dispatch, SetStateAction } from "react";
 
-export const Navbar = () => {
+type Props = {
+  isActive: boolean;
+  setNav: Dispatch<SetStateAction<boolean>>;
+};
+
+export const Navbar = ({ isActive, setNav }: Props) => {
   return (
-    <nav className={classes.nav}>
+    <nav className={`${classes.nav} ${isActive && classes.active}`}>
       <ul>
         <li>
           <NavLink
@@ -59,7 +65,7 @@ export const Navbar = () => {
             to="/invite"
             className={({ isActive }) => (isActive ? classes.active : "")}
           >
-            <icons.RiSwordLine />
+            <icons.MdPersonAdd />
           </NavLink>
         </li>
       </ul>

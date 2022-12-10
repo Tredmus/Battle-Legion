@@ -1,24 +1,23 @@
 export const legionaries = [
     {
       name: "Faraonqbg",
-      rank: "Praetor",
+      rank: "Legatus Legionis", 
       legion: "OG",
     },
     {
       name: "Mis_ok",
-      rank: "Centurio",
+      rank: "Praetor",
       legion: "OG",
     },
     {
       name: "Dudie",
-      rank: "Praefectus",
+      rank: "Tribunis Laticlavius",
       legion: "OG",
     },
     {
       name: "Leora",
-      rank: "Legionarius",
+      rank: "Praefectus",
       legion: "OG",
-      reportsTo: "Mis_ok",
     },
     {
       name: "Tredmus",
@@ -49,7 +48,7 @@ export const legionaries = [
       name: "Morskasirena",
       rank: "Legionarius",
       legion: "OG",
-      reportsTo: "Mis_ok",
+      reportsTo: "Atinapalada_ii",
     },
     {
       name: "Barborko",
@@ -83,7 +82,7 @@ export const legionaries = [
       name: "Leire",
       rank: "Legionarius",
       legion: "OG",
-      reportsTo: "Mis_ok",
+      reportsTo: "Atinapalada_ii",
     },
     {
       name: "Compeador",
@@ -136,13 +135,13 @@ export const legionaries = [
       name: "Fars",
       rank: "Legionarius",
       legion: "OG",
-      reportsTo: "Mis_ok",
+      reportsTo: "Atinapalada_ii",
     },
     {
       name: "Atinapalada_ii",
-      rank: "Legionarius",
+      rank: "Centurio",
       legion: "OG",
-      reportsTo: "Mis_ok",
+      reportsTo: "Atinapalada_ii",
     },
     {
       name: "Ponko",
@@ -207,7 +206,7 @@ export const legionaries = [
     {
       name: "I_ivanov",
       rank: "Legionarius",
-      reportsTo: "Barborko",
+      reportsTo: "Atinapalada_ii",
       legion: "OG",
     },
     {

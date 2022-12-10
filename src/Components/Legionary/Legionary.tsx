@@ -20,8 +20,7 @@ export const Legionary = ({ name, rank, legion }: TypeLegionary) => {
     setIsOpen(false);
   };
 
-  if (name === "Faraonqbg") rank = "Legatus";
-  if (name === "Dudie") rank = "Tribunus";
+  if (name === "Leora") rank = "Praetor";
   return (
     <>
       {isOpen && (

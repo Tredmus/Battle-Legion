@@ -9,6 +9,7 @@ import { People } from "./Pages/People/People";
 import { Structure } from "./Pages/Structure/Structure";
 import { Media } from "./Pages/Media/Media";
 import { Invite } from "./Pages/Invite/Invite";
+import { Map } from "./Pages/Map/Map";
 import { useState } from "react";
 
 function App() {
@@ -30,6 +31,7 @@ function App() {
                 <Route path="/structure" element={<Structure />} />
                 <Route path="/media" element={<Media />} />
                 <Route path="/invite" element={<Invite />} />
+                <Route path="/map" element={<Map />} />
               </Routes>
             </div>
           </div>

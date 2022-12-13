@@ -6,7 +6,9 @@ export const NodeBox = ({ node, armies, onClose }) => {
   return (
     <div className={classes.nodeBox}>
       <ul>
-        <li>Node: <span className={classes.prop}>{node.id} {node.name}</span></li>
+        <li><span>Node: <span className={classes.prop}>{node.id}</span></span>
+        <span className={classes.prop}>{node.name} {node.walls}</span>
+        </li>
         <li>Armies here:
           <ul>
             {armies.filter((army) => army.node === node.id).map((army) =>

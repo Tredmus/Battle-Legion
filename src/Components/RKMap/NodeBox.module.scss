@@ -11,6 +11,11 @@
     font-weight: 400;
     color: $c-black;
 
+    li {
+        display: flex;
+        flex-direction: column;
+    }
+
     .prop {
         color: $c-main;
     }

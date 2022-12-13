@@ -1,7 +1,7 @@
 import { useEffect, useState } from 'react';
 import { icon } from 'leaflet';
 import { Marker } from 'react-leaflet';
-import ArmyBanner from '../../Assets/army-banner.png';
+import ArmyBanner from '../../../Assets/army-banner.png';
 
 const ArmyMarker = ({ zoomLevel, ...props }) => {
   const [iconSize, setIconSize] = useState([20, 20]);

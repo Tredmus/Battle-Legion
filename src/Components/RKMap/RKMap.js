@@ -1,9 +1,9 @@
 import { useEffect, useState } from 'react';
-import { MapContainer, TileLayer, useMapEvents, AttributionControl, Marker } from 'react-leaflet';
+import { MapContainer, TileLayer, useMapEvents, AttributionControl } from 'react-leaflet';
 import { latLng, latLngBounds, GridLayer } from 'leaflet';
-import { nodes } from '../Data/nodes';
+import { nodes } from '../../Data/nodes';
 import Control from 'react-leaflet-custom-control';
-import ArmiesButton from './Buttons/ArmiesButton';
+import ArmiesButton from '../Buttons/ArmiesButton';
 import NodeBox from './NodeBox';
 import ArmiesBox from './ArmiesBox';
 import axios from 'axios';

@@ -1,6 +1,6 @@
 import classes from "./Map.module.scss";
-import RKMap from "../../Components/RKMap";
-import "../../Map.css";
+import RKMap from "../../Components/RKMap/RKMap";
+import "./Map.css";
 
 export const Map = () => {
   return (

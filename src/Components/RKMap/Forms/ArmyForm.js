@@ -1,6 +1,6 @@
 import { useState } from 'react';
 import { Box, Typography, Grid, TextField, Button, Select, MenuItem, FormControl, InputLabel } from '@mui/material';
-import CloseButton from '../Buttons/CloseButton';
+import CloseButton from '../../Buttons/CloseButton';
 import axios from 'axios';
 
 const ArmyForm = ({ nodes, onClose }) => {

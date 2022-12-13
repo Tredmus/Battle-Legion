@@ -1,6 +1,6 @@
 import { Box, Button, Typography } from '@mui/material';
 import { useState } from 'react';
-import CloseButton from './Buttons/CloseButton';
+import CloseButton from '../Buttons/CloseButton';
 import ArmyForm from './Forms/ArmyForm';
 
 const ArmiesBox = ({ armies, nodes, onClose }) => {

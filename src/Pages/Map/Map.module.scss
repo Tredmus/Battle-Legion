@@ -8,39 +8,3 @@
     height: 100vh;
     z-index: 1000;
 }
-  
-  .leaflet-container {
-    width: 100vw;
-    height: 100vh;
-    margin-right: 0;
-  }
-  
-  .box {
-      position: absolute;
-      right: 2px;
-      top: 2px;
-    width: 250px;
-    height: 70vh;
-    border-radius: 4px;
-    background: rgba(255, 255, 255, 0.9);
-    padding: 10px;
-  }
-  
-  .close {
-    color: #fff;
-    background-color: #999;
-    position: absolute;
-    top: -8px;
-    right: -8px;
-    font-size: 15px;
-    border-radius: 50%;
-    border: 2px solid #333;
-  }
-  
-  .close:hover,
-  .close:focus {
-    color: #000;
-    text-decoration: none;
-    cursor: pointer;
-    outline: none;
-  }

@@ -1,5 +1,5 @@
 import { useEffect, useState } from 'react';
-import { MapContainer, TileLayer, useMapEvents, AttributionControl } from 'react-leaflet';
+import { MapContainer, TileLayer, useMapEvents, AttributionControl, useMap } from 'react-leaflet';
 import { latLng, latLngBounds, GridLayer } from 'leaflet';
 import { nodes } from '../../Data/nodes';
 import Control from 'react-leaflet-custom-control';
@@ -20,14 +20,14 @@ const ZoomListener = ({ setZoomLevel }) => {
 }
 
 const RKMap = () => {
-
+  const [center, setCenter] = useState([18, -22]);
   const [zoomLevel, setZoomLevel] = useState(6);
   const [selectedNode, setSelectedNode] = useState();
   const [showArmies, setShowArmies] = useState(false);
   const [armies, setArmies] = useState([]);
 
   useEffect(() => {
-    axios.get('/api/armies')
+    axios.get('https://battle-legion-backend.onrender.com/api/armies')
       .then((res) => setArmies(res.data.armies))
       .catch((e) => console.log(e.message));
   }, []);
@@ -57,7 +57,8 @@ const RKMap = () => {
 
   return (
     <MapContainer
-      center={[18, -22]}
+      key={JSON.stringify(center)}
+      center={center}
       zoom={zoomLevel}
       scrollWheelZoom={true}
       maxBoundsViscosity={1.0}
@@ -71,12 +72,13 @@ const RKMap = () => {
         maxZoom={7}
         noWrap={true}
       />
-      <ZoomListener setZoomLevel={setZoomLevel} />
       {nodes.map((node) =>
         <NodeMarker
           key={`node-${node.id}`}
           position={node.position}
           zoomLevel={zoomLevel}
+          armies={armies}
+          node={node}
           eventHandlers={{
             click: (e) => {
               setSelectedNode(node);
@@ -110,17 +112,15 @@ const RKMap = () => {
       </Control>
       <Control>
         {selectedNode && <NodeBox node={selectedNode} armies={armies} onClose={closeBox} />}
-        {showArmies && 
-          <ArmiesBox 
+        {showArmies &&
+          <ArmiesBox
             armies={armies}
             nodes={nodes}
-            onClose={closeBox} 
-            onButtonClick={() =>{
-              setSelectedNode(null);
-              setShowArmies(false);
-            }} 
+            onClose={closeBox}
+            setCenter={setCenter}
           />}
       </Control>
+      <ZoomListener setZoomLevel={setZoomLevel} />
       <AttributionControl prefix="Battle Legion" />
     </MapContainer>
   )

@@ -1,5 +1,3 @@
-import { Box, Typography } from '@mui/material';
-import CloseButton from '../Buttons/CloseButton';
 import classes from './NodeBox.module.scss';
 
 export const NodeBox = ({ node, armies, onClose }) => {

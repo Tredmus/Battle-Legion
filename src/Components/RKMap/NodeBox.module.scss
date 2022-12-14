@@ -1,9 +1,9 @@
 @import '../../styles/main.scss';
 
 .nodeBox {
-    width: 15rem;
+    min-width: 17rem;
     min-height: 20rem;
-    max-height: 40rem;
+    max-height: 98vh;
     padding: .5rem;
     background-color: rgba(255, 255, 255, 0.8);
     border: 1px solid #000;

@@ -5,7 +5,7 @@ export const nodes = [
   { id: 1355, position: [17.82, -17.57], type: "mine", name: "Gold Mine" },
   { id: 1354, position: [17.53, -18.85], type: "city", name: "Veliko Tarnovo", walls: "80%" },
   { id: 1353, position: [17.67, -19.74], type: "node", name: "" },
-  { id: 654, position: [18.33, -21.30], type: "city", name: "Lovech" },
+  { id: 665, position: [18.33, -21.30], type: "city", name: "Lovech" },
   { id: 975, position: [19.89, -21.27], type: "node", name: "" },
   { id: 976, position: [21.08, -21.25], type: "node", name: "" },
   { id: 977, position: [22.55, -20.54], type: "node", name: "" },

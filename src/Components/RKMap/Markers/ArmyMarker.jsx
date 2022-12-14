@@ -7,7 +7,6 @@ const ArmyMarker = ({ zoomLevel, ...props }) => {
   const [iconSize, setIconSize] = useState([20, 20]);
 
   useEffect(() => {
-    const size = 0;
     switch (zoomLevel) {
       case 5:
         setIconSize([22, 22]);
@@ -24,7 +23,8 @@ const ArmyMarker = ({ zoomLevel, ...props }) => {
   const BannerIcon = new icon({
     iconUrl: ArmyBanner,
     iconSize: iconSize,
-    iconAnchor: [iconSize[0] / 2, iconSize[1]]
+    iconAnchor: [iconSize[0] / 2, iconSize[1]],
+    
   });
 
   return (

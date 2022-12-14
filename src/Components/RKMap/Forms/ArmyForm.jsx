@@ -16,7 +16,7 @@ const ArmyForm = ({ nodes, onClose }) => {
       return soldier !== '';
     });
 
-    axios.post('/api/armies', {
+    axios.post('https://battle-legion-backend.onrender.com/api/armies', {
       name: name,
       general: general,
       soldiers: soldiersArray,

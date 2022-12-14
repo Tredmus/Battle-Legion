@@ -1,13 +1,19 @@
 import { Box, Button, Typography } from '@mui/material';
 import { useState } from 'react';
+import { Link } from 'react-router-dom';
 import CloseButton from '../Buttons/CloseButton';
 import ArmyForm from './Forms/ArmyForm';
 
-const ArmiesBox = ({ armies, nodes, onClose }) => {
+const ArmiesBox = ({ armies, nodes, onClose, setCenter }) => {
   const [creatingArmy, setCreatingArmy] = useState(false);
 
   if (creatingArmy) {
     return <ArmyForm nodes={nodes} onClose={onClose} />
+  }
+
+  const handleClick = (army) => {
+    const armyPosition = nodes.find((node) => node.id === army.node).position;
+    setCenter(armyPosition);
   }
 
   return (
@@ -20,8 +26,14 @@ const ArmiesBox = ({ armies, nodes, onClose }) => {
         alignItems: 'left',
       }}>
       <CloseButton onClose={onClose} />
-      <Typography>All armies:</Typography>
-      {armies.map((army) => <Typography>{army.name} - node {army.node}</Typography>)}
+      <p>All armies:</p>
+      {armies.map((army) => 
+        <Link 
+          key={`army-${army.id}`} 
+          onClick={() => handleClick(army)}
+        >
+          {army.name} - node {army.node}
+        </Link>)}
       <Button
         type="submit"
         fullWidth

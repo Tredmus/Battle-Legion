@@ -1,16 +1,9 @@
 import React from 'react';
+import classes from './CloseButton.module.scss';
 
 const CloseButton = ({ onClose }) => {
   return (
-    <button
-        type="button"
-        className="close"
-        data-dismiss="modal"
-        aria-label="Close"
-        onClick={onClose}
-      >
-        <span aria-hidden="true">&times;</span>
-      </button>
+    <button className={classes.close} onClick={onClose} value=""/>
   )
 };
 

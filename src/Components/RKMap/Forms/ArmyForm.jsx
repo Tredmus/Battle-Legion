@@ -1,105 +1,74 @@
 import { useState } from 'react';
-import { Box, Typography, Grid, TextField, Button, Select, MenuItem, FormControl, InputLabel } from '@mui/material';
 import CloseButton from '../../Buttons/CloseButton';
 import axios from 'axios';
+import classes from './ArmyForm.module.scss';
 
-const ArmyForm = ({ nodes, onClose }) => {
+const ArmyForm = ({ nodes, onClose, army }) => {
   const [name, setName] = useState('');
   const [general, setGeneral] = useState('');
   const [soldiers, setSoldiers] = useState('');
   const [node, setNode] = useState(1);
 
   const handleSubmit = (event) => {
-    const soldiersArray = soldiers.split(',').map(function(soldier) {
+    const soldiersArray = soldiers.split('\n').map(function(soldier) {
       return soldier.trim();
     }).filter(function(soldier) {
       return soldier !== '';
     });
 
-    axios.post('https://battle-legion-backend.onrender.com/api/armies', {
+    if(army) {axios.put(`https://battle-legion-backend.onrender.com/api/armies/${army.id}`, {
       name: name,
       general: general,
       soldiers: soldiersArray,
       node: node
     })
-      .catch(e => console.log(e.message));
+      .catch(e => console.log(e.message));}
+    else {
+      axios.post('https://battle-legion-backend.onrender.com/api/armies', {
+        name: name,
+        general: general,
+        soldiers: soldiersArray,
+        node: node
+      })
+        .catch(e => console.log(e.message));
+    }
   }
 
+  const handleDelete = () => {
+    axios.delete(`https://battle-legion-backend.onrender.com/api/armies/${army.id}`)
+      .catch(e => console.log(e.message));
+    }
+
+  console.log('army', army);
+
   return (
-    <Box
-      className="box"
-      sx={{
-        display: 'flex',
-        flexDirection: 'column',
-        alignItems: 'center',
-      }}
-    >
+    <div className={classes.form}>
       <CloseButton onClose={onClose} />
-      <Typography component="h1" variant="h5">
-        Add Army
-      </Typography>
-      <Box component="form" noValidate onSubmit={handleSubmit} sx={{ mt: 1 }}>
-        <Grid container spacing={1}>
-          <Grid item xs={12}>
-            <TextField
-              required
-              autoFocus
-              value={name}
-              name="name"
-              label="Name"
-              size="small"
-              onChange={(e) => setName(e.target.value)}
-            />
-          </Grid>
-          <Grid item xs={12}>
-            <TextField
-              required
-              value={general}
-              name="general"
-              label="General"
-              size="small"
-              onChange={(e) => setGeneral(e.target.value)}
-            />
-          </Grid>
-          <Grid item xs={12}>
-            <TextField
-              value={soldiers}
-              name="soldiers"
-              label="Soldiers"
-              size="small"
-              multiline
-              rows={5}
-              helperText="Separate names with commas"
-              onChange={(e) => setSoldiers(e.target.value)}
-            />
-          </Grid>
-          <Grid item xs={12}>
-            <FormControl required sx={{ minWidth: 80, marginTop: 1 }}>
-              <InputLabel>Node</InputLabel>
-              <Select
-                required
-                name="node"
-                value={node}
-                label="Node"
-                size="small"
-                onChange={(e) => setNode(e.target.value)}
-                MenuProps={{ PaperProps: { sx: { maxHeight: 200 } } }}
-              >
-                {nodes.map((node) => <MenuItem key={`select-${node.id}`} value={node.id}>{node.id}</MenuItem>)}
-              </Select>
-            </FormControl>
-          </Grid>
-        </Grid>
-        <Button
-          type="submit"
-          fullWidth
-          variant="contained"
-          sx={{ mt: 3, mb: 2 }}
-        >
-          Save
-        </Button>
-      </Box>
-    </Box>
+
+      <h5>{army ? 'Edit Army' : 'Add Army'}</h5>
+      <form onSubmit={handleSubmit}>
+        <div className={classes.group}>
+          <label>Name:</label>
+          <input type="text" placeholder='Name' defaultValue={army && army.name && army.name} onChange={(e) => setName(e.target.value)} />
+        </div>
+        <div className={classes.group}>
+          <label>General:</label>
+          <input type="text" placeholder='General' defaultValue={army && army.general && army.general} onChange={(e) => setGeneral(e.target.value)} />
+        </div>
+        <div className={classes.group}>
+          <label>Soldiers:</label>
+          <textarea type="textarea" placeholder={'Soldier 1\nSoldier 2\nSoldier 3'} defaultValue={army && army.soldiers && army.soldiers} onChange={(e) => setSoldiers(e.target.value)} />
+        </div>
+        <div className={classes.group}>
+          <label>Node:</label>
+          <input type={'number'} placeholder='Node' defaultValue={army && army.node && army.node} onChange={(e) => setNode(e.target.value)} />
+        </div>
+
+        <input type="submit" value="Enter" className={classes.btn}/>
+
+        {army && <button onClick={handleDelete} className={`${classes.btn} ${classes.delete}`}>Delete</button>}
+      </form>
+    </div>
   )
 };
 

@@ -3,6 +3,7 @@ import { useState } from 'react';
 import { Link } from 'react-router-dom';
 import CloseButton from '../Buttons/CloseButton';
 import ArmyForm from './Forms/ArmyForm';
+import classes from './ArmiesBox.module.scss';
 
 const ArmiesBox = ({ armies, nodes, onClose, setCenter }) => {
   const [creatingArmy, setCreatingArmy] = useState(false);
@@ -17,34 +18,28 @@ const ArmiesBox = ({ armies, nodes, onClose, setCenter }) => {
   }
 
   return (
-    <Box
-      className="box"
-      alignContent="left"
-      sx={{
-        display: 'flex',
-        flexDirection: 'column',
-        alignItems: 'left',
-      }}>
+    <div className={classes.box}>
       <CloseButton onClose={onClose} />
-      <p>All armies:</p>
+      <h5>All armies:</h5>
+      <ul>
       {armies.map((army) => 
-        <Link 
-          key={`army-${army.id}`} 
-          onClick={() => handleClick(army)}
-        >
-          {army.name} - node {army.node}
-        </Link>)}
-      <Button
-        type="submit"
-        fullWidth
-        variant="contained"
-        size='small'
+        <li>
+          <Link 
+            key={`army-${army.id}`} 
+            onClick={() => handleClick(army)}
+          >
+            {army.name} - node {army.node}
+          </Link>
+      </li>)}
+      </ul>
+      <div
+
         onClick={() => setCreatingArmy(true)}
-        sx={{ mt: 3, mb: 2 }}
+        className={classes.btn}
       >
         Add new army
-      </Button>
-    </Box>
+      </div>
+    </div>
   )
 };
 

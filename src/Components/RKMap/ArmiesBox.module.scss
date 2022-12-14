@@ -1,0 +1,27 @@
+@import '../../styles/main.scss';
+
+.box {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    min-width: 17rem;
+    max-height: 98vh;
+    padding: .5rem;
+    background-color: rgba(255, 255, 255, 0.8);
+    border: 1px solid #000;
+    font-size: 1rem;
+    font-weight: 400;
+    color: $c-black;
+
+
+    .btn {
+        background-color: #868585;
+        margin: 1rem auto;
+        padding: .5rem .5rem;
+
+        &:hover {
+            background-color: #03e3fc;
+            color: $c-white;
+        }
+    }
+}

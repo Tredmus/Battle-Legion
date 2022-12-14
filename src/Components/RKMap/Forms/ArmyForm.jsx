@@ -69,7 +69,7 @@ const ArmyForm = ({ nodes, onClose, army }) => {
 
         <input type="submit" value="Enter" className={classes.btn}/>
 
-        {army && <button onClick={() => {handleDelete(); reload(); }} className={`${classes.btn} ${classes.delete}`}>Delete</button>}
+        {army && <button onClick={() => {reload(); handleDelete();}} className={`${classes.btn} ${classes.delete}`}>Delete</button>}
       </form>
     </div>
   )

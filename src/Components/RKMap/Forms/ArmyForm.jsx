@@ -34,12 +34,15 @@ const ArmyForm = ({ nodes, onClose, army }) => {
     }
   }
 
+  const reload = () => {
+    window.location.reload(false);
+  };
+
   const handleDelete = () => {
     axios.delete(`https://battle-legion-backend.onrender.com/api/armies/${army.id}`)
-      .catch(e => console.log(e.message));
-    }
-
-  console.log('army', army);
+    .catch(e => console.log(e.message));
+    window.location.reload(false);
+  }
 
   return (
     <div className={classes.form}>
@@ -66,7 +69,7 @@ const ArmyForm = ({ nodes, onClose, army }) => {
 
         <input type="submit" value="Enter" className={classes.btn}/>
 
-        {army && <button onClick={handleDelete} className={`${classes.btn} ${classes.delete}`}>Delete</button>}
+        {army && <button onClick={() => {handleDelete(); reload(); }} className={`${classes.btn} ${classes.delete}`}>Delete</button>}
       </form>
     </div>
   )

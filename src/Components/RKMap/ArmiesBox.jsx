@@ -1,4 +1,3 @@
-import { Box, Button, Typography } from '@mui/material';
 import { useState } from 'react';
 import { Link } from 'react-router-dom';
 import CloseButton from '../Buttons/CloseButton';
@@ -23,17 +22,13 @@ const ArmiesBox = ({ armies, nodes, onClose, setCenter }) => {
       <h5>All armies:</h5>
       <ul>
       {armies.map((army) => 
-        <li>
-          <Link 
-            key={`army-${army.id}`} 
-            onClick={() => handleClick(army)}
-          >
+        <li key={`army-${army.id}`} >
+          <Link onClick={() => handleClick(army)}>
             {army.name} - node {army.node}
           </Link>
       </li>)}
       </ul>
       <div
-
         onClick={() => setCreatingArmy(true)}
         className={classes.btn}
       >

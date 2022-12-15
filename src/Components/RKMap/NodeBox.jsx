@@ -1,6 +1,5 @@
-import React, { useState } from 'react';
+import { useState } from 'react';
 import classes from './NodeBox.module.scss';
-import { Modal } from '../Modal/Modal';
 import ArmyForm from './Forms/ArmyForm';
 import { nodes } from '../../Data/nodes';
 
@@ -21,7 +20,7 @@ export const NodeBox = ({ node, armies, onClose }) => {
           <li>Armies here:
             <ul className={classes.armies}>
               {armies.filter((army) => army.node === node.id).map((army) =>
-                <li onClick={() => {setActiveArmy(army);
+                <li key={`army-${army.id}`} onClick={() => {setActiveArmy(army);
                 setShowArmy(true)}}>{army.name}</li>
               )}
           </ul>

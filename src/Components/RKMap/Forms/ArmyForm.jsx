@@ -83,7 +83,7 @@ const ArmyForm = ({ onClose, army }) => {
 
         <input type="submit" value="Enter" className={classes.btn} />
       </form>
-      {army && <button onClick={handleDelete()} className={`${classes.btn} ${classes.delete}`}>Delete</button>}
+      {army && <button onClick={() => { handleDelete(); }} className={`${classes.btn} ${classes.delete}`}>Delete</button>}
     </div>
   )
 };

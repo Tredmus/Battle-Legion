@@ -1,6 +1,9 @@
 @import '../../../styles/main.scss';
 
 .form {
+    display: flex;
+    flex-direction: column;
+    gap: .75rem;
     min-width: 17rem;
     min-height: 20rem;
     max-height: 98vh;

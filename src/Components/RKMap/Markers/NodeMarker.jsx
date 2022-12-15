@@ -42,7 +42,7 @@ const NodeMarker = ({ zoomLevel, armies, node, ...props }) => {
     >
       {armiesOnNode.length !== 0 && 
         <Tooltip className={classes.tooltip} direction="bottom" permanent>
-          {armiesOnNode.map((army) => <p key={army.id}>● {army.name} ({army.soldiers.length + 1})</p>)}
+          {armiesOnNode.map((army) => <p key={army.id}><img src='Images/banner-0.png' alt="" className={classes.flag}/> {army.name} ({army.soldiers.length + 1})</p>)}
         </Tooltip>}
     </Marker>
   )

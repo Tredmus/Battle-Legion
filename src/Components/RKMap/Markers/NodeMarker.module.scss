@@ -1,15 +1,21 @@
 @import '../../../styles/main.scss';
 
 .tooltip {
-    padding: .25rem .5rem;
-    font-size: 1rem;
+    padding: 0 .25rem;
+    font-size: .85rem;
     font-weight: 400;
     color: $c-black;
     z-index: 1111;
 
     p {
+        display: flex;
+        align-items: center;
         &:hover {
             color: red;
         }
     }
+}
+
+.flag {
+    height: 1.5rem;
 }

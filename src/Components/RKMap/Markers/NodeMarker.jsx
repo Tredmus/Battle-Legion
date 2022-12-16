@@ -42,7 +42,39 @@ const NodeMarker = ({ zoomLevel, armies, node, ...props }) => {
     >
       {armiesOnNode.length !== 0 && 
         <Tooltip className={classes.tooltip} direction="bottom" permanent>
-          {armiesOnNode.map((army) => <p key={army.id}><img src='Images/banner-0.png' alt="" className={classes.flag}/> {army.name} ({army.soldiers.length + 1})</p>)}
+          {armiesOnNode.map((army) => 
+          {
+            let flag;
+            switch (army.faction) {
+            case "o.n.e": flag = "Images/flags/o.n.e.png"; break;
+            case "bulgaria": flag = "Images/flags/bulgaria.png"; break;
+            case "bl-0": flag = "Images/flags/bl-0.png"; break;
+            case "bl-1": flag = "Images/flags/bl-1.png"; break;
+            case "bl-2": flag = "Images/flags/bl-2.png"; break;
+            case "csb": flag = "Images/flags/csb.png"; break;
+            case "medici": flag = "Images/flags/medici.png"; break;
+            case "edirne": flag = "Images/flags/edirne.png"; break;
+            case "karesi": flag = "Images/flags/karesi.png"; break;
+            case "bursa": flag = "Images/flags/bursa.png"; break;
+            case "greece": flag = "Images/flags/greece.png"; break;
+            case "wallachia": flag = "Images/flags/wallachia.png"; break;
+            case "serbia": flag = "Images/flags/serbia.png"; break;
+            default: flag = "Images/flags/default.png"; break;
+          }
+          const update = new Date(army.updated_date);
+          const today = new Date();
+          const hour = today.getHours();
+          const diffTime = Math.abs(today - update);
+          const diffDays = diffTime / (1000 * 60 * 60 * 24); 
+          const forUpdate = diffDays >= 1 && hour >=6 ? true : false;
+          let status;
+          switch (army.status) {
+            case "friend": status = forUpdate ? classes.friendForEdit : classes.friend; break;
+            case "neutral": status = forUpdate ? classes.neutralForEdit : classes.neutral; break;
+            case "enemy": status = forUpdate ? classes.enemyForEdit : classes.enemy; break;
+            default: status = classes.neutral; break;
+          }
+          return <p key={army.id}><img src={flag} alt="" className={classes.flag}/> <span className={status}>{army.name}&nbsp;</span> ({army.soldiers.length + 1})</p>})}
         </Tooltip>}
     </Marker>
   )

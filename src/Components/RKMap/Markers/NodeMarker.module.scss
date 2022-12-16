@@ -1,11 +1,12 @@
 @import '../../../styles/main.scss';
 
 .tooltip {
-    padding: 0 .25rem;
+    padding: .15rem .25rem;
     font-size: .85rem;
     font-weight: 400;
     color: $c-black;
     z-index: 1111;
+
 
     p {
         display: flex;
@@ -14,8 +15,37 @@
             color: red;
         }
     }
+
+    p+ p {
+        margin-top: .25rem;
+    }
 }
 
 .flag {
     height: 1.5rem;
+}
+
+
+.friend {
+    color: $c-green;
+}
+
+.friendForEdit {
+    color: $c-green-light;
+}
+
+.neutral {
+    color: $c-yellow;
+}
+
+.neutralForEdit {
+    color: $c-yellow-light;
+}
+
+.enemy {
+    color: $c-red;
+}
+
+.enemyForEdit {
+    color: $c-red-light;
 }

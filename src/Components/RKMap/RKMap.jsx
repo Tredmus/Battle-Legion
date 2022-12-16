@@ -89,7 +89,7 @@ const RKMap = () => {
       )}
       {armies.map((army) => {
         const node = nodes.find(n => n.id === army.node);
-        return <ArmyMarker
+        if(node) return <ArmyMarker
           key={`army-${army.id}`}
           position={node.position}
           zoomLevel={zoomLevel}

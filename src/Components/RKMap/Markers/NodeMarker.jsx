@@ -5,6 +5,7 @@ import classes from './NodeMarker.module.scss'
 
 const NodeMarker = ({ zoomLevel, armies, node, ...props }) => {
   const [iconSize, setIconSize] = useState([20, 20]);
+  const flagImagePath = "Images/flags";
 
   useEffect(() => {
     switch (zoomLevel) {
@@ -34,47 +35,67 @@ const NodeMarker = ({ zoomLevel, armies, node, ...props }) => {
     iconAnchor: [iconSize[0] / 2, iconSize[1] / 2]
   });
 
+  function isAfterRefresh(dateObj1, dateObj2) {
+    // Get the hours and minutes of both dates
+    const hours1 = dateObj1.getUTCHours();
+    const minutes1 = dateObj1.getUTCMinutes();
+    const hours2 = dateObj2.getUTCHours();
+    const minutes2 = dateObj2.getUTCMinutes();
+
+    if (dateObj1.getUTCFullYear() < dateObj2.getUTCFullYear() || dateObj1.getUTCMonth() !== dateObj2.getUTCMonth()) {
+      return true;
+    }
+
+    // Check if the dates are on the same day
+    if (dateObj1.getUTCDate() === dateObj2.getUTCDate()) {
+      // If the dates are on the same day, return true if the first date is before 5:30 and the second date is after 5:30
+      return (hours1 < 3 || (hours1 === 3 && minutes1 < 30)) && (hours2 > 3 || (hours2 === 3 && minutes2 >= 30));
+    } else {
+      // If the dates are on different days, return true if the second date is on the next day after 5:30
+      return dateObj2.getUTCDate() !== dateObj1.getUTCDate() && (hours2 > 3 || (hours2 === 3 && minutes2 >= 30));
+    }
+  }
+
+
   const armiesOnNode = armies.filter((army) => army.node === node.id);
   return (
     <Marker
       {...props}
       icon={NodeIcon}
     >
-      {armiesOnNode.length !== 0 && 
+      {armiesOnNode.length !== 0 &&
         <Tooltip className={classes.tooltip} direction="bottom" permanent>
-          {armiesOnNode.map((army) => 
-          {
+          {armiesOnNode.map((army) => {
             let flag;
             switch (army.faction) {
-            case "o.n.e": flag = "Images/flags/o.n.e.png"; break;
-            case "bulgaria": flag = "Images/flags/bulgaria.png"; break;
-            case "bl-0": flag = "Images/flags/bl-0.png"; break;
-            case "bl-1": flag = "Images/flags/bl-1.png"; break;
-            case "bl-2": flag = "Images/flags/bl-2.png"; break;
-            case "csb": flag = "Images/flags/csb.png"; break;
-            case "medici": flag = "Images/flags/medici.png"; break;
-            case "edirne": flag = "Images/flags/edirne.png"; break;
-            case "karesi": flag = "Images/flags/karesi.png"; break;
-            case "bursa": flag = "Images/flags/bursa.png"; break;
-            case "greece": flag = "Images/flags/greece.png"; break;
-            case "wallachia": flag = "Images/flags/wallachia.png"; break;
-            case "serbia": flag = "Images/flags/serbia.png"; break;
-            default: flag = "Images/flags/default.png"; break;
-          }
-          const update = new Date(army.updated_date);
-          const today = new Date();
-          const hour = today.getHours();
-          const diffTime = Math.abs(today - update);
-          const diffDays = diffTime / (1000 * 60 * 60 * 24); 
-          const forUpdate = diffDays >= 1 && hour >=6 ? true : false;
-          let status;
-          switch (army.status) {
-            case "friend": status = forUpdate ? classes.friendForEdit : classes.friend; break;
-            case "neutral": status = forUpdate ? classes.neutralForEdit : classes.neutral; break;
-            case "enemy": status = forUpdate ? classes.enemyForEdit : classes.enemy; break;
-            default: status = classes.neutral; break;
-          }
-          return <p key={army.id}><img src={flag} alt="" className={classes.flag}/> <span className={status}>{army.name}&nbsp;</span> ({army.soldiers.length + 1})</p>})}
+              case "o.n.e": flag = `${flagImagePath}/o.n.e.png`; break;
+              case "bulgaria": flag = `${flagImagePath}/bulgaria.png`; break;
+              case "bl-0": flag = `${flagImagePath}/bl-0.png`; break;
+              case "bl-1": flag = `${flagImagePath}/bl-1.png`; break;
+              case "bl-2": flag = `${flagImagePath}/bl-2.png`; break;
+              case "csb": flag = `${flagImagePath}/csb.png`; break;
+              case "medici": flag = `${flagImagePath}/medici.png`; break;
+              case "edirne": flag = `${flagImagePath}s/edirne.png`; break;
+              case "karesi": flag = `${flagImagePath}/karesi.png`; break;
+              case "bursa": flag = `${flagImagePath}/bursa.png`; break;
+              case "greece": flag = `${flagImagePath}/greece.png`; break;
+              case "wallachia": flag = `${flagImagePath}/wallachia.png`; break;
+              case "serbia": flag = `${flagImagePath}/serbia.png`; break;
+              default: flag = `${flagImagePath}/default.png`; break;
+            }
+            const lastUpdated = new Date(army.updated_date);
+            const today = new Date();
+            const forUpdate = isAfterRefresh(lastUpdated, today);
+
+            let status;
+            switch (army.status) {
+              case "friend": status = forUpdate ? classes.friendForEdit : classes.friend; break;
+              case "neutral": status = forUpdate ? classes.neutralForEdit : classes.neutral; break;
+              case "enemy": status = forUpdate ? classes.enemyForEdit : classes.enemy; break;
+              default: status = classes.neutral; break;
+            }
+            return <p key={army.id}><img src={flag} alt="" className={classes.flag} /> <span className={status}>{army.name}&nbsp;</span> ({army.soldiers.length + 1})</p>
+          })}
         </Tooltip>}
     </Marker>
   )

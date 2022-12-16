@@ -1,5 +1,5 @@
 import { useEffect, useState } from 'react';
-import { MapContainer, TileLayer, useMapEvents, AttributionControl, useMap } from 'react-leaflet';
+import { MapContainer, TileLayer, useMapEvents, AttributionControl, useMap  } from 'react-leaflet';
 import { latLng, latLngBounds, GridLayer } from 'leaflet';
 import { nodes } from '../../Data/nodes';
 import Control from 'react-leaflet-custom-control';
@@ -111,7 +111,12 @@ const RKMap = () => {
         />
       </Control>
       <Control>
-        {selectedNode && <NodeBox node={selectedNode} armies={armies} onClose={closeBox} />}
+        {selectedNode && 
+        <NodeBox 
+          node={selectedNode} 
+          armies={armies} 
+          onClose={closeBox}
+        />}
         {showArmies &&
           <ArmiesBox
             armies={armies}

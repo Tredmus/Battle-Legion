@@ -1,6 +1,7 @@
-import { useState } from 'react';
-import CloseButton from '../../Buttons/CloseButton';
+import { useState, useEffect, useRef } from 'react';
+import { DomEvent } from 'leaflet';
 import axios from 'axios';
+import CloseButton from '../../Buttons/CloseButton';
 import classes from './ArmyForm.module.scss';
 
 const ArmyForm = ({ onClose, army }) => {
@@ -12,6 +13,13 @@ const ArmyForm = ({ onClose, army }) => {
   const [status, setStatus] = useState(army ? army.status : 'enemy');
   const [node, setNode] = useState(army ? army.node : 1);
   let updatedDate = army ? new Date(army.updated_date).toLocaleString() : null;
+
+  const containerRef = useRef(null);
+  useEffect(() => {
+    if (containerRef.current) {
+      DomEvent.disableScrollPropagation(containerRef.current);
+    }
+  }, [containerRef]);
 
   const handleSubmit = (event) => {
     const soldiersArray = soldiers.split('\n').map(function (soldier) {
@@ -64,10 +72,8 @@ const ArmyForm = ({ onClose, army }) => {
       .catch(e => console.log(e.message));
   }
 
-  console.log("army", army);
-
   return (
-    <div className={classes.form}>
+    <div className={classes.form} ref={containerRef}>
       <CloseButton onClose={onClose} />
 
         <h5>{army ? 'Edit Army' : 'Add Army'}</h5>

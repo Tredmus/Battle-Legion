@@ -5,15 +5,16 @@
     font-size: .85rem;
     font-weight: 400;
     color: $c-black;
-    z-index: 1111;
+    z-index: 1110;
+    &:hover {
+        z-index: 1111;
+    }
 
 
     p {
         display: flex;
         align-items: center;
-        &:hover {
-            color: red;
-        }
+        transition: all $t-duration;
     }
 
     p+ p {
@@ -23,8 +24,18 @@
 
 .flag {
     height: 1.5rem;
+    margin-right: .25rem;
+    transition: all $t-duration;
 }
 
+.bigFlag {
+    height: 2.5rem;
+}
+
+.walls {
+    font-size: 1rem;
+    margin-right: .25rem;
+}
 
 .friend {
     color: $c-green;
@@ -35,11 +46,11 @@
 }
 
 .neutral {
-    color: $c-yellow;
+    color: $c-black;
 }
 
 .neutralForEdit {
-    color: $c-yellow-light;
+    color: $c-grey-light;
 }
 
 .enemy {

@@ -89,10 +89,12 @@ const RKMap = () => {
       )}
       {armies.map((army) => {
         const node = nodes.find(n => n.id === army.node);
+        const armiesOnNode = armies.filter(army => army.node === node.id);
         if(node) return <ArmyMarker
           key={`army-${army.id}`}
           position={node.position}
           zoomLevel={zoomLevel}
+          armies={armiesOnNode}
           eventHandlers={{
             click: (e) => {
               setSelectedNode(node);

@@ -103,6 +103,9 @@ const ArmyForm = ({ onClose, army }) => {
             <option value={"bl-2"}>Second Legion</option>
             <option value="csb">Carthage Sacred Band</option>
             <option value="medici">Medici</option>
+            <option value="chaos">Lords of Chaos</option>
+            <option value="vidin">Baba Vida</option>
+            <option value="haiduks">Haiduk Batalion</option>
             <option value="edirne">Edirne</option>
             <option value="karesi">Karesi</option>
             <option value="bursa">Bursa</option>

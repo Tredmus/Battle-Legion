@@ -2,6 +2,7 @@ import { useEffect, useState } from 'react';
 import { divIcon } from 'leaflet';
 import { Marker, Tooltip } from 'react-leaflet';
 import classes from './NodeMarker.module.scss'
+import { icons } from '../../../Assets/Icons/Icons';
 
 const NodeMarker = ({ zoomLevel, armies, node, ...props }) => {
   const [iconSize, setIconSize] = useState([20, 20]);
@@ -75,6 +76,9 @@ const NodeMarker = ({ zoomLevel, armies, node, ...props }) => {
               case "bl-2": flag = `${flagImagePath}/bl-2.png`; break;
               case "csb": flag = `${flagImagePath}/csb.png`; break;
               case "medici": flag = `${flagImagePath}/medici.png`; break;
+              case "chaos": flag = `${flagImagePath}/chaos.png`; break;
+              case "vidin": flag = `${flagImagePath}/vidin.png`; break;
+              case "haiduks": flag = `${flagImagePath}/haiduks.png`; break;
               case "edirne": flag = `${flagImagePath}s/edirne.png`; break;
               case "karesi": flag = `${flagImagePath}/karesi.png`; break;
               case "bursa": flag = `${flagImagePath}/bursa.png`; break;
@@ -94,7 +98,7 @@ const NodeMarker = ({ zoomLevel, armies, node, ...props }) => {
               case "enemy": status = forUpdate ? classes.enemyForEdit : classes.enemy; break;
               default: status = classes.neutral; break;
             }
-            return <p key={army.id}><img src={flag} alt="" className={classes.flag} /> <span className={status}>{army.name}&nbsp;</span> ({army.soldiers.length + 1})</p>
+            return <p key={army.id}><img src={flag} alt="" className={`${classes.flag} ${zoomLevel < 7 ? classes.bigFlag : ''}`} />{army.walls && <icons.TbBuildingCastle className={classes.walls}/>} {zoomLevel === 7 ? <span className={status}>{army.name}&nbsp;</span> : ''} ({army.soldiers.length + 1})</p>
           })}
         </Tooltip>}
     </Marker>

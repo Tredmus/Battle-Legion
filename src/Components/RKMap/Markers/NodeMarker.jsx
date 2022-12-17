@@ -98,7 +98,7 @@ const NodeMarker = ({ zoomLevel, armies, node, ...props }) => {
               case "enemy": status = forUpdate ? classes.enemyForEdit : classes.enemy; break;
               default: status = classes.neutral; break;
             }
-            return <p key={army.id}><img src={flag} alt="" className={`${classes.flag} ${zoomLevel < 7 ? classes.bigFlag : ''}`} />{army.walls && <icons.TbBuildingCastle className={classes.walls}/>} {zoomLevel === 7 ? <span className={status}>{army.name}&nbsp;</span> : ''} ({army.soldiers.length + 1})</p>
+            return <p key={army.id}><img src={flag} alt="" className={`${classes.flag} ${zoomLevel < 6 ? classes.bigFlag : ''}`} />{army.walls && <icons.TbBuildingCastle className={classes.walls}/>} {zoomLevel >= 6? <span className={status}>{army.name}&nbsp;</span> : ''} ({army.soldiers.length + 1})</p>
           })}
         </Tooltip>}
     </Marker>

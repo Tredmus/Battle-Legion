@@ -1,0 +1,77 @@
+@import '../../styles/main.scss';
+
+.login {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: fixed;
+    inset: 0;
+    background-image: url('../../../public/Images/map.png');
+    background-position: center center;
+    background-repeat: no-repeat;
+    background-size: cover;
+
+    form {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        background-color: rgba($color: #d3d3d3, $alpha: .8);
+        padding: 1.5rem;
+        color: $c-grey;
+        border-radius: 1rem;
+        border: 2px solid $c-black;
+
+        
+    }
+
+    h2 {
+        color: $c-main;
+    }
+
+    form {
+        display: flex;
+        flex-direction: column;
+        gap: .75rem;
+    }
+
+    label {
+        font-weight: 500;
+    }
+
+    input {
+        padding: .25rem .5rem;
+        font-size: 1rem;
+        font-weight: 400;
+        color: $c-black;
+        border: 2px solid transparent;
+        transition: all $t-duration ease-in-out;
+        width: 15rem;
+
+
+        &:focus {
+            outline: none;
+            border: 2px solid #03e3fc;
+        }
+    }
+
+    .group {
+        display: flex;
+        flex-direction: column;
+        gap: .25rem;
+    }
+
+    .btn {
+        background-color: #868585;
+        color: $c-white;
+        max-width: 15rem;
+        width: 100%;
+        padding: .5rem .5rem;
+        margin-top: 1rem;
+        flex-grow: 1;
+
+        &:hover {
+            background-color: #03e3fc;
+        }
+    }
+}

@@ -128,7 +128,7 @@ const RKMap = () => {
           />}
       </Control>
       <ZoomListener setZoomLevel={setZoomLevel} />
-      <AttributionControl prefix="Battle Legion" />
+      <AttributionControl prefix="Battle Legion Tacking System" />
     </MapContainer>
   )
 };

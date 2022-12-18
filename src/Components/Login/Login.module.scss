@@ -10,6 +10,7 @@
     background-position: center center;
     background-repeat: no-repeat;
     background-size: cover;
+    padding: .75rem;
 
     form {
         display: flex;
@@ -27,6 +28,7 @@
 
     h2 {
         color: $c-main;
+        text-align: center;
     }
 
     form {

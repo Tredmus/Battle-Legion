@@ -30,7 +30,7 @@ const ArmyForm = ({ onClose, army }) => {
     });
 
     if (army) {
-      axios.put(`https://backend-battle-legion.onrender.com/api/armies/${army.id}`, {
+      axios.put(`https://battle-legion-backend.onrender.com/api/armies/${army.id}`, {
         name: name,
         general: general,
         soldiers: soldiersArray,
@@ -54,7 +54,7 @@ const ArmyForm = ({ onClose, army }) => {
         });
     }
     else {
-      axios.post('https://backend-battle-legion.onrender.com/api/armies', {
+      axios.post('https://battle-legion-backend.onrender.com/api/armies', {
         name: name,
         general: general,
         soldiers: soldiersArray,
@@ -83,7 +83,7 @@ const ArmyForm = ({ onClose, army }) => {
   };
 
   const handleDelete = () => {
-    axios.delete(`https://backend-battle-legion.onrender.com/api/armies/${army.id}`, {
+    axios.delete(`https://battle-legion-backend.onrender.com/api/armies/${army.id}`, {
       headers: {
         Authorization: `Bearer ${token}`
       }

@@ -12,6 +12,7 @@ const ArmyForm = ({ onClose, army }) => {
   const [faction, setFaction] = useState(army ? army.faction : 'o.n.e');
   const [status, setStatus] = useState(army ? army.status : 'enemy');
   const [node, setNode] = useState(army ? army.node : 1);
+  const token = window.localStorage.getItem('loggedBLUser');
   let updatedDate = army ? new Date(army.updated_date).toLocaleString() : null;
 
   const containerRef = useRef(null);
@@ -29,7 +30,7 @@ const ArmyForm = ({ onClose, army }) => {
     });
 
     if (army) {
-      axios.put(`https://battle-legion-backend.onrender.com/api/armies/${army.id}`, {
+      axios.put(`https://backend-battle-legion.onrender.com/api/armies/${army.id}`, {
         name: name,
         general: general,
         soldiers: soldiersArray,
@@ -37,26 +38,43 @@ const ArmyForm = ({ onClose, army }) => {
         status: status,
         walls: walls,
         node: node
-        
+      }, {
+        headers: {
+          Authorization: `Bearer ${token}`
+        }
       })
         .then(() => {
           reload();
         })
-        .catch(e => console.log(e.message));
+        .catch(e => {
+          if (e.response.status === 401) {
+            window.localStorage.removeItem('loggedBLUser');
+            window.location.reload();
+          }
+        });
     }
     else {
-      axios.post('https://battle-legion-backend.onrender.com/api/armies', {
+      axios.post('https://backend-battle-legion.onrender.com/api/armies', {
         name: name,
         general: general,
         soldiers: soldiersArray,
         faction: faction,
         status: status,
         node: node
+      }, {
+        headers: {
+          Authorization: `Bearer ${token}`
+        }
       })
         .then(() => {
           reload();
         })
-        .catch(e => console.log(e.message));
+        .catch(e => {
+          if (e.response.status === 401) {
+            window.localStorage.removeItem('loggedBLUser');
+            window.location.reload();
+          }
+        });
     }
   }
 
@@ -65,19 +83,28 @@ const ArmyForm = ({ onClose, army }) => {
   };
 
   const handleDelete = () => {
-    axios.delete(`https://battle-legion-backend.onrender.com/api/armies/${army.id}`)
+    axios.delete(`https://backend-battle-legion.onrender.com/api/armies/${army.id}`, {
+      headers: {
+        Authorization: `Bearer ${token}`
+      }
+    })
       .then(() => {
         reload();
       })
-      .catch(e => console.log(e.message));
+      .catch(e => {
+        if (e.response.status === 401) {
+          window.localStorage.removeItem('loggedBLUser');
+          window.location.reload();
+        }
+      });
   }
 
   return (
     <div className={classes.form} ref={containerRef}>
       <CloseButton onClose={onClose} />
 
-        <h5>{army ? 'Edit Army' : 'Add Army'}</h5>
-        <form onSubmit={handleSubmit}>
+      <h5>{army ? 'Edit Army' : 'Add Army'}</h5>
+      <form onSubmit={handleSubmit}>
         <div className={classes.group}>
           <label>Name:</label>
           <input type="text" placeholder='Name' defaultValue={name} onChange={(e) => setName(e.target.value)} />
@@ -122,14 +149,14 @@ const ArmyForm = ({ onClose, army }) => {
             <option value="enemy">Enemy</option>
           </select>
         </div>
-        {army && 
-        <div className={classes.group}>
-          <label>Behind Walls:</label>
-          <select defaultValue={walls} onChange={(e) => setWalls(e.target.value)}>
-            <option value={true}>Yes</option>
-            <option value={false}>No</option>
-          </select>
-        </div>
+        {army &&
+          <div className={classes.group}>
+            <label>Behind Walls:</label>
+            <select defaultValue={walls} onChange={(e) => setWalls(e.target.value)}>
+              <option value={true}>Yes</option>
+              <option value={false}>No</option>
+            </select>
+          </div>
         }
         <div className={classes.group}>
           <label>Node:</label>

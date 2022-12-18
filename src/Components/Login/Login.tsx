@@ -1,12 +1,32 @@
 import { useState } from "react";
 import classes from "./Login.module.scss";
-import axios from "axios";
-
-const handleLogin = () => {};
+import loginService from '../../Services/login';
 
 export const Login = () => {
-  const [name, setName] = useState("");
-  const [password, setPassword] = useState("");
+  const [username, setUsername] = useState('');
+  const [password, setPassword] = useState('');
+  const [user, setUser] = useState(null);
+
+  const handleLogin = async (e: React.FormEvent<HTMLFormElement>) => {
+    e.preventDefault();
+
+    try {
+      const user = await loginService.login({
+        username, password,
+      })
+
+      window.localStorage.setItem(
+        'loggedBLUser', user.token
+      );
+      
+      setUser(user);
+      setUsername('')
+      setPassword('')
+      window.location.reload();
+    } catch (error) {
+      console.log(error);
+    }
+  };
 
   return (
     <div className={classes.login}>
@@ -17,7 +37,8 @@ export const Login = () => {
           <input
             type="text"
             placeholder="Name"
-            onChange={(e) => setName(e.target.value)}
+            value={username}
+            onChange={(e) => setUsername(e.target.value)}
           />
         </div>
         <div className={classes.group}>
@@ -25,6 +46,7 @@ export const Login = () => {
           <input
             type="password"
             placeholder="Password"
+            value={password}
             onChange={(e) => setPassword(e.target.value)}
           />
         </div>

@@ -27,8 +27,6 @@ const ArmyMarker = ({ zoomLevel, armies, ...props }) => {
     if(army.status === "friend") friend++;
   });
 
-  console.log(armies);
-
   let flag = "Images/flags/neutral.png";
   if(enemy > 0 && friend === 0) flag = "Images/flags/enemy.png";
   if(enemy === 0 && friend > 0) flag = "Images/flags/friend.png";

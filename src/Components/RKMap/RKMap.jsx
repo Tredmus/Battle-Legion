@@ -1,5 +1,5 @@
 import { useEffect, useState } from 'react';
-import { MapContainer, TileLayer, useMapEvents, AttributionControl, useMap  } from 'react-leaflet';
+import { MapContainer, TileLayer, useMapEvents, AttributionControl, useMap } from 'react-leaflet';
 import { latLng, latLngBounds, GridLayer } from 'leaflet';
 import { nodes } from '../../Data/nodes';
 import Control from 'react-leaflet-custom-control';
@@ -27,9 +27,20 @@ const RKMap = () => {
   const [armies, setArmies] = useState([]);
 
   useEffect(() => {
-    axios.get('https://battle-legion-backend.onrender.com/api/armies')
+    const token = window.localStorage.getItem('loggedBLUser');
+    axios.get('https://battle-legion-backend.onrender.com/api/armies', {
+      headers: {
+        Authorization: `Bearer ${token}`
+      }
+    })
       .then((res) => setArmies(res.data.armies))
-      .catch((e) => console.log(e.message));
+      .catch((e) => {
+        if (e.response.status === 401) {
+          // Token has expired
+          window.localStorage.removeItem('loggedBLUser');
+          window.location.reload();
+        }
+      });
   }, []);
 
   const bounds = latLngBounds(latLng(-40, -180), latLng(90, 30))
@@ -89,8 +100,11 @@ const RKMap = () => {
       )}
       {armies.map((army) => {
         const node = nodes.find(n => n.id === army.node);
+        if (!node) {
+          return null;
+        }
         const armiesOnNode = armies.filter(army => army.node === node.id);
-        if(node) return <ArmyMarker
+        return <ArmyMarker
           key={`army-${army.id}`}
           position={node.position}
           zoomLevel={zoomLevel}
@@ -113,12 +127,12 @@ const RKMap = () => {
         />
       </Control>
       <Control>
-        {selectedNode && 
-        <NodeBox 
-          node={selectedNode} 
-          armies={armies} 
-          onClose={closeBox}
-        />}
+        {selectedNode &&
+          <NodeBox
+            node={selectedNode}
+            armies={armies}
+            onClose={closeBox}
+          />}
         {showArmies &&
           <ArmiesBox
             armies={armies}

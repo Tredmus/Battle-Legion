@@ -134,8 +134,13 @@ const ArmyForm = ({ onClose, army }) => {
             <option value="vidin">Baba Vida</option>
             <option value="haiduks">Haiduk Batalion</option>
             <option value="edirne">Edirne</option>
+            <option value="ron">Riders of the Night</option>
             <option value="karesi">Karesi</option>
+            <option value="altay">Altay Ailesi</option>
+            <option value="seljuk">Selçuklu Ailesi</option>
+            <option value="sl">Steel Legion</option>
             <option value="bursa">Bursa</option>
+            <option value="saruhan">Saruhanlı Ailesi</option>
             <option value="greece">Greece</option>
             <option value="wallachia">Wallachia</option>
             <option value="serbia">Serbia</option>

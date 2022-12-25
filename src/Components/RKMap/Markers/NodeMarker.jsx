@@ -80,8 +80,13 @@ const NodeMarker = ({ zoomLevel, armies, node, ...props }) => {
               case "vidin": flag = `${flagImagePath}/vidin.png`; break;
               case "haiduks": flag = `${flagImagePath}/haiduks.png`; break;
               case "edirne": flag = `${flagImagePath}s/edirne.png`; break;
+              case "ron": flag = `${flagImagePath}/ron.png`; break;
               case "karesi": flag = `${flagImagePath}/karesi.png`; break;
+              case "altay": flag = `${flagImagePath}/altay.png`; break;
+              case "seljuk": flag = `${flagImagePath}/seljuk.png`; break;
               case "bursa": flag = `${flagImagePath}/bursa.png`; break;
+              case "saruhan": flag = `${flagImagePath}/saruhan.png`; break;
+              case "sl": flag = `${flagImagePath}/sl.png`; break;
               case "greece": flag = `${flagImagePath}/greece.png`; break;
               case "wallachia": flag = `${flagImagePath}/wallachia.png`; break;
               case "serbia": flag = `${flagImagePath}/serbia.png`; break;

@@ -1,10 +1,10 @@
 import { useState } from "react";
 import classes from "./Login.module.scss";
-import loginService from '../../Services/login';
+import loginService from "../../Services/login";
 
 export const Login = () => {
-  const [username, setUsername] = useState('');
-  const [password, setPassword] = useState('');
+  const [username, setUsername] = useState("");
+  const [password, setPassword] = useState("");
   const [user, setUser] = useState(null);
 
   const handleLogin = async (e: React.FormEvent<HTMLFormElement>) => {
@@ -12,16 +12,16 @@ export const Login = () => {
 
     try {
       const user = await loginService.login({
-        username, password,
-      })
+        username,
+        password,
+      });
 
-      window.localStorage.setItem(
-        'loggedBLUser', user.token
-      );
-      
+      window.localStorage.setItem("loggedBLUser", user.token);
+      window.localStorage.setItem("faction", user.faction);
+
       setUser(user);
-      setUsername('')
-      setPassword('')
+      setUsername("");
+      setPassword("");
       window.location.reload();
     } catch (error) {
       console.log(error);

@@ -87,6 +87,7 @@ const NodeMarker = ({ zoomLevel, armies, node, ...props }) => {
               case "bursa": flag = `${flagImagePath}/bursa.png`; break;
               case "saruhan": flag = `${flagImagePath}/saruhan.png`; break;
               case "sl": flag = `${flagImagePath}/sl.png`; break;
+              case "albania": flag = `${flagImagePath}/albania.png`; break;
               case "greece": flag = `${flagImagePath}/greece.png`; break;
               case "wallachia": flag = `${flagImagePath}/wallachia.png`; break;
               case "serbia": flag = `${flagImagePath}/serbia.png`; break;

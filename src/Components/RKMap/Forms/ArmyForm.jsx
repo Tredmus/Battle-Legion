@@ -15,6 +15,13 @@ const ArmyForm = ({ onClose, army }) => {
   const token = window.localStorage.getItem('loggedBLUser');
   let updatedDate = army ? new Date(army.updated_date).toLocaleString() : null;
 
+  const bursaArmies = ['o.n.e', 'edirne', 'ron', 'karesi', 'altay', 'seljuk', 'sl', 'bursa', 'saruhan', 'greece', 'wallachia', 'serbia'];
+  const [isBursaArmy, setIsBursaArmy] = useState(bursaArmies.includes(faction));
+  const albaniaArmies = ['o.n.e', 'albania', 'serbia', 'wallachia', 'greece'];
+  const [isAlbaniaArmy, setIsAlbaniaArmy] = useState(albaniaArmies.includes(faction));
+
+  const userFaction = window.localStorage.getItem('faction');
+
   const containerRef = useRef(null);
   useEffect(() => {
     if (containerRef.current) {
@@ -124,15 +131,21 @@ const ArmyForm = ({ onClose, army }) => {
           <label>Faction:</label>
           <select defaultValue={faction} onChange={(e) => setFaction(e.target.value)}>
             <option value="o.n.e">O.N.E</option>
+            {userFaction === "admin" && 
+            <>
             <option value="bulgaria">Bulgaria</option>
             <option value="bl-0">Legion Legatus</option>
             <option value="bl-1">First Legion</option>
-            <option value={"bl-2"}>Second Legion</option>
+            <option value="bl-2">Second Legion</option>
             <option value="csb">Carthage Sacred Band</option>
             <option value="medici">Medici</option>
             <option value="chaos">Lords of Chaos</option>
             <option value="vidin">Baba Vida</option>
             <option value="haiduks">Haiduk Batalion</option>
+            </>
+            }
+            {(userFaction === "admin" || userFaction === "bursa") && 
+            <>
             <option value="edirne">Edirne</option>
             <option value="ron">Riders of the Night</option>
             <option value="karesi">Karesi</option>
@@ -141,6 +154,11 @@ const ArmyForm = ({ onClose, army }) => {
             <option value="sl">Steel Legion</option>
             <option value="bursa">Bursa</option>
             <option value="saruhan">Saruhanlı Ailesi</option>
+            </>
+            }
+            {(userFaction === "admin" || userFaction === "albania") && 
+            <option value="albania">Albania</option>
+            }
             <option value="greece">Greece</option>
             <option value="wallachia">Wallachia</option>
             <option value="serbia">Serbia</option>
@@ -167,9 +185,13 @@ const ArmyForm = ({ onClose, army }) => {
           <label>Node:</label>
           <input type={'number'} placeholder='Node' defaultValue={node} onChange={(e) => setNode(e.target.value)} />
         </div>
+        {(userFaction === "admin"  ||  (userFaction === "bursa" && (isBursaArmy || !army)) || (userFaction === "albania" && (isAlbaniaArmy || !army))) && 
         <input type="submit" value="Enter" className={classes.btn} />
+        }
       </form>
-      {army && <button onClick={() => { handleDelete(); }} className={`${classes.btn} ${classes.delete}`}>Delete</button>}
+      {(army && (userFaction === "admin"  ||  (userFaction === "bursa" && isBursaArmy) || (userFaction === "albania" && isAlbaniaArmy))) && 
+        <button onClick={() => { handleDelete(); }} className={`${classes.btn} ${classes.delete}`}>Delete</button>
+        }
     </div>
   )
 };

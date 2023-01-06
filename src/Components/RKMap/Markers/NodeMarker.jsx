@@ -1,8 +1,8 @@
-import { useEffect, useState } from 'react';
-import { divIcon } from 'leaflet';
-import { Marker, Tooltip } from 'react-leaflet';
-import classes from './NodeMarker.module.scss'
-import { icons } from '../../../Assets/Icons/Icons';
+import { useEffect, useState } from "react";
+import { divIcon } from "leaflet";
+import { Marker, Tooltip } from "react-leaflet";
+import classes from "./NodeMarker.module.scss";
+import { icons } from "../../../Assets/Icons/Icons";
 
 const NodeMarker = ({ zoomLevel, armies, node, ...props }) => {
   const [iconSize, setIconSize] = useState([20, 20]);
@@ -33,7 +33,7 @@ const NodeMarker = ({ zoomLevel, armies, node, ...props }) => {
         </svg>`,
     className: "svg-icon",
     iconSize: iconSize,
-    iconAnchor: [iconSize[0] / 2, iconSize[1] / 2]
+    iconAnchor: [iconSize[0] / 2, iconSize[1] / 2],
   });
 
   function isAfterRefresh(dateObj1, dateObj2) {
@@ -43,55 +43,142 @@ const NodeMarker = ({ zoomLevel, armies, node, ...props }) => {
     const hours2 = dateObj2.getUTCHours();
     const minutes2 = dateObj2.getUTCMinutes();
 
-    if (dateObj1.getUTCFullYear() < dateObj2.getUTCFullYear() || dateObj1.getUTCMonth() !== dateObj2.getUTCMonth()) {
+    if (
+      dateObj1.getUTCFullYear() < dateObj2.getUTCFullYear() ||
+      dateObj1.getUTCMonth() !== dateObj2.getUTCMonth()
+    ) {
       return true;
     }
 
     // Check if the dates are on the same day
     if (dateObj1.getUTCDate() === dateObj2.getUTCDate()) {
       // If the dates are on the same day, return true if the first date is before 5:30 and the second date is after 5:30
-      return (hours1 < 3 || (hours1 === 3 && minutes1 < 30)) && (hours2 > 3 || (hours2 === 3 && minutes2 >= 30));
+      return (
+        (hours1 < 3 || (hours1 === 3 && minutes1 < 30)) &&
+        (hours2 > 3 || (hours2 === 3 && minutes2 >= 30))
+      );
     } else {
       // If the dates are on different days, return true if the second date is on the next day after 5:30
-      return dateObj2.getUTCDate() !== dateObj1.getUTCDate() && (hours2 > 3 || (hours2 === 3 && minutes2 >= 30));
+      return (
+        dateObj2.getUTCDate() !== dateObj1.getUTCDate() &&
+        (hours2 > 3 || (hours2 === 3 && minutes2 >= 30))
+      );
     }
   }
 
-
   const armiesOnNode = armies.filter((army) => army.node === node.id);
   return (
-    <Marker
-      {...props}
-      icon={NodeIcon}
-    >
-      {armiesOnNode.length !== 0 &&
+    <Marker {...props} icon={NodeIcon}>
+      {armiesOnNode.length !== 0 && (
         <Tooltip className={classes.tooltip} direction="bottom" permanent>
           {armiesOnNode.map((army) => {
-            let flag;
+            let flagFaction;
+            let flagCountry;
             switch (army.faction) {
-              case "o.n.e": flag = `${flagImagePath}/o.n.e.png`; break;
-              case "bulgaria": flag = `${flagImagePath}/bulgaria.png`; break;
-              case "bl-0": flag = `${flagImagePath}/bl-0.png`; break;
-              case "bl-1": flag = `${flagImagePath}/bl-1.png`; break;
-              case "bl-2": flag = `${flagImagePath}/bl-2.png`; break;
-              case "csb": flag = `${flagImagePath}/csb.png`; break;
-              case "medici": flag = `${flagImagePath}/medici.png`; break;
-              case "chaos": flag = `${flagImagePath}/chaos.png`; break;
-              case "vidin": flag = `${flagImagePath}/vidin.png`; break;
-              case "haiduks": flag = `${flagImagePath}/haiduks.png`; break;
-              case "edirne": flag = `${flagImagePath}s/edirne.png`; break;
-              case "ron": flag = `${flagImagePath}/ron.png`; break;
-              case "karesi": flag = `${flagImagePath}/karesi.png`; break;
-              case "altay": flag = `${flagImagePath}/altay.png`; break;
-              case "seljuk": flag = `${flagImagePath}/seljuk.png`; break;
-              case "bursa": flag = `${flagImagePath}/bursa.png`; break;
-              case "saruhan": flag = `${flagImagePath}/saruhan.png`; break;
-              case "sl": flag = `${flagImagePath}/sl.png`; break;
-              case "albania": flag = `${flagImagePath}/albania.png`; break;
-              case "greece": flag = `${flagImagePath}/greece.png`; break;
-              case "wallachia": flag = `${flagImagePath}/wallachia.png`; break;
-              case "serbia": flag = `${flagImagePath}/serbia.png`; break;
-              default: flag = `${flagImagePath}/default.png`; break;
+              case "o.n.e":
+                flagFaction = `${flagImagePath}/o.n.e.png`;
+                break;
+              case "bulgaria":
+                flagFaction = `${flagImagePath}/bulgaria.png`;
+                break;
+              case "bl-0":
+                flagFaction = `${flagImagePath}/bl-0.png`;
+                break;
+              case "bl-1":
+                flagFaction = `${flagImagePath}/bl-1.png`;
+                break;
+              case "bl-2":
+                flagFaction = `${flagImagePath}/bl-2.png`;
+                break;
+              case "csb":
+                flagFaction = `${flagImagePath}/csb.png`;
+                break;
+              case "medici":
+                flagFaction = `${flagImagePath}/medici.png`;
+                break;
+              case "chaos":
+                flagFaction = `${flagImagePath}/chaos.png`;
+                break;
+              case "vidin":
+                flagFaction = `${flagImagePath}/vidin.png`;
+                break;
+              case "haiduks":
+                flagFaction = `${flagImagePath}/haiduks.png`;
+                break;
+              case "edirne":
+                flagFaction = `${flagImagePath}s/edirne.png`;
+                break;
+              case "ron":
+                flagFaction = `${flagImagePath}/ron.png`;
+                break;
+              case "karesi":
+                flagFaction = `${flagImagePath}/karesi.png`;
+                break;
+              case "altay":
+                flagFaction = `${flagImagePath}/altay.png`;
+                break;
+              case "seljuk":
+                flagFaction = `${flagImagePath}/seljuk.png`;
+                break;
+              case "bursa":
+                flagFaction = `${flagImagePath}/bursa.png`;
+                break;
+              case "saruhan":
+                flagFaction = `${flagImagePath}/saruhan.png`;
+                break;
+              case "sl":
+                flagFaction = `${flagImagePath}/sl.png`;
+                break;
+              case "albania":
+                flagFaction = `${flagImagePath}/albania.png`;
+                break;
+              case "greece":
+                flagFaction = `${flagImagePath}/greece.png`;
+                break;
+              case "wallachia":
+                flagFaction = `${flagImagePath}/wallachia.png`;
+                break;
+              case "serbia":
+                flagFaction = `${flagImagePath}/serbia.png`;
+                break;
+              default:
+                flagFaction = `${flagImagePath}/default.png`;
+                break;
+            }
+            switch (army.country) {
+              case "wallachia":
+                flagCountry = `${flagImagePath}/wallachia.png`;
+                break;
+              case "bulgaria":
+                flagCountry = `${flagImagePath}/bulgaria.png`;
+                break;
+              case "edirne":
+                flagCountry = `${flagImagePath}s/edirne.png`;
+                break;
+              case "karesi":
+                flagCountry = `${flagImagePath}/karesi.png`;
+                break;
+              case "bursa":
+                flagCountry = `${flagImagePath}/bursa.png`;
+                break;
+              case "greece":
+                flagCountry = `${flagImagePath}/greece.png`;
+                break;
+              case "albania":
+                flagCountry = `${flagImagePath}/albania.png`;
+                break;
+              case "serbia":
+                flagCountry = `${flagImagePath}/serbia.png`;
+                break;
+              case "bosna":
+                flagCountry = `${flagImagePath}/bosna.png`;
+                break;
+              case "church":
+                flagCountry = `${flagImagePath}/church.png`;
+                break;
+              default:
+                flagCountry = `${flagImagePath}/none.png`;
+                break;
             }
             const lastUpdated = new Date(army.updated_date);
             const today = new Date();
@@ -99,16 +186,51 @@ const NodeMarker = ({ zoomLevel, armies, node, ...props }) => {
 
             let status;
             switch (army.status) {
-              case "friend": status = forUpdate ? classes.friendForEdit : classes.friend; break;
-              case "neutral": status = forUpdate ? classes.neutralForEdit : classes.neutral; break;
-              case "enemy": status = forUpdate ? classes.enemyForEdit : classes.enemy; break;
-              default: status = classes.neutral; break;
+              case "friend":
+                status = forUpdate ? classes.friendForEdit : classes.friend;
+                break;
+              case "neutral":
+                status = forUpdate ? classes.neutralForEdit : classes.neutral;
+                break;
+              case "enemy":
+                status = forUpdate ? classes.enemyForEdit : classes.enemy;
+                break;
+              default:
+                status = classes.neutral;
+                break;
             }
-            return <p key={army.id}><img src={flag} alt="" className={`${classes.flag} ${zoomLevel < 6 ? classes.bigFlag : ''}`} />{army.walls && <icons.TbBuildingCastle className={classes.walls}/>} {zoomLevel >= 6? <span className={status}>{army.name}&nbsp;</span> : ''} ({army.soldiers.length + 1})</p>
+            return (
+              <p key={army.id}>
+                <img
+                  src={flagFaction}
+                  alt=""
+                  className={`${classes.flag} ${
+                    zoomLevel < 6 ? classes.bigFlag : ""
+                  }`}
+                />
+                <img
+                  src={flagCountry}
+                  alt=""
+                  className={`${classes.flag} ${
+                    zoomLevel < 6 ? classes.bigFlag : ""
+                  }`}
+                />
+                {army.walls && (
+                  <icons.TbBuildingCastle className={classes.walls} />
+                )}{" "}
+                {zoomLevel >= 6 ? (
+                  <span className={status}>{army.name}&nbsp;</span>
+                ) : (
+                  ""
+                )}{" "}
+                ({army.soldiers.length + 1})
+              </p>
+            );
           })}
-        </Tooltip>}
+        </Tooltip>
+      )}
     </Marker>
-  )
-}
+  );
+};
 
 export default NodeMarker;

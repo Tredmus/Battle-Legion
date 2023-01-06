@@ -1,6 +1,7 @@
 @import '../../../styles/main.scss';
 
 .form {
+    @include scroll;
     display: flex;
     flex-direction: column;
     gap: .75rem;

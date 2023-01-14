@@ -237,6 +237,7 @@ const ArmyForm = ({ onClose, army }) => {
             <option value="greece">Greece</option>
             <option value="wallachia">Wallachia</option>
             <option value="serbia">Serbia</option>
+            <option value="bosna">Bosna</option>
           </select>
         </div>
         <div className={classes.group}>

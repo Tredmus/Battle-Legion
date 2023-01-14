@@ -141,6 +141,9 @@ const NodeMarker = ({ zoomLevel, armies, node, ...props }) => {
               case "serbia":
                 flagFaction = `${flagImagePath}/serbia.png`;
                 break;
+              case "bosna":
+                flagFaction = `${flagImagePath}/bosna.png`;
+                break;
               default:
                 flagFaction = `${flagImagePath}/default.png`;
                 break;

@@ -4,7 +4,14 @@ import { Marker, Tooltip } from "react-leaflet";
 import classes from "./NodeMarker.module.scss";
 import { icons } from "../../../Assets/Icons/Icons";
 
-const NodeMarker = ({ zoomLevel, armies, node, ...props }) => {
+const NodeMarker = ({
+  zoomLevel,
+  armies,
+  node,
+  showArmiesInfo,
+  showSoldiers,
+  ...props
+}) => {
   const [iconSize, setIconSize] = useState([20, 20]);
   const flagImagePath = "Images/flags";
 
@@ -203,31 +210,37 @@ const NodeMarker = ({ zoomLevel, armies, node, ...props }) => {
                 break;
             }
             return (
-              <p key={army.id}>
-                <img
-                  src={flagFaction}
-                  alt=""
-                  className={`${classes.flag} ${
-                    zoomLevel < 6 ? classes.bigFlag : ""
-                  }`}
-                />
-                <img
-                  src={flagCountry}
-                  alt=""
-                  className={`${classes.flag} ${
-                    zoomLevel < 6 ? classes.bigFlag : ""
-                  }`}
-                />
-                {army.walls && (
-                  <icons.TbBuildingCastle className={classes.walls} />
-                )}{" "}
-                {zoomLevel >= 6 ? (
-                  <span className={status}>{army.name}&nbsp;</span>
-                ) : (
-                  ""
-                )}{" "}
-                ({army.soldiers.length + 1})
-              </p>
+              <>
+                <p key={army.id} className={classes.army}>
+                  <img
+                    src={flagFaction}
+                    alt=""
+                    className={`${classes.flag} ${
+                      zoomLevel < 6 ? classes.bigFlag : ""
+                    }`}
+                  />
+                  <img
+                    src={flagCountry}
+                    alt=""
+                    className={`${classes.flag} ${
+                      zoomLevel < 6 ? classes.bigFlag : ""
+                    }`}
+                  />
+                  {showArmiesInfo && (
+                    <>
+                      {army.walls && (
+                        <icons.TbBuildingCastle className={classes.walls} />
+                      )}{" "}
+                      {zoomLevel >= 6 ? (
+                        <span className={status}>{army.name}&nbsp;</span>
+                      ) : (
+                        ""
+                      )}{" "}
+                    </>
+                  )}
+                  {showSoldiers && `(${army.soldiers.length + 1})`}
+                </p>
+              </>
             );
           })}
         </Tooltip>

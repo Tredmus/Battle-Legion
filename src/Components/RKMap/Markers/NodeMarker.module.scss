@@ -7,19 +7,25 @@
     color: $c-black;
     z-index: 1110;
     &:hover {
-        z-index: 1111;
+        background-color: red;
     }
 
+}
 
-    p {
-        display: flex;
-        align-items: center;
-        transition: all $t-duration;
-    }
+.army {
+    display: flex;
+    align-items: center;
+    transition: all $t-duration;
+    cursor: pointer;
+    z-index: 11120;
 
-    p+ p {
-        margin-top: .25rem;
+    &:hover {
+        background-color: red;
     }
+}
+
+.army + .army {
+    margin-top: .25rem;
 }
 
 .flag {

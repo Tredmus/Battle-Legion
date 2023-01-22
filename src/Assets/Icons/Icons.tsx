@@ -1,4 +1,4 @@
-import { AiFillHome } from "react-icons/ai";
+import { AiFillHome, AiFillEye, AiFillEyeInvisible } from "react-icons/ai";
 import { BsInfoCircleFill, BsPeopleFill } from "react-icons/bs";
 import { BiBook } from "react-icons/bi";
 import { MdAccountTree, MdPersonAdd } from "react-icons/md";
@@ -14,4 +14,6 @@ export const icons = {
   FiFilm,
   MdPersonAdd,
   TbBuildingCastle,
+  AiFillEye,
+  AiFillEyeInvisible,
 };

@@ -1,14 +1,21 @@
-import { useEffect, useState } from 'react';
-import { MapContainer, TileLayer, useMapEvents, AttributionControl, useMap } from 'react-leaflet';
-import { latLng, latLngBounds, GridLayer } from 'leaflet';
-import { nodes } from '../../Data/nodes';
-import Control from 'react-leaflet-custom-control';
-import ArmiesButton from '../Buttons/ArmiesButton';
-import NodeBox from './NodeBox';
-import ArmiesBox from './ArmiesBox';
-import axios from 'axios';
-import NodeMarker from './Markers/NodeMarker';
-import ArmyMarker from './Markers/ArmyMarker';
+import { useEffect, useState } from "react";
+import {
+  MapContainer,
+  TileLayer,
+  useMapEvents,
+  AttributionControl,
+} from "react-leaflet";
+import { latLng, latLngBounds, GridLayer } from "leaflet";
+import { nodes } from "../../Data/nodes";
+import Control from "react-leaflet-custom-control";
+import ArmiesButton from "../Buttons/ArmiesButton";
+import NodeBox from "./NodeBox";
+import ArmiesBox from "./ArmiesBox";
+import axios from "axios";
+import NodeMarker from "./Markers/NodeMarker";
+import ArmyMarker from "./Markers/ArmyMarker";
+import { icons } from "../../Assets/Icons/Icons";
+import classes from "./RKMap.module.scss";
 
 const ZoomListener = ({ setZoomLevel }) => {
   const mapEvents = useMapEvents({
@@ -16,8 +23,8 @@ const ZoomListener = ({ setZoomLevel }) => {
       setZoomLevel(mapEvents.getZoom());
     },
   });
-  return null
-}
+  return null;
+};
 
 const RKMap = () => {
   const [center, setCenter] = useState([18, -22]);
@@ -25,25 +32,28 @@ const RKMap = () => {
   const [selectedNode, setSelectedNode] = useState();
   const [showArmies, setShowArmies] = useState(false);
   const [armies, setArmies] = useState([]);
+  const [showArmiesInfo, setShowArmiesInfo] = useState(true);
+  const [showSoldiers, setShowSoldiers] = useState(true);
 
   useEffect(() => {
-    const token = window.localStorage.getItem('loggedBLUser');
-    axios.get('https://battle-legion-backend.onrender.com/api/armies', {
-      headers: {
-        Authorization: `Bearer ${token}`
-      }
-    })
+    const token = window.localStorage.getItem("loggedBLUser");
+    axios
+      .get("https://battle-legion-backend.onrender.com/api/armies", {
+        headers: {
+          Authorization: `Bearer ${token}`,
+        },
+      })
       .then((res) => setArmies(res.data.armies))
       .catch((e) => {
         if (e.response.status === 401) {
           // Token has expired
-          window.localStorage.removeItem('loggedBLUser');
+          window.localStorage.removeItem("loggedBLUser");
           window.location.reload();
         }
       });
   }, []);
 
-  const bounds = latLngBounds(latLng(-40, -180), latLng(90, 30))
+  const bounds = latLngBounds(latLng(-40, -180), latLng(90, 30));
 
   if (window?.chrome) {
     const originalInitTile = GridLayer.prototype._initTile;
@@ -57,13 +67,22 @@ const RKMap = () => {
 
         tile.style.width = `${tileSize.x + 1}px`;
         tile.style.height = `${tileSize.y + 1}px`;
-      }
+      },
     });
   }
 
   const closeBox = () => {
     setSelectedNode(null);
     setShowArmies(false);
+  };
+
+  const toggleSoldiers = () => {
+    console.log("toggleSoldiers", showSoldiers);
+    setShowSoldiers(!showSoldiers);
+  };
+
+  const toggleArmiesInfo = () => {
+    setShowArmiesInfo(!showArmiesInfo);
   };
 
   return (
@@ -77,19 +96,21 @@ const RKMap = () => {
       attributionControl={false}
     >
       <TileLayer
-        url={'../map/{z}/{x}/{y}.png'}
+        url={"../map/{z}/{x}/{y}.png"}
         minZoom={5}
         maxNativeZoom={6}
         maxZoom={7}
         noWrap={true}
       />
-      {nodes.map((node) =>
+      {nodes.map((node) => (
         <NodeMarker
           key={`node-${node.id}`}
           position={node.position}
           zoomLevel={zoomLevel}
           armies={armies}
           node={node}
+          showArmiesInfo={showArmiesInfo}
+          showSoldiers={showSoldiers}
           eventHandlers={{
             click: (e) => {
               setSelectedNode(node);
@@ -97,54 +118,66 @@ const RKMap = () => {
             },
           }}
         />
-      )}
+      ))}
       {armies.map((army) => {
-        const node = nodes.find(n => n.id === army.node);
+        const node = nodes.find((n) => n.id === army.node);
         if (!node) {
           return null;
         }
-        const armiesOnNode = armies.filter(army => army.node === node.id);
-        return <ArmyMarker
-          key={`army-${army.id}`}
-          position={node.position}
-          zoomLevel={zoomLevel}
-          armies={armiesOnNode}
-          eventHandlers={{
-            click: (e) => {
-              setSelectedNode(node);
-              setShowArmies(false);
-            },
-          }}
-        />
-      }
-      )}
+        const armiesOnNode = armies.filter((army) => army.node === node.id);
+        return (
+          <ArmyMarker
+            key={`army-${army.id}`}
+            position={node.position}
+            zoomLevel={zoomLevel}
+            armies={armiesOnNode}
+            showArmies={showArmies}
+            eventHandlers={{
+              click: (e) => {
+                setSelectedNode(node);
+                setShowArmies(false);
+              },
+            }}
+          />
+        );
+      })}
       <Control position="topleft">
-        <ArmiesButton
-          onClick={() => {
-            setSelectedNode(null);
-            setShowArmies(true);
-          }}
-        />
+        <ul className={classes.mapMenu}>
+          <ArmiesButton
+            onClick={() => {
+              setSelectedNode(null);
+              setShowArmies(true);
+            }}
+          />
+          <h3>
+            {showArmiesInfo ? (
+              <icons.AiFillEyeInvisible onClick={toggleArmiesInfo} />
+            ) : (
+              <icons.AiFillEye onClick={toggleArmiesInfo} />
+            )}
+          </h3>
+          <h3>
+            <icons.BsPeopleFill onClick={toggleSoldiers} />
+          </h3>
+        </ul>
       </Control>
       <Control>
-        {selectedNode &&
-          <NodeBox
-            node={selectedNode}
-            armies={armies}
-            onClose={closeBox}
-          />}
-        {showArmies &&
+        {selectedNode && (
+          <NodeBox node={selectedNode} armies={armies} onClose={closeBox} />
+        )}
+        {showArmies && (
           <ArmiesBox
             armies={armies}
             nodes={nodes}
             onClose={closeBox}
             setCenter={setCenter}
-          />}
+          />
+        )}
       </Control>
       <ZoomListener setZoomLevel={setZoomLevel} />
       <AttributionControl prefix="Battle Legion Tacking System" />
     </MapContainer>
-  )
+  );
 };
 
 export default RKMap;

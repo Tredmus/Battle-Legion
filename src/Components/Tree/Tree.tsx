@@ -74,7 +74,7 @@ export const Tree = ({ legionaries }: Props) => {
                                   .map((praefectus) => (
                                     <li className={classes.praefectus}>
                                       {preator.name === "Mis_ok" ||
-                                      "Legolas_b" ? (
+                                      praefectus.name === "VACANT" ? (
                                         ""
                                       ) : (
                                         <div className={classes.element}>

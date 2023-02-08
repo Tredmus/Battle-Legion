@@ -154,7 +154,7 @@ export const About = () => {
                 </li>
                 <li>
                   <span>Членове</span>
-                  <span>{legionariesCount}</span>
+                  <span>{legionariesCount - 2}</span>
                 </li>
                 <li>
                   <span>Влияние</span>

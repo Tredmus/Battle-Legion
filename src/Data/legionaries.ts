@@ -36,26 +36,39 @@ export const legionaries = [
     medals: awardMedals(medals, []),
   },
   {
-    name: "Tredmus",
-    rank: "Praetor",
-    legion: "Second",
-    medals: awardMedals(medals, []),
-  },
-  {
-    name: "Marto98",
-    rank: "Praefectus",
-    legion: "Second",
-    medals: awardMedals(medals, []),
-  },
-  {
     name: "Ganfi",
     rank: "Praetor",
     legion: "First",
     medals: awardMedals(medals, []),
   },
   {
+    name: "Tredmus",
+    rank: "Praetor",
+    legion: "Second",
+    medals: awardMedals(medals, []),
+  },
+  {
+    name: "Kash",
+    rank: "Praefectus",
+    legion: "Second",
+    medals: awardMedals(medals, []),
+  },
+  {
     name: "Legolas_b",
     rank: "Praetor",
+    legion: "Third",
+    medals: awardMedals(medals, []),
+  },
+  {
+    name: "Marto98",
+    rank: "Legionarius",
+    legion: "Second",
+    medals: awardMedals(medals, []),
+    reportsTo: "Kankrum",
+  },
+  {
+    name: "VACANT",
+    rank: "Praefectus",
     legion: "Third",
     medals: awardMedals(medals, []),
   },
@@ -208,7 +221,14 @@ export const legionaries = [
     rank: "Legionarius",
     legion: "Third",
     medals: awardMedals(medals, []),
-    reportsTo: "Barborka",
+    reportsTo: "Scipioaf",
+  },
+  {
+    name: "Kriviq",
+    rank: "Legionarius",
+    legion: "Third",
+    medals: awardMedals(medals, []),
+    reportsTo: "Scipioaf",
   },
   {
     name: "Krisinka",
@@ -257,7 +277,7 @@ export const legionaries = [
     rank: "Legionarius",
     legion: "Second",
     medals: awardMedals(medals, []),
-    reportsTo: "Kash",
+    reportsTo: "Kankrum",
   },
   {
     name: "Varxovenyjas",
@@ -282,6 +302,12 @@ export const legionaries = [
   },
   {
     name: "Gimgi",
+    rank: "Centurio",
+    legion: "First",
+    medals: awardMedals(medals, []),
+  },
+  {
+    name: "VACANT",
     rank: "Praefectus",
     legion: "First",
     medals: awardMedals(medals, []),
@@ -319,7 +345,7 @@ export const legionaries = [
     rank: "Legionarius",
     legion: "Third",
     medals: awardMedals(medals, []),
-    reportsTo: "Batman",
+    reportsTo: "Scipioaf",
   },
   {
     name: "Jorjo",
@@ -340,7 +366,7 @@ export const legionaries = [
     rank: "Legionarius",
     legion: "Third",
     medals: awardMedals(medals, []),
-    reportsTo: "Batman",
+    reportsTo: "Scipioaf",
   },
   {
     name: "Gorrthegodbutcher",
@@ -350,11 +376,10 @@ export const legionaries = [
     reportsTo: "Batman",
   },
   {
-    name: "Scipio_af",
-    rank: "Legionarius",
+    name: "Scipioaf",
+    rank: "Centurio",
     legion: "Third",
     medals: awardMedals(medals, []),
-    reportsTo: "Batman",
   },
   {
     name: "Neversleep",
@@ -368,7 +393,7 @@ export const legionaries = [
     rank: "Legionarius",
     legion: "First",
     medals: awardMedals(medals, []),
-    reportsTo: "Gimgi",
+    reportsTo: "Arazortep",
   },
   {
     name: "Arazortep",
@@ -381,7 +406,7 @@ export const legionaries = [
     rank: "Legionarius",
     legion: "First",
     medals: awardMedals(medals, []),
-    reportsTo: "Gimgi",
+    reportsTo: "Prusiyski",
   },
   {
     name: "Falishmi",
@@ -430,7 +455,7 @@ export const legionaries = [
     rank: "Legionarius",
     legion: "Third",
     medals: awardMedals(medals, []),
-    reportsTo: "Batman",
+    reportsTo: "Scipioaf",
   },
   {
     name: "Batman",
@@ -474,12 +499,6 @@ export const legionaries = [
     medals: awardMedals(medals, []),
   },
   {
-    name: "Kash",
-    rank: "Centurio",
-    legion: "Second",
-    medals: awardMedals(medals, []),
-  },
-  {
     name: "Maximko",
     rank: "Centurio",
     legion: "Second",
@@ -490,7 +509,7 @@ export const legionaries = [
     rank: "Legionarius",
     legion: "Second",
     medals: awardMedals(medals, []),
-    reportsTo: "Kash",
+    reportsTo: "Kankrum",
   },
   {
     name: "F3lizz",
@@ -516,7 +535,7 @@ export const legionaries = [
   },
   {
     name: "Kankrum",
-    rank: "Legionarius",
+    rank: "Centurio",
     legion: "Second",
     medals: awardMedals(medals, []),
     reportsTo: "Krasiko",
@@ -526,7 +545,7 @@ export const legionaries = [
     rank: "Legionarius",
     legion: "Second",
     medals: awardMedals(medals, []),
-    reportsTo: "Kash",
+    reportsTo: "Kankrum",
   },
   {
     name: "Anatema",
@@ -547,7 +566,7 @@ export const legionaries = [
     rank: "Legionarius",
     legion: "Second",
     medals: awardMedals(medals, []),
-    reportsTo: "Kash",
+    reportsTo: "Kankrum",
   },
   {
     name: "Katyaa",
@@ -596,14 +615,14 @@ export const legionaries = [
     rank: "Legionarius",
     legion: "First",
     medals: awardMedals(medals, []),
-    reportsTo: "Gimgi",
+    reportsTo: "Prusiyski",
   },
   {
     name: "Veneno",
     rank: "Legionarius",
     legion: "Second",
     medals: awardMedals(medals, []),
-    reportsTo: "Kash",
+    reportsTo: "Krasiko",
   },
   {
     name: "Panayot",

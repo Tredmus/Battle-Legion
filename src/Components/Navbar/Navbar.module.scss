@@ -64,6 +64,24 @@
     color: white;
 }
 
+.song {
+    font-size: 1.3rem;
+    @include flexCenter;
+    width: 2.5rem;
+    height: 2.5rem;
+    border-radius: 50%;
+    background-color: $c-white;
+    color: $c-main;
+    transition: all $t-duration;
+    margin-bottom: 4rem;
+
+    &:hover {
+        background-color: $c-secondary;
+        color: $c-main;
+        cursor: pointer;
+    }
+}
+
 .treeIcon {
     transform: rotate(90deg) scaleY(-1);
 }

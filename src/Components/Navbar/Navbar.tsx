@@ -1,7 +1,8 @@
 import { NavLink } from "react-router-dom";
 import classes from "./Navbar.module.scss";
 import { icons } from "../../Assets/Icons/Icons";
-import { Dispatch, SetStateAction } from "react";
+import { Dispatch, SetStateAction, useState, useRef } from "react";
+import audio from "../../Assets/sons-of-mars.mp3";
 
 type Props = {
   isActive: boolean;
@@ -9,6 +10,19 @@ type Props = {
 };
 
 export const Navbar = ({ isActive, setNav }: Props) => {
+  const audioRef = useRef<HTMLAudioElement>(new Audio(audio));
+  const [isPlaying, setIsPlaying] = useState(false);
+
+  const playSong = () => {
+    if (!isPlaying) {
+      audioRef.current.play();
+      setIsPlaying(true);
+    } else {
+      audioRef.current.pause();
+      setIsPlaying(false);
+    }
+  };
+
   return (
     <nav className={`${classes.nav} ${isActive && classes.active}`}>
       <ul>
@@ -91,11 +105,17 @@ export const Navbar = ({ isActive, setNav }: Props) => {
         </li>
       </ul>
 
-      <img
-        src="Images/banner-bottom.png"
-        alt="gasgasg asg asg"
-        className={classes.bottom}
-      />
+      <div>
+        <div className={classes.song} onClick={playSong}>
+          <audio src={audio} />
+          <icons.AiOutlineSound />
+        </div>
+        <img
+          src="Images/banner-bottom.png"
+          alt="gasgasg asg asg"
+          className={classes.bottom}
+        />
+      </div>
     </nav>
   );
 };

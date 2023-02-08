@@ -10,7 +10,7 @@ type Props = {
 };
 
 export const Tree = ({ legionaries }: Props) => {
-  const legions = ["OG", "First", "Second"];
+  const legions = ["OG", "First", "Second", "Third"];
 
   return (
     <>
@@ -73,7 +73,8 @@ export const Tree = ({ legionaries }: Props) => {
                                   )
                                   .map((praefectus) => (
                                     <li className={classes.praefectus}>
-                                      {preator.name === "Mis_ok" ? (
+                                      {preator.name === "Mis_ok" ||
+                                      "Legolas_b" ? (
                                         ""
                                       ) : (
                                         <div className={classes.element}>

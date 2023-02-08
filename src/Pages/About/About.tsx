@@ -1,6 +1,6 @@
 import React from "react";
 import classes from "./About.module.scss";
-import { legionariesCount } from "../People/legionaries";
+import { legionariesCount } from "../../Data/legionaries";
 
 export const About = () => {
   return (

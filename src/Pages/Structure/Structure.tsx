@@ -1,6 +1,6 @@
 import classes from "./Structure.module.scss";
 import { Tree } from "../../Components/Tree/Tree";
-import { legionaries } from "../People/legionaries";
+import { legionaries } from "../../Data/legionaries";
 
 export const Structure = () => {
   return (

@@ -4,7 +4,7 @@
     position: fixed;
     inset: 0;
     background-color: rgba(255, 255, 255, 0.7);
-    z-index: 20;
+    z-index: 31;
   }
 
 .modal {
@@ -13,7 +13,7 @@
   top: 50%;
   left: 50%;
   transform: translate(-50%, -50%);
-  z-index: 20;
+  z-index: 31;
   }
 
 .close {

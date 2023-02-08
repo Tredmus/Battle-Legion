@@ -1,6 +1,6 @@
 import { useState } from "react";
 import classes from "./People.module.scss";
-import { legionaries } from "./legionaries";
+import { legionaries } from "../../Data/legionaries";
 import { Legionary } from "../../Components/Legionary/Legionary";
 
 export const People = () => {
@@ -8,6 +8,7 @@ export const People = () => {
     "Images/banner-0.png",
     "Images/banner-1.png",
     "Images/banner-2.png",
+    "Images/banner-3.png",
   ];
 
   const [filterIndex, setFilterIndex] = useState(-1);
@@ -20,6 +21,8 @@ export const People = () => {
         return legionaries.filter((legionary) => legionary.legion === "First");
       case 2:
         return legionaries.filter((legionary) => legionary.legion === "Second");
+      case 3:
+        return legionaries.filter((legionary) => legionary.legion === "Third");
       default:
         return legionaries;
     }

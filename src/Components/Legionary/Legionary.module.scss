@@ -3,7 +3,8 @@
 .legionary {    
     position: relative;
     width: calc(100% / 3 - (2rem * (3 - 1))/3);
-    background-color: rgb(73, 76, 87);
+    background: radial-gradient(ellipse farthest-corner at right bottom, #FEDB37 0%, #FDB931 8%, #9f7928 30%, #8A6E2F 40%, transparent 80%),
+                radial-gradient(ellipse farthest-corner at left top, #FFFFFF 0%, #FFFFAC 8%, #D1B464 25%, #5d4a1f 62.5%, #5d4a1f 100%);
     cursor: pointer;
     @include breakpoint-down(mobile) {
         width: calc(100% / 2 - (2rem * (2 - 1))/2);
@@ -37,7 +38,7 @@
         width: 100%;
     }
 
-    p {
+    .about {
         position: relative;
         @include flexCenter;
         font-weight: 500;
@@ -71,10 +72,14 @@
     .legionary {
         cursor: auto;
         width: 100%;
+        max-width: 32rem;
         @include breakpoint-down(mobile) {
 
             transform: scale(1.5);
         }
+    }
+    img {
+        width: 100%;
     }
 
     .legionary:hover {
@@ -83,8 +88,8 @@
         }
     }
 
-    p {
-       padding: 2rem 1rem 4.4rem;
+    .about {
+       padding: .6rem 1rem 3rem;
        @include breakpoint-down(mobile) {
            padding: 1rem 1rem 1.4rem;
        }

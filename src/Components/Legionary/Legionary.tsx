@@ -1,14 +1,18 @@
 import { useState } from "react";
 import classes from "./Legionary.module.scss";
 import { Modal } from "../Modal/Modal";
+import { Medals } from "./Medals";
 
 export type TypeLegionary = {
   name: string;
   rank: string;
   legion: string;
+  medals: [
+    { name: string; description: string; image: string; awarded: boolean }
+  ];
 };
 
-export const Legionary = ({ name, rank, legion }: TypeLegionary) => {
+export const Legionary = ({ name, rank, legion, medals }: TypeLegionary) => {
   const [isOpen, setIsOpen] = useState(false);
   const imageLink = `Images/people/${name}.png`;
 
@@ -35,7 +39,7 @@ export const Legionary = ({ name, rank, legion }: TypeLegionary) => {
                 />
                 <img src={imageLink} alt="" />
               </div>
-              <p>
+              <p className={classes.about}>
                 <img
                   src="Images/border.png"
                   alt=""
@@ -46,6 +50,7 @@ export const Legionary = ({ name, rank, legion }: TypeLegionary) => {
                 Rank - {rank}
                 <br></br>Legion - Battle Legion - {legion} Legion
               </p>
+              <Medals medals={medals} />
             </div>
           </div>
         </Modal>
@@ -56,7 +61,7 @@ export const Legionary = ({ name, rank, legion }: TypeLegionary) => {
           <img src="Images/border.png" alt="" className={classes.border} />
           <img src={imageLink} alt="" />
         </div>
-        <p>
+        <p className={classes.about}>
           <img src="Images/border.png" alt="" className={classes.border} />
           {name}
         </p>

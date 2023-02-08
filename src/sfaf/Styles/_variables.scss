@@ -1,0 +1,29 @@
+$font-size-base: 1rem;
+$font-weight-base: 300;
+$line-height-base: 1.2;
+
+$ff-head: 'Poppins', serif;
+$ff-main: 'Poppins', serif;
+
+$t-duration: 0.4s;
+
+$c-black: #000;
+$c-grey: #333333;
+$c-white: #fff;
+
+$c-main: #540202;
+$c-main-light: #b06565;
+$c-secondary: #FFD700;
+
+
+$responsive-ios: 812px;
+
+$breakpoints: (
+  mobile-small: 374px,
+  mobile-medium: 575px,
+  mobile: 767px,
+  admin-bar: 782px,
+  tablet: 1023px,
+  desktop-small: 1199px,
+  desktop-medium: 1399px
+);

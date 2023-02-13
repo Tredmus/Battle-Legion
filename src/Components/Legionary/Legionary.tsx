@@ -15,6 +15,8 @@ export type TypeLegionary = {
 export const Legionary = ({ name, rank, legion, medals }: TypeLegionary) => {
   const [isOpen, setIsOpen] = useState(false);
   const imageLink = `Images/people/${name}.png`;
+  const defaultImage = "Images/people/default.png";
+  // const picture = new URL(imageLink).protocol ? imageLink : defaultImage;
 
   const open = () => {
     setIsOpen(true);

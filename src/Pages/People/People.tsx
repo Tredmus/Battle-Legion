@@ -63,7 +63,10 @@ export const People = () => {
         <div className={classes.body}>
           <div className={classes.legionaries}>
             {filtered &&
-              filtered.map((legionary) => <Legionary {...legionary} />)}
+              filtered.map((legionary) => {
+                if (legionary.name !== "VACANT")
+                  return <Legionary {...legionary} />;
+              })}
           </div>
         </div>
       </div>

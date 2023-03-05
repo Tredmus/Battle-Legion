@@ -35,6 +35,7 @@ export const Navbar = ({ isActive, setNav }: Props) => {
             }}
           >
             <icons.AiFillHome />
+            <span>Home</span>
           </NavLink>
         </li>
         <li>
@@ -46,6 +47,7 @@ export const Navbar = ({ isActive, setNav }: Props) => {
             }}
           >
             <icons.BsInfoCircleFill />
+            <span>About</span>
           </NavLink>
         </li>
         <li>
@@ -57,6 +59,7 @@ export const Navbar = ({ isActive, setNav }: Props) => {
             }}
           >
             <icons.BiBook />
+            <span>History</span>
           </NavLink>
         </li>
         <li>
@@ -68,6 +71,7 @@ export const Navbar = ({ isActive, setNav }: Props) => {
             }}
           >
             <icons.BsPeopleFill />
+            <span>People</span>
           </NavLink>
         </li>
         <li>
@@ -79,6 +83,19 @@ export const Navbar = ({ isActive, setNav }: Props) => {
             }}
           >
             <icons.MdAccountTree className={classes.treeIcon} />
+            <span>Structure</span>
+          </NavLink>
+        </li>
+        <li>
+          <NavLink
+            to="/alliance"
+            className={({ isActive }) => (isActive ? classes.active : "")}
+            onClick={() => {
+              setNav(false);
+            }}
+          >
+            <icons.GiWingedShield />
+            <span>Alliance</span>
           </NavLink>
         </li>
         <li>
@@ -90,6 +107,7 @@ export const Navbar = ({ isActive, setNav }: Props) => {
             }}
           >
             <icons.FiFilm />
+            <span>Media</span>
           </NavLink>
         </li>
         <li>
@@ -101,11 +119,12 @@ export const Navbar = ({ isActive, setNav }: Props) => {
             }}
           >
             <icons.MdPersonAdd />
+            <span>Invite</span>
           </NavLink>
         </li>
       </ul>
 
-      <div>
+      <div className={classes.overflow}>
         <div className={classes.song} onClick={playSong}>
           <audio src={audio} />
           <icons.AiOutlineSound />

@@ -8,8 +8,8 @@
     padding: 1.875rem 1.25rem;
     background-image: url('../../../public/Images/banner.png');
     background-size: contain;
-    overflow: hidden;
-    z-index: 20;
+    // overflow: hidden;
+    z-index: 21;
     transition: all $t-duration;
 
     @include breakpoint-down(mobile) {
@@ -20,24 +20,56 @@
         bottom: 0;
         transform: translateX(-100%);
     }
-    
-    a {
-        @include flexCenter;
+
+    li {
         width: 2.5rem;
         height: 2.5rem;
         border-radius: 50%;
+        z-index: 21;
+        position: relative;
+        // background-color: orange;
+        &:hover {
+            cursor: pointer;
+            a {
+                justify-content: start;
+
+                span {
+                    display: block;
+                    @include breakpoint-down(mobile) {
+                        display: none;
+                    }
+                }
+            }
+        }
+    }
+    
+    a {
+        display: flex;
+        align-items: center;
+        position: absolute;
+        height: 2.5rem;
+        padding: .8rem;
+        border-radius: 2.5rem;
         background-color: $c-white;
         color: $c-main;
         transition: all $t-duration;
+        aspect-ratio: 1/1;
 
         @include breakpoint-down(mobile) {
-            width: 3rem;
             height: 3rem;
+            padding: 1rem;
         }
 
         &:hover {
             background-color: $c-secondary;
             color: $c-main;
+            z-index: 21;
+        }
+
+        span {
+            display: none;
+            margin-left: .5rem;
+            transition: all $t-duration;
         }
     }
 
@@ -84,4 +116,16 @@
 
 .treeIcon {
     transform: rotate(90deg) scaleY(-1);
+}
+
+.overflow {
+    overflow: hidden;
+    margin: 0 -1.25rem;
+    padding: 0 1.25rem;
+
+    img {
+        max-width: 100%;
+        height: 5rem;
+        object-fit: cover;
+    }
 }

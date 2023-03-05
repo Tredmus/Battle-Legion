@@ -1,0 +1,74 @@
+@import '../../styles/main.scss';
+@import '../page';
+
+.alliance {
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+    justify-content: stretch;
+    overflow-X: hidden;
+}
+
+.background {
+    background-image: url('../../../public/Images/page-history.jpg');
+}
+
+// .body {
+//     display: flex;
+//     flex-direction: column;
+//     justify-content: space-between;
+//     flex-grow: 1;
+// }
+
+.head {
+    display: flex; 
+    align-items: center;
+
+    img {
+        margin-right: 1rem;
+    }
+}
+
+.flag {
+    max-height: 10rem;
+}
+
+.clans {
+    display: flex;
+    justify-content: space-between;
+    font-weight: 500;
+    margin: 4rem 0;
+
+    img {
+        margin-bottom: 1rem;
+    }
+
+    
+    li {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: space-between;
+    }
+}
+
+.organization {
+    
+    li + li {
+        margin-top: 1.5rem;
+    }
+    
+    li {
+        display: flex;
+        flex-direction: column;
+
+        span + span {
+            margin-top: .5rem;
+        }
+    }
+}
+
+.bold {
+    font-weight: 500;
+    font-style: italic;
+}

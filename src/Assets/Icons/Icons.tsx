@@ -9,6 +9,7 @@ import { BiBook } from "react-icons/bi";
 import { MdAccountTree, MdPersonAdd } from "react-icons/md";
 import { FiFilm } from "react-icons/fi";
 import { TbBuildingCastle } from "react-icons/tb";
+import { GiWingedShield } from "react-icons/gi";
 
 export const icons = {
   AiFillHome,
@@ -22,4 +23,5 @@ export const icons = {
   AiFillEye,
   AiFillEyeInvisible,
   AiOutlineSound,
+  GiWingedShield,
 };

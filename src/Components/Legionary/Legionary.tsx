@@ -47,10 +47,9 @@ export const Legionary = ({ name, rank, legion, medals }: TypeLegionary) => {
                   alt=""
                   className={classes.border}
                 />
-                {name}
-                <br></br>
-                Rank - {rank}
-                <br></br>Legion - Battle Legion - {legion} Legion
+                <span className={classes.name}>{name}</span>
+                <span>Rank - {rank}</span>
+                <span>Legion - Battle Legion - {legion} Legion</span>
               </p>
               <Medals medals={medals} />
             </div>

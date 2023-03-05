@@ -1,16 +1,16 @@
 import classes from "./Alliance.module.scss";
 
-export const Alliance = () => {
+export const AllianceEn = () => {
   return (
     <>
       <div className={classes.background}></div>
       <div className={`${classes.page} ${classes.alliance}`}>
-        <h2 className={classes.heading}>Част от AEGIS</h2>
+        <h2 className={classes.heading}>Part of AEGIS</h2>
         <div className={classes.body}>
           <div className={classes.head}>
             <img src="Images/flags/aegis.png" alt="" className={classes.flag} />
             <p>
-              ree People of Europe desiring to create a permanent basis for
+              Free People of Europe desiring to create a permanent basis for
               peaceful coexistence and development of normal and good relations
               between them, aiming at peace and strengthening the security of
               each other decided to conclude this treaty.

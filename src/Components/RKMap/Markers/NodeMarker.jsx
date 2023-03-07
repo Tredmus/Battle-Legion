@@ -244,7 +244,10 @@ const NodeMarker = ({
                   {showSoldiers && `(${army.soldiers.length + 1})`}
                   {army.unsure && (
                     <>
-                      <p className={classes.unsure}>???</p>
+                      <p className={classes.unsure}>
+                        <icons.TbMapPinOff />
+                        <icons.TbMapOff />
+                      </p>
                       {showSoldiers && (
                         <p className={classes.unsureDate}>
                           {updatedDate.slice(0, -13)}

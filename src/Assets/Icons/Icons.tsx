@@ -8,7 +8,7 @@ import { BsInfoCircleFill, BsPeopleFill } from "react-icons/bs";
 import { BiBook } from "react-icons/bi";
 import { MdAccountTree, MdPersonAdd } from "react-icons/md";
 import { FiFilm } from "react-icons/fi";
-import { TbBuildingCastle } from "react-icons/tb";
+import { TbBuildingCastle, TbMapPinOff, TbMapOff } from "react-icons/tb";
 import { GiWingedShield } from "react-icons/gi";
 
 export const icons = {
@@ -24,4 +24,6 @@ export const icons = {
   AiFillEyeInvisible,
   AiOutlineSound,
   GiWingedShield,
+  TbMapPinOff,
+  TbMapOff,
 };

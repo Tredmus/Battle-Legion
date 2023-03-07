@@ -190,6 +190,9 @@ const NodeMarker = ({
                 flagCountry = `${flagImagePath}/none.png`;
                 break;
             }
+            let updatedDate = army
+              ? new Date(army.updated_date).toLocaleString()
+              : null;
             const lastUpdated = new Date(army.updated_date);
             const today = new Date();
             const forUpdate = isAfterRefresh(lastUpdated, today);
@@ -239,6 +242,16 @@ const NodeMarker = ({
                     </>
                   )}
                   {showSoldiers && `(${army.soldiers.length + 1})`}
+                  {army.unsure && (
+                    <>
+                      <p className={classes.unsure}>???</p>
+                      {showSoldiers && (
+                        <p className={classes.unsureDate}>
+                          {updatedDate.slice(0, -13)}
+                        </p>
+                      )}
+                    </>
+                  )}
                 </p>
               </>
             );

@@ -15,6 +15,7 @@ const ArmyForm = ({ onClose, army }) => {
   const [country, setCountry] = useState(army ? army.country : "none");
   const [status, setStatus] = useState(army ? army.status : "enemy");
   const [node, setNode] = useState(army ? army.node : 1);
+  const [unsure, setUnsure] = useState(army ? army.unsure : false);
   const [comment, setComment] = useState(army ? army.comment : "");
   const token = window.localStorage.getItem("loggedBLUser");
   let updatedDate = army ? new Date(army.updated_date).toLocaleString() : null;
@@ -72,6 +73,7 @@ const ArmyForm = ({ onClose, army }) => {
             status: status,
             walls: walls,
             node: node,
+            unsure: unsure,
             comment: comment,
           },
           {
@@ -101,6 +103,7 @@ const ArmyForm = ({ onClose, army }) => {
             country: country,
             status: status,
             node: node,
+            unsure: unsure,
             comment: comment,
           },
           {
@@ -271,6 +274,16 @@ const ArmyForm = ({ onClose, army }) => {
             defaultValue={node}
             onChange={(e) => setNode(e.target.value)}
           />
+        </div>
+        <div className={classes.group}>
+          <label>Unsure:</label>
+          <select
+            defaultValue={unsure}
+            onChange={(e) => setUnsure(e.target.value)}
+          >
+            <option value={false}>No</option>
+            <option value={true}>Yes</option>
+          </select>
         </div>
         <div className={classes.group}>
           <label>Notes:</label>

@@ -66,3 +66,16 @@
 .enemyForEdit {
     color: $c-red-light;
 }
+
+.unsure {
+    color: $c-red;
+    font-weight: 500;
+    font-size: 1.3rem;
+    line-height: 1;
+    margin: 0 .5rem;
+    vertical-align: middle;
+}
+
+.unsureDate {
+    font-size: 1rem;
+}

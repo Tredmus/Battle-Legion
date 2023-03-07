@@ -162,17 +162,19 @@ const RKMap = () => {
         </ul>
       </Control>
       <Control>
-        {selectedNode && (
-          <NodeBox node={selectedNode} armies={armies} onClose={closeBox} />
-        )}
-        {showArmies && (
-          <ArmiesBox
-            armies={armies}
-            nodes={nodes}
-            onClose={closeBox}
-            setCenter={setCenter}
-          />
-        )}
+        <div className={classes.control}>
+          {selectedNode && (
+            <NodeBox node={selectedNode} armies={armies} onClose={closeBox} />
+          )}
+          {showArmies && (
+            <ArmiesBox
+              armies={armies}
+              nodes={nodes}
+              onClose={closeBox}
+              setCenter={setCenter}
+            />
+          )}
+        </div>
       </Control>
       <ZoomListener setZoomLevel={setZoomLevel} />
       <AttributionControl prefix="Battle Legion Tacking System" />

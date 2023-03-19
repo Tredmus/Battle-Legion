@@ -34,6 +34,7 @@ const RKMap = () => {
   const [armies, setArmies] = useState([]);
   const [showArmiesInfo, setShowArmiesInfo] = useState(true);
   const [showSoldiers, setShowSoldiers] = useState(true);
+  const [showFriends, setShowFriends] = useState(true);
 
   useEffect(() => {
     const token = window.localStorage.getItem("loggedBLUser");
@@ -77,8 +78,11 @@ const RKMap = () => {
   };
 
   const toggleSoldiers = () => {
-    console.log("toggleSoldiers", showSoldiers);
     setShowSoldiers(!showSoldiers);
+  };
+
+  const toggleFriends = () => {
+    setShowFriends(!showFriends);
   };
 
   const toggleArmiesInfo = () => {
@@ -111,6 +115,7 @@ const RKMap = () => {
           node={node}
           showArmiesInfo={showArmiesInfo}
           showSoldiers={showSoldiers}
+          showFriends={showFriends}
           eventHandlers={{
             click: (e) => {
               setSelectedNode(node);
@@ -158,6 +163,9 @@ const RKMap = () => {
           </h3>
           <h3>
             <icons.BsPeopleFill onClick={toggleSoldiers} />
+          </h3>
+          <h3>
+            <icons.GiHeartTower onClick={toggleFriends} />
           </h3>
         </ul>
       </Control>

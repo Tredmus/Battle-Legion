@@ -10,6 +10,7 @@ const NodeMarker = ({
   node,
   showArmiesInfo,
   showSoldiers,
+  showFriends,
   ...props
 }) => {
   const [iconSize, setIconSize] = useState([20, 20]);
@@ -241,7 +242,9 @@ const NodeMarker = ({
                       )}{" "}
                     </>
                   )}
-                  {showSoldiers && `(${army.soldiers.length + 1})`}
+                  {showSoldiers ||
+                    ((showFriends === false && army.status) !== "friend" &&
+                      `(${army.soldiers.length + 1})`)}
                   {army.unsure && (
                     <>
                       <p className={classes.unsure}>

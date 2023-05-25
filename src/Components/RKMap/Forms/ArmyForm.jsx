@@ -198,6 +198,8 @@ const ArmyForm = ({ onClose, army }) => {
             <option value="albania">Albania</option>
             <option value="serbia">Serbia</option>
             <option value="bosna">Bosna</option>
+            <option value="venetia">Venetia</option>
+            <option value="aegis">Aegis</option>
             <option value="church">Church</option>
             <option value="none">None</option>
           </select>
@@ -241,6 +243,8 @@ const ArmyForm = ({ onClose, army }) => {
             <option value="wallachia">Wallachia</option>
             <option value="serbia">Serbia</option>
             <option value="bosna">Bosna</option>
+            <option value="venetia">Venetia</option>
+            <option value="aegis">Aegis</option>
           </select>
         </div>
         <div className={classes.group}>
@@ -252,6 +256,7 @@ const ArmyForm = ({ onClose, army }) => {
             <option value={"friend"}>Friend</option>
             <option value="neutral">Neutral</option>
             <option value="enemy">Enemy</option>
+            <option value="scout">Scout</option>
           </select>
         </div>
         {army && (
@@ -269,10 +274,10 @@ const ArmyForm = ({ onClose, army }) => {
         <div className={classes.group}>
           <label>Node:</label>
           <input
-            type={"number"}
             placeholder="Node"
             defaultValue={node}
-            onChange={(e) => setNode(e.target.value)}
+            onChange={(e) => setNode(parseInt(e.target.value))}
+            onWheel={(e) => e.target.blur()}
           />
         </div>
         <div className={classes.group}>

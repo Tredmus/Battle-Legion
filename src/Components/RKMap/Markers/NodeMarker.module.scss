@@ -1,4 +1,9 @@
 @import '../../../styles/main.scss';
+.marker {
+    background-color: red;
+    width: 20px;
+    height: 20px;
+}
 
 .tooltip {
     padding: .15rem .25rem;
@@ -35,13 +40,15 @@
 }
 
 .bigFlag {
-    height: 1.75rem;
+    height: 2.25rem;
 }
 
 .walls {
     font-size: 1rem;
     margin-right: .25rem;
 }
+
+
 
 .friend {
     color: $c-green;
@@ -78,4 +85,8 @@
 
 .unsureDate {
     font-size: 1rem;
+}
+
+.bigIcon {
+    font-size: 2rem;
 }

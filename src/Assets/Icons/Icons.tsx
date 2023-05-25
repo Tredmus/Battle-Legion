@@ -4,7 +4,7 @@ import {
   AiFillEyeInvisible,
   AiOutlineSound,
 } from "react-icons/ai";
-import { BsInfoCircleFill, BsPeopleFill } from "react-icons/bs";
+import { BsInfoCircleFill, BsPeopleFill, BsIncognito } from "react-icons/bs";
 import { BiBook } from "react-icons/bi";
 import { MdAccountTree, MdPersonAdd } from "react-icons/md";
 import { FiFilm } from "react-icons/fi";
@@ -27,4 +27,5 @@ export const icons = {
   GiHeartTower,
   TbMapPinOff,
   TbMapOff,
+  BsIncognito,
 };

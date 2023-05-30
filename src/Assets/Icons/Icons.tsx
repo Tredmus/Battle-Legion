@@ -10,6 +10,7 @@ import { MdAccountTree, MdPersonAdd } from "react-icons/md";
 import { FiFilm } from "react-icons/fi";
 import { TbBuildingCastle, TbMapPinOff, TbMapOff } from "react-icons/tb";
 import { GiWingedShield, GiHeartTower } from "react-icons/gi";
+import { TiSortAlphabeticallyOutline } from "react-icons/ti";
 
 export const icons = {
   AiFillHome,
@@ -28,4 +29,5 @@ export const icons = {
   TbMapPinOff,
   TbMapOff,
   BsIncognito,
+  TiSortAlphabeticallyOutline,
 };

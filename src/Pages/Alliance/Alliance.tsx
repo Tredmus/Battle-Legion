@@ -19,11 +19,7 @@ export const Alliance = () => {
 
           <ul className={classes.clans}>
             <li>
-              <img
-                src="Images/flags/bl-0.png"
-                alt=""
-                className={classes.flag}
-              />
+              <img src="Images/logo.png" alt="" className={classes.flag} />
               <span>Battle Legion</span>
             </li>
             <li>

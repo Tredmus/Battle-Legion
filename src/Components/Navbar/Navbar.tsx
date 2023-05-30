@@ -62,7 +62,7 @@ export const Navbar = ({ isActive, setNav }: Props) => {
             <span>History</span>
           </NavLink>
         </li>
-        <li>
+        {/* <li>
           <NavLink
             to="/people"
             className={({ isActive }) => (isActive ? classes.active : "")}
@@ -85,7 +85,7 @@ export const Navbar = ({ isActive, setNav }: Props) => {
             <icons.MdAccountTree className={classes.treeIcon} />
             <span>Structure</span>
           </NavLink>
-        </li>
+        </li> */}
         <li>
           <NavLink
             to="/alliance"

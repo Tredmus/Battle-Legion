@@ -22,9 +22,11 @@ const ArmyMarker = ({ zoomLevel, armies, ...props }) => {
 
   let enemy = 0;
   let friend = 0;
+  let scout = 0;
   armies.forEach((army) => {
     if (army.status === "enemy") enemy++;
     if (army.status === "friend") friend++;
+    if (army.status === "scout") scout++;
   });
 
   let flag = "Images/flags/neutral.png";
@@ -34,7 +36,7 @@ const ArmyMarker = ({ zoomLevel, armies, ...props }) => {
 
   const BannerIcon = new icon({
     iconUrl: flag,
-    iconSize: iconSize,
+    iconSize: scout === armies.length ? [0, 0] : iconSize,
     iconAnchor: [iconSize[0] / 2, iconSize[1]],
   });
 

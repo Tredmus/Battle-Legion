@@ -35,6 +35,7 @@ const RKMap = () => {
   const [showArmiesInfo, setShowArmiesInfo] = useState(true);
   const [showSoldiers, setShowSoldiers] = useState(true);
   const [showFriends, setShowFriends] = useState(true);
+  const [fontSize, setFontSize] = useState(false);
 
   useEffect(() => {
     const token = window.localStorage.getItem("loggedBLUser");
@@ -89,6 +90,10 @@ const RKMap = () => {
     setShowArmiesInfo(!showArmiesInfo);
   };
 
+  const toggleFontSize = () => {
+    setFontSize(!fontSize);
+  };
+
   return (
     <MapContainer
       key={JSON.stringify(center)}
@@ -116,6 +121,7 @@ const RKMap = () => {
           showArmiesInfo={showArmiesInfo}
           showSoldiers={showSoldiers}
           showFriends={showFriends}
+          fontSize={fontSize}
           eventHandlers={{
             click: (e) => {
               setSelectedNode(node);
@@ -166,6 +172,9 @@ const RKMap = () => {
           </h3>
           <h3>
             <icons.GiHeartTower onClick={toggleFriends} />
+          </h3>
+          <h3>
+            <icons.TiSortAlphabeticallyOutline onClick={toggleFontSize} />
           </h3>
         </ul>
       </Control>

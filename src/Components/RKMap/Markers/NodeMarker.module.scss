@@ -28,9 +28,16 @@
         background-color: red;
     }
 }
+.fontSize {
+    font-size: 10px;
+}
 
 .army + .army {
     margin-top: .25rem;
+}
+
+.scout {
+    border-top: 1px solid #000;
 }
 
 .flag {

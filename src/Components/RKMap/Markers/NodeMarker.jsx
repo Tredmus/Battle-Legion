@@ -11,6 +11,7 @@ const NodeMarker = ({
   showArmiesInfo,
   showSoldiers,
   showFriends,
+  fontSize,
   ...props
 }) => {
   const [iconSize, setIconSize] = useState([20, 20]);
@@ -29,7 +30,17 @@ const NodeMarker = ({
         break;
     }
   }, [zoomLevel]);
-  const armiesOnNode = armies.filter((army) => army.node === node.id);
+  const armiesOnNode = armies
+    .filter((army) => army.node === node.id)
+    .sort((a, b) => {
+      if (a.status === "scout" && b.status !== "scout") {
+        return 1; // Move 'a' (scout) to the end
+      } else if (a.status !== "scout" && b.status === "scout") {
+        return -1; // Move 'b' (scout) to the end
+      } else {
+        return 0; // No change in order
+      }
+    });
   const locatedScout = armiesOnNode.find((army) => army.status === "scout");
   const NodeIcon = divIcon({
     html: `
@@ -81,217 +92,223 @@ const NodeMarker = ({
 
   return (
     <Marker {...props} icon={NodeIcon}>
-      <div className={classes.marker}>
-        {armiesOnNode.length !== 0 && (
-          <Tooltip className={classes.tooltip} direction="bottom" permanent>
-            {armiesOnNode.map((army) => {
-              let flagFaction;
-              let flagCountry;
-              switch (army.faction) {
-                case "o.n.e":
-                  flagFaction = `${flagImagePath}/o.n.e.png`;
-                  break;
-                case "bulgaria":
-                  flagFaction = `${flagImagePath}/bulgaria.png`;
-                  break;
-                case "bl-0":
-                  flagFaction = `${flagImagePath}/bl-0.png`;
-                  break;
-                case "bl-1":
-                  flagFaction = `${flagImagePath}/bl-1.png`;
-                  break;
-                case "bl-2":
-                  flagFaction = `${flagImagePath}/bl-2.png`;
-                  break;
-                case "csb":
-                  flagFaction = `${flagImagePath}/csb.png`;
-                  break;
-                case "medici":
-                  flagFaction = `${flagImagePath}/medici.png`;
-                  break;
-                case "chaos":
-                  flagFaction = `${flagImagePath}/chaos.png`;
-                  break;
-                case "vidin":
-                  flagFaction = `${flagImagePath}/vidin.png`;
-                  break;
-                case "haiduks":
-                  flagFaction = `${flagImagePath}/haiduks.png`;
-                  break;
-                case "edirne":
-                  flagFaction = `${flagImagePath}s/edirne.png`;
-                  break;
-                case "ron":
-                  flagFaction = `${flagImagePath}/ron.png`;
-                  break;
-                case "karesi":
-                  flagFaction = `${flagImagePath}/karesi.png`;
-                  break;
-                case "altay":
-                  flagFaction = `${flagImagePath}/altay.png`;
-                  break;
-                case "seljuk":
-                  flagFaction = `${flagImagePath}/seljuk.png`;
-                  break;
-                case "bursa":
-                  flagFaction = `${flagImagePath}/bursa.png`;
-                  break;
-                case "saruhan":
-                  flagFaction = `${flagImagePath}/saruhan.png`;
-                  break;
-                case "sl":
-                  flagFaction = `${flagImagePath}/sl.png`;
-                  break;
-                case "albania":
-                  flagFaction = `${flagImagePath}/albania.png`;
-                  break;
-                case "greece":
-                  flagFaction = `${flagImagePath}/greece.png`;
-                  break;
-                case "wallachia":
-                  flagFaction = `${flagImagePath}/wallachia.png`;
-                  break;
-                case "serbia":
-                  flagFaction = `${flagImagePath}/serbia.png`;
-                  break;
-                case "bosna":
-                  flagFaction = `${flagImagePath}/bosna.png`;
-                  break;
-                case "venetia":
-                  flagFaction = `${flagImagePath}/venetia.png`;
-                  break;
-                case "aegis":
-                  flagFaction = `${flagImagePath}/aegis.png`;
-                  break;
-                default:
-                  flagFaction = `${flagImagePath}/default.png`;
-                  break;
-              }
-              switch (army.country) {
-                case "wallachia":
-                  flagCountry = `${flagImagePath}/wallachia.png`;
-                  break;
-                case "bulgaria":
-                  flagCountry = `${flagImagePath}/bulgaria.png`;
-                  break;
-                case "edirne":
-                  flagCountry = `${flagImagePath}s/edirne.png`;
-                  break;
-                case "karesi":
-                  flagCountry = `${flagImagePath}/karesi.png`;
-                  break;
-                case "bursa":
-                  flagCountry = `${flagImagePath}/bursa.png`;
-                  break;
-                case "greece":
-                  flagCountry = `${flagImagePath}/greece.png`;
-                  break;
-                case "albania":
-                  flagCountry = `${flagImagePath}/albania.png`;
-                  break;
-                case "serbia":
-                  flagCountry = `${flagImagePath}/serbia.png`;
-                  break;
-                case "bosna":
-                  flagCountry = `${flagImagePath}/bosna.png`;
-                  break;
-                case "venetia":
-                  flagCountry = `${flagImagePath}/venetia.png`;
-                  break;
-                case "aegis":
-                  flagFaction = `${flagImagePath}/aegis.png`;
-                  break;
-                case "church":
-                  flagCountry = `${flagImagePath}/church.png`;
-                  break;
-                default:
-                  flagCountry = `${flagImagePath}/none.png`;
-                  break;
-              }
-              let updatedDate = army
-                ? new Date(army.updated_date).toLocaleString()
-                : null;
-              const lastUpdated = new Date(army.updated_date);
-              const today = new Date();
-              const forUpdate = isAfterRefresh(lastUpdated, today);
+      {armiesOnNode.length !== 0 && (
+        <Tooltip className={classes.tooltip} direction="bottom" permanent>
+          {armiesOnNode.map((army) => {
+            let flagFaction;
+            let flagCountry;
+            switch (army.faction) {
+              case "o.n.e":
+                flagFaction = `${flagImagePath}/o.n.e.png`;
+                break;
+              case "bulgaria":
+                flagFaction = `${flagImagePath}/bulgaria.png`;
+                break;
+              case "bl-0":
+                flagFaction = `${flagImagePath}/bl-0.png`;
+                break;
+              case "bl-1":
+                flagFaction = `${flagImagePath}/bl-1.png`;
+                break;
+              case "bl-2":
+                flagFaction = `${flagImagePath}/bl-2.png`;
+                break;
+              case "csb":
+                flagFaction = `${flagImagePath}/csb.png`;
+                break;
+              case "medici":
+                flagFaction = `${flagImagePath}/medici.png`;
+                break;
+              case "chaos":
+                flagFaction = `${flagImagePath}/chaos.png`;
+                break;
+              case "vidin":
+                flagFaction = `${flagImagePath}/vidin.png`;
+                break;
+              case "haiduks":
+                flagFaction = `${flagImagePath}/haiduks.png`;
+                break;
+              case "edirne":
+                flagFaction = `${flagImagePath}s/edirne.png`;
+                break;
+              case "ron":
+                flagFaction = `${flagImagePath}/ron.png`;
+                break;
+              case "karesi":
+                flagFaction = `${flagImagePath}/karesi.png`;
+                break;
+              case "altay":
+                flagFaction = `${flagImagePath}/altay.png`;
+                break;
+              case "seljuk":
+                flagFaction = `${flagImagePath}/seljuk.png`;
+                break;
+              case "bursa":
+                flagFaction = `${flagImagePath}/bursa.png`;
+                break;
+              case "saruhan":
+                flagFaction = `${flagImagePath}/saruhan.png`;
+                break;
+              case "sl":
+                flagFaction = `${flagImagePath}/sl.png`;
+                break;
+              case "albania":
+                flagFaction = `${flagImagePath}/albania.png`;
+                break;
+              case "greece":
+                flagFaction = `${flagImagePath}/greece.png`;
+                break;
+              case "wallachia":
+                flagFaction = `${flagImagePath}/wallachia.png`;
+                break;
+              case "serbia":
+                flagFaction = `${flagImagePath}/serbia.png`;
+                break;
+              case "bosna":
+                flagFaction = `${flagImagePath}/bosna.png`;
+                break;
+              case "venetia":
+                flagFaction = `${flagImagePath}/venetia.png`;
+                break;
+              case "aegis":
+                flagFaction = `${flagImagePath}/aegis.png`;
+                break;
+              default:
+                flagFaction = `${flagImagePath}/default.png`;
+                break;
+            }
+            switch (army.country) {
+              case "wallachia":
+                flagCountry = `${flagImagePath}/wallachia.png`;
+                break;
+              case "bulgaria":
+                flagCountry = `${flagImagePath}/bulgaria.png`;
+                break;
+              case "edirne":
+                flagCountry = `${flagImagePath}s/edirne.png`;
+                break;
+              case "karesi":
+                flagCountry = `${flagImagePath}/karesi.png`;
+                break;
+              case "bursa":
+                flagCountry = `${flagImagePath}/bursa.png`;
+                break;
+              case "greece":
+                flagCountry = `${flagImagePath}/greece.png`;
+                break;
+              case "albania":
+                flagCountry = `${flagImagePath}/albania.png`;
+                break;
+              case "serbia":
+                flagCountry = `${flagImagePath}/serbia.png`;
+                break;
+              case "bosna":
+                flagCountry = `${flagImagePath}/bosna.png`;
+                break;
+              case "venetia":
+                flagCountry = `${flagImagePath}/venetia.png`;
+                break;
+              case "aegis":
+                flagFaction = `${flagImagePath}/aegis.png`;
+                break;
+              case "church":
+                flagCountry = `${flagImagePath}/church.png`;
+                break;
+              default:
+                flagCountry = `${flagImagePath}/none.png`;
+                break;
+            }
+            let updatedDate = army
+              ? new Date(army.updated_date).toLocaleString()
+              : null;
+            const lastUpdated = new Date(army.updated_date);
+            const today = new Date();
+            const forUpdate = isAfterRefresh(lastUpdated, today);
 
-              let status;
-              switch (army.status) {
-                case "friend":
-                  status = forUpdate ? classes.friendForEdit : classes.friend;
-                  break;
-                case "neutral":
-                  status = forUpdate ? classes.neutralForEdit : classes.neutral;
-                  break;
-                case "enemy":
-                  status = forUpdate ? classes.enemyForEdit : classes.enemy;
-                  break;
-                default:
-                  status = classes.neutral;
-                  break;
-              }
-              return (
-                <>
-                  <p key={army.id} className={classes.army}>
-                    <img
-                      src={flagFaction}
-                      alt=""
-                      className={`${classes.flag} ${
-                        zoomLevel < 6 ? classes.bigFlag : ""
-                      }`}
-                    />
-                    <img
-                      src={flagCountry}
-                      alt=""
-                      className={`${classes.flag} ${
-                        zoomLevel < 6 ? classes.bigFlag : ""
-                      }`}
-                    />
-                    {showArmiesInfo && (
-                      <>
-                        {army.walls && (
-                          <icons.TbBuildingCastle
-                            className={`${classes.walls} ${
-                              zoomLevel < 6 && classes.bigIcon
-                            }`}
-                          />
-                        )}{" "}
-                        {zoomLevel >= 6 ? (
-                          <span className={status}>{army.name}&nbsp;</span>
-                        ) : (
-                          ""
-                        )}{" "}
-                      </>
-                    )}
-                    {showSoldiers ||
-                      ((showFriends === false && army.status) !== "friend" &&
-                        `(${army.soldiers.length + 1})`)}
-                    {army.status === "scout" && <icons.BsIncognito />}
-                    {army.unsure && (
-                      <>
-                        <p
-                          className={`${classes.unsure} ${
+            let status;
+            switch (army.status) {
+              case "friend":
+                status = forUpdate ? classes.friendForEdit : classes.friend;
+                break;
+              case "neutral":
+                status = forUpdate ? classes.neutralForEdit : classes.neutral;
+                break;
+              case "enemy":
+                status = forUpdate ? classes.enemyForEdit : classes.enemy;
+                break;
+              default:
+                status = classes.neutral;
+                break;
+            }
+            return (
+              <>
+                <p
+                  key={army.id}
+                  className={`${classes.army} ${
+                    army.status === "scout" && classes.scout
+                  } ${fontSize && classes.fontSize}`}
+                >
+                  {army.status !== "scout" && (
+                    <>
+                      <img
+                        src={flagFaction}
+                        alt=""
+                        className={`${classes.flag} ${
+                          zoomLevel < 6 ? classes.bigFlag : ""
+                        }`}
+                      />
+                      <img
+                        src={flagCountry}
+                        alt=""
+                        className={`${classes.flag} ${
+                          zoomLevel < 6 ? classes.bigFlag : ""
+                        }`}
+                      />
+                    </>
+                  )}
+                  {showArmiesInfo && (
+                    <>
+                      {army.walls && (
+                        <icons.TbBuildingCastle
+                          className={`${classes.walls} ${
                             zoomLevel < 6 && classes.bigIcon
                           }`}
-                        >
-                          <icons.TbMapPinOff />
-                          <icons.TbMapOff />
+                        />
+                      )}{" "}
+                      {zoomLevel >= 6 ? (
+                        <span className={status}>{army.name}&nbsp;</span>
+                      ) : (
+                        ""
+                      )}{" "}
+                    </>
+                  )}
+                  {showSoldiers ||
+                    ((showFriends === false && army.status) !== "friend" &&
+                      `(${army.soldiers.length + 1})`)}
+                  {army.status === "scout" && <icons.BsIncognito />}
+                  {army.unsure && (
+                    <>
+                      <p
+                        className={`${classes.unsure} ${
+                          zoomLevel < 6 && classes.bigIcon
+                        }`}
+                      >
+                        <icons.TbMapPinOff />
+                        <icons.TbMapOff />
+                      </p>
+                      {showSoldiers && (
+                        <p className={classes.unsureDate}>
+                          {updatedDate.slice(0, -13)}
                         </p>
-                        {showSoldiers && (
-                          <p className={classes.unsureDate}>
-                            {updatedDate.slice(0, -13)}
-                          </p>
-                        )}
-                      </>
-                    )}
-                  </p>
-                </>
-              );
-            })}
-          </Tooltip>
-        )}
-        <icons.BsIncognito />
-      </div>
+                      )}
+                    </>
+                  )}
+                </p>
+              </>
+            );
+          })}
+        </Tooltip>
+      )}
     </Marker>
   );
 };
